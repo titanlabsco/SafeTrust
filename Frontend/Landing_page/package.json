@@ -1,0 +1,56 @@
+{
+  "name": "landing_page",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.1.10",
+    "@web3-react/core": "8.2.3",
+    "@web3-react/injected-connector": "6.0.7",
+    "classnames": "^2.3.1",
+    "date-fns": "^2.28.0",
+    "ethers": "6.13.4",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.27.0",
+    "react-scroll": "1.9.0",
+    "recharts": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-scroll": "1.8.10",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15",
+    "postcss": "^8.4.47",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "next/core-web-vitals"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
