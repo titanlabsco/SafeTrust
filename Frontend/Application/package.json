@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "@creit.tech/stellar-wallets-kit": "^1.2.3",
+    "@hookform/resolvers": "^3.9.0",
+    "axios": "^1.7.7",
     "next": "^15.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.1",
     "react-icons": "^5.3.0",
+    "zod": "^3.23.8",
     "zustand": "^5.0.0"
   },
   "devDependencies": {
