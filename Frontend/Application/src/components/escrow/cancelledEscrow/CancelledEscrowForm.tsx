@@ -7,21 +7,33 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/layouts/Loader";
 import { useLoader } from "@/hooks/useLoader";
 
+const initialFormValues = {
+  contractId: "",
+  engagementId: "",
+  serviceProvider: "",
+};
+
 const FormComponent: React.FC = () => {
-  const [contractId, setContractId] = useState("");
-  const [engagementId, setEngagementId] = useState("");
-  const [serviceProvider, setServiceProvider] = useState("");
+  const [formValues, setFormValues] = useState(initialFormValues);
 
   const { loading, startLoading, stopLoading } = useLoader();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     startLoading();
 
     const payload = {
-      contractId,
-      engagementId,
-      serviceProvider,
+      contractId: formValues.contractId,
+      engagementId: formValues.engagementId,
+      serviceProvider: formValues.serviceProvider,
     };
 
     try {
@@ -29,6 +41,7 @@ const FormComponent: React.FC = () => {
 
       if (data?.status === "SUCCESS") {
         toast.success("Escrow cancelled successfully!");
+        setFormValues(initialFormValues);
       } else {
         toast.error("Escrow cancellation failed!");
       }
@@ -57,8 +70,9 @@ const FormComponent: React.FC = () => {
             <label className="block text-sm text-black mb-1">Contract ID</label>
             <input
               type="text"
-              value={contractId}
-              onChange={(e) => setContractId(e.target.value)}
+              name="contractId"
+              value={formValues.contractId}
+              onChange={handleInputChange}
               className="w-full p-2 border text-black border-gray-300 rounded"
             />
           </div>
@@ -68,9 +82,10 @@ const FormComponent: React.FC = () => {
             </label>
             <input
               type="text"
-              value={engagementId}
-              onChange={(e) => setEngagementId(e.target.value)}
-              className="w-full p-2 border text-black  border-gray-300 rounded"
+              name="engagementId"
+              value={formValues.engagementId}
+              onChange={handleInputChange}
+              className="w-full p-2 border text-black border-gray-300 rounded"
             />
           </div>
           <div className="mb-4">
@@ -79,8 +94,9 @@ const FormComponent: React.FC = () => {
             </label>
             <input
               type="text"
-              value={serviceProvider}
-              onChange={(e) => setServiceProvider(e.target.value)}
+              name="serviceProvider"
+              value={formValues.serviceProvider}
+              onChange={handleInputChange}
               className="w-full p-2 border text-black border-gray-300 rounded"
             />
           </div>

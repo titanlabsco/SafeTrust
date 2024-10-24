@@ -11,13 +11,14 @@ import Loader from "@/layouts/Loader";
 import { useLoader } from "@/hooks/useLoader";
 
 const InitializeEscrowForm: React.FC = () => {
-  const [formValues, setFormValues] = useState({
+  const initialFormValues = {
     engagementId: "",
     description: "",
     serviceProvider: "",
     amount: "",
-  });
+  };
 
+  const [formValues, setFormValues] = useState(initialFormValues);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const { loading, startLoading, stopLoading } = useLoader();
 
@@ -48,6 +49,8 @@ const InitializeEscrowForm: React.FC = () => {
 
       toast.success("Escrow initialized successfully!");
       toast.info("The data is located in the browser console");
+
+      setFormValues(initialFormValues);
     } catch (error) {
       console.error("Error initializing escrow:", error);
       toast.error("Error initializing escrow. Please try again.");

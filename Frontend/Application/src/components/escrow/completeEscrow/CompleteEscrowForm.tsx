@@ -10,12 +10,13 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/layouts/Loader";
 import { useLoader } from "@/hooks/useLoader";
 
-const CompleteEscrowForm: React.FC = () => {
-  const [formValues, setFormValues] = useState({
-    contractId: "",
-    engagementId: "",
-  });
+const initialFormValues = {
+  contractId: "",
+  engagementId: "",
+};
 
+const CompleteEscrowForm: React.FC = () => {
+  const [formValues, setFormValues] = useState(initialFormValues);
   const { loading, startLoading, stopLoading } = useLoader();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +46,8 @@ const CompleteEscrowForm: React.FC = () => {
 
       toast.success("Escrow completed successfully!");
       toast.info("The data is located in the browser console");
+
+      setFormValues(initialFormValues);
     } catch (error) {
       console.error("Error completing escrow:", error);
       toast.error("Error completing escrow. Please try again.");
