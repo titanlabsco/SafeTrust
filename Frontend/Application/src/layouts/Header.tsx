@@ -36,7 +36,7 @@ const Header: React.FC = () => {
       <div className="flex items-center">
         <input
           type="text"
-          placeholder="Buscar por provincia"
+          placeholder="Search by province"
           className="border border-gray-300 rounded-full px-4 py-2 mr-4 text-gray-700 placeholder-gray-400"
         />
         <div className="relative">
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
                 display: "none",
                 whiteSpace: "nowrap",
                 maxWidth: "200px",
-              }} // Ajustar maxWidth
+              }}
             >
               <p>{name}</p>
               <p className="text-xs overflow-hidden">{address}</p>
