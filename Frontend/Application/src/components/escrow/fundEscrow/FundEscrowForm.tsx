@@ -1,17 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { initializeEscrow } from "@/services/escrow/initializeEscrow";
+import { fundEscrow } from "@/services/escrow/fundEscrow";
 import { kit } from "@/wallet/walletKit";
-import EscrowForm from "./EscrowForm";
+import EscrowForm from "@/components/escrow/fundEscrow/EscrowForm";
 import Header from "@/layouts/Header";
 
-const InitializeEscrowForm: React.FC = () => {
+const FundEscrowForm: React.FC = () => {
   const [formValues, setFormValues] = useState({
+    contractId: "",
     engagementId: "",
-    description: "",
-    serviceProvider: "",
-    amount: "",
   });
 
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
@@ -32,18 +30,19 @@ const InitializeEscrowForm: React.FC = () => {
       const { address } = await kit.getAddress();
 
       const payload = {
-        ...formValues,
+        contractId: formValues.contractId,
+        engagementId: formValues.engagementId,
         signer: address,
       };
 
       console.log("Payload enviado:", payload);
 
-      await initializeEscrow(payload);
+      await fundEscrow(payload);
 
-      setStatusMessage("Escrow initialized successfully!");
+      setStatusMessage("Escrow funded successfully!");
     } catch (error) {
-      console.error("Error initializing escrow:", error);
-      setStatusMessage("Error initializing escrow. Please try again.");
+      console.error("Error funding escrow:", error);
+      setStatusMessage("Error funding escrow. Please try again.");
     }
   };
 
@@ -51,9 +50,7 @@ const InitializeEscrowForm: React.FC = () => {
     <div className="bg-gray-100 min-h-screen">
       <Header />
       <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
-        <h2 className="text-2xl text-black font-semibold mb-4">
-          Initialize Escrow
-        </h2>
+        <h2 className="text-2xl text-black font-semibold mb-4">Fund Escrow</h2>
         <EscrowForm
           formValues={formValues}
           handleInputChange={handleInputChange}
@@ -65,4 +62,4 @@ const InitializeEscrowForm: React.FC = () => {
   );
 };
 
-export default InitializeEscrowForm;
+export default FundEscrowForm;
