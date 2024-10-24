@@ -66,19 +66,25 @@ const Header: React.FC = () => {
               >
                 <Link
                   href="/escrow/create"
-                  className="block mb-2 hover:underline"
+                  className="block mb-2 no-underline hover:no-underline"
                 >
                   Initialize Escrow
                 </Link>
                 <Link
                   href="/escrow/fund"
-                  className="block mb-2 hover:underline"
+                  className="block mb-2 no-underline hover:no-underline"
                 >
                   Fund Escrow
                 </Link>
                 <Link
+                  href="/escrow/complete"
+                  className="block mb-2 no-underline hover:no-underline"
+                >
+                  Complete Escrow
+                </Link>
+                <Link
                   href="/escrow/cancelled"
-                  className="block hover:underline"
+                  className="block mb-2 no-underline hover:no-underline"
                 >
                   Cancelled Escrow
                 </Link>
