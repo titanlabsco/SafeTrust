@@ -9,21 +9,21 @@ interface Service {
 const WhatWeOffer: React.FC = () => {
   const services: Service[] = [
     {
-      title: 'Asset Transfer',
+      title: 'Deposit Protection',
       description:
-        'Securely transfer assets such as real estate, vehicles, and financial holdings through smart contracts and verified signatures.',
-      icon: '🏠'
+        'Your deposit money is securely held in escrow, ensuring that it is only released once all rental conditions are met.',
+      icon: '💼'
     },
     {
-      title: 'Signature Verification',
+      title: 'Verified Agreements',
       description:
-        'Ensure the authenticity of all parties involved with decentralized signature verification using Hypercycle technology.',
+        'All rental agreements are securely verified through blockchain technology, ensuring both parties are protected.',
       icon: '🖊️'
     },
     {
-      title: 'Automated Process',
+      title: 'Automated Rentals',
       description:
-        'Automatically handle asset locking, signature validation, and final transfers using Trustless Work technology.',
+        'Our platform automates the rental process, ensuring smooth transactions from start to finish with smart contracts.',
       icon: '⚙️'
     }
   ]
@@ -33,9 +33,8 @@ const WhatWeOffer: React.FC = () => {
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">What We Offer</h2>
         <p className="text-lg text-gray-200 mb-12">
-          Explore our key solutions designed to ensure <br />
-          secure, efficient, and transparent property transfers <br />
-          for individuals and organizations.
+          Discover how SafeTrust ensures secure, transparent, and automated rental experiences <br />
+          for both tenants and landlords, with a focus on protecting your deposit money.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

@@ -28,17 +28,18 @@ const HeroSection: React.FC = () => {
         </h1>
 
         <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8">
-          Our blockchain-based system enables secure property transfers using smart contracts and verified signatures.
-          Ideal for individuals and businesses seeking a reliable and transparent solution.
+          SafeTrust offers a secure and reliable platform to rent an apartment without the risk of losing your deposit
+          money. With blockchain technology, we ensure transparency, protecting both tenants and landlords from
+          financial disputes.
         </p>
         <button className="bg-white text-black py-2 px-6 md:py-3 md:px-8 rounded-md text-base md:text-lg hover:bg-gray-300 transition mb-8 md:mb-12">
           Get Started Now
         </button>
 
         <div className="flex flex-col md:flex-row justify-center md:justify-start gap-8 md:gap-12">
-          <Feature icon="🔒" title="Transaction Security" />
-          <Feature icon="🖊️" title="Verified Signatures" />
-          <Feature icon="⚙️" title="Automated Process" />
+          <Feature icon="🔒" title="Deposit Security" />
+          <Feature icon="🖊️" title="Verified Agreements" />
+          <Feature icon="⚙️" title="Automated Contracts" />
         </div>
       </div>
     </section>
