@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "@/layouts/Header";
-import MainImage from "@/components/infoApartament/MainImage";
-import SecondaryImages from "@/components/infoApartament/SecondaryImages";
-import ReservationCard from "@/components/infoApartament/ReservationCard";
+import MainImage from "@/components/home/infoApartament/MainImage";
+import SecondaryImages from "@/components/home/infoApartament/SecondaryImages";
+import ReservationCard from "@/components/home/infoApartament/ReservationCard";
 
 const Home: React.FC = () => {
   return (

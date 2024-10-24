@@ -5,6 +5,8 @@ import { fundEscrow } from "@/services/escrow/fundEscrow";
 import { kit } from "@/wallet/walletKit";
 import EscrowForm from "@/components/escrow/fundEscrow/EscrowForm";
 import Header from "@/layouts/Header";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FundEscrowForm: React.FC = () => {
   const [formValues, setFormValues] = useState({
@@ -12,7 +14,7 @@ const FundEscrowForm: React.FC = () => {
     engagementId: "",
   });
 
-  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [statusMessage] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,7 +26,6 @@ const FundEscrowForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatusMessage(null);
 
     try {
       const { address } = await kit.getAddress();
@@ -39,10 +40,10 @@ const FundEscrowForm: React.FC = () => {
 
       await fundEscrow(payload);
 
-      setStatusMessage("Escrow funded successfully!");
+      toast.success("Escrow funded successfully!");
     } catch (error) {
       console.error("Error funding escrow:", error);
-      setStatusMessage("Error funding escrow. Please try again.");
+      toast.error("Error funding escrow. Please try again.");
     }
   };
 
@@ -58,6 +59,7 @@ const FundEscrowForm: React.FC = () => {
           statusMessage={statusMessage}
         />
       </div>
+      <ToastContainer position="bottom-center" />
     </div>
   );
 };

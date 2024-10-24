@@ -1,14 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useWalletStore } from "@/store/walletStore";
 import { useWallet } from "@/wallet/hooks/useWallet.hook";
-import { FaWallet } from "react-icons/fa";
+import { FaWallet, FaBars } from "react-icons/fa";
 import Link from "next/link";
 
 const Header: React.FC = () => {
   const { connectWallet, disconnectWallet } = useWallet();
   const { address, name } = useWalletStore();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleConnect = async () => {
     try {
@@ -39,35 +40,50 @@ const Header: React.FC = () => {
           placeholder="Search by province"
           className="border border-gray-300 rounded-full px-4 py-2 mr-4 text-gray-700 placeholder-gray-400"
         />
-        <div className="relative">
+        <div className="relative flex items-center space-x-2">
           <button
             className="flex items-center bg-custom-orange text-white px-4 py-2 rounded-full"
             onClick={address && name ? handleDisconnect : handleConnect}
-            onMouseEnter={() => {
-              const tooltip = document.getElementById("wallet-tooltip");
-              if (tooltip) tooltip.style.display = "block";
-            }}
-            onMouseLeave={() => {
-              const tooltip = document.getElementById("wallet-tooltip");
-              if (tooltip) tooltip.style.display = "none";
-            }}
           >
             <FaWallet size={20} className="mr-2" />
             {address && name ? "Disconnect" : "Connect"}
           </button>
+
           {address && name && (
-            <div
-              id="wallet-tooltip"
-              className="absolute z-10 bg-gray-800 text-white text-sm rounded py-2 px-3 -mt-8 -ml-16"
-              style={{
-                display: "none",
-                whiteSpace: "nowrap",
-                maxWidth: "200px",
-              }}
-            >
-              <p>{name}</p>
-              <p className="text-xs overflow-hidden">{address}</p>
-            </div>
+            <>
+              <button
+                className="flex items-center justify-center bg-custom-orange text-white p-2 rounded-full"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                <FaBars size={20} />
+              </button>
+              <div
+                className={`absolute top-12 right-0 bg-white text-black shadow-lg rounded-lg p-4 transition-all duration-300 ease-in-out transform ${
+                  menuOpen
+                    ? "scale-100 opacity-100 translate-y-0"
+                    : "scale-95 opacity-0 translate-y-[-20px]"
+                }`}
+              >
+                <Link
+                  href="/escrow/create"
+                  className="block mb-2 hover:underline"
+                >
+                  Initialize Escrow
+                </Link>
+                <Link
+                  href="/escrow/fund"
+                  className="block mb-2 hover:underline"
+                >
+                  Fund Escrow
+                </Link>
+                <Link
+                  href="/escrow/cancelled"
+                  className="block hover:underline"
+                >
+                  Cancelled Escrow
+                </Link>
+              </div>
+            </>
           )}
         </div>
       </div>
