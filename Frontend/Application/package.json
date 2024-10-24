@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@albedo-link/intent": "^0.12.0",
     "@creit.tech/stellar-wallets-kit": "^1.2.3",
     "@hookform/resolvers": "^3.9.0",
     "axios": "^1.7.7",

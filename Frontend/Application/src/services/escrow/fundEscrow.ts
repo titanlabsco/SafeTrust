@@ -1,4 +1,5 @@
 import axios from "axios";
+import albedo from "@albedo-link/intent";
 import { handleAxiosError } from "@/utils/handleAxiosError";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -10,15 +11,33 @@ interface EscrowPayload {
 }
 
 export const fundEscrow = async (payload: EscrowPayload) => {
-  const url = `${API_URL}/escrow/fund-escrow`;
-
   try {
-    const { data } = await axios.post(url, payload, {
-      headers: {
-        "Content-Type": "application/json",
-      },
+    console.log("Sending payload to fund-escrow:", payload);
+    const response = await axios.post(`${API_URL}/escrow/fund-escrow`, payload);
+
+    const { unsignedTransaction } = response.data;
+    console.log("Unsigned transaction received:", unsignedTransaction);
+
+    if (!unsignedTransaction) {
+      throw new Error("No unsigned transaction returned from fund-escrow.");
+    }
+
+    const signedResponse = await albedo.tx({
+      xdr: unsignedTransaction,
+      network: "testnet",
     });
-    console.log("Respuesta de la API:", data);
+    console.log("Albedo response:", signedResponse);
+
+    const { signed_envelope_xdr: signedTxXdr } = signedResponse;
+    console.log("Signed transaction:", signedTxXdr);
+
+    const tx = await axios.post(`${API_URL}/helper/send-transaction`, {
+      signedXdr: signedTxXdr,
+    });
+
+    const { data } = tx;
+    console.log("Final server response:", data);
+
     return data;
   } catch (error) {
     handleAxiosError(error);

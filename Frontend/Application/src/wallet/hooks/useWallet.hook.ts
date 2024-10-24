@@ -1,6 +1,6 @@
 import {
   allowAllModules,
-  FREIGHTER_ID,
+  ALBEDO_ID,
   ISupportedWallet,
   StellarWalletsKit,
   WalletNetwork,
@@ -13,7 +13,7 @@ export const useWallet = () => {
   const kit: StellarWalletsKit = new StellarWalletsKit({
     modules: allowAllModules(),
     network: WalletNetwork.TESTNET,
-    selectedWalletId: FREIGHTER_ID,
+    selectedWalletId: ALBEDO_ID,
   });
 
   const connectWallet = async () => {
