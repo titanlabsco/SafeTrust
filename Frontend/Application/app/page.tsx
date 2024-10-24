@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../src/layouts/Header";
-import Filters from "../src/components/home/Filters";
-import PropertyList from "../src/components/home/PropertyList";
+import Header from "@/layouts/Header";
+import Filters from "@/components/home/Filters";
+import PropertyList from "@/components/home/PropertyList";
 
 const Home: React.FC = () => {
   return (

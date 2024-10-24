@@ -41,7 +41,7 @@ const Header: React.FC = () => {
         />
         <div className="relative">
           <button
-            className="flex items-center bg-orange-400 text-white px-4 py-2 rounded-full"
+            className="flex items-center bg-custom-orange text-white px-4 py-2 rounded-full"
             onClick={address && name ? handleDisconnect : handleConnect}
             onMouseEnter={() => {
               const tooltip = document.getElementById("wallet-tooltip");
