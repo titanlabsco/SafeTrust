@@ -52,7 +52,7 @@ const InitializeEscrowForm: React.FC = () => {
       <Header />
       <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
         <h2 className="text-2xl text-black font-semibold mb-4">
-          Initialize Escrow
+          Create an Apartment
         </h2>
         <EscrowForm
           formValues={formValues}

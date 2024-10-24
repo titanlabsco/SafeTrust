@@ -16,7 +16,7 @@ export const initializeEscrow = async (payload: EscrowPayload) => {
 
   try {
     const { data } = await axios.post(url, payload);
-    console.log("Respuesta de la API:", data);
+    console.log("API Response:", data);
     return data;
   } catch (error) {
     handleAxiosError(error);
