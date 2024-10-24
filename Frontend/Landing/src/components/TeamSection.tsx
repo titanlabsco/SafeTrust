@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 interface TeamMember {
   name: string
@@ -62,7 +63,15 @@ const TeamSection: React.FC = () => {
                 <p className="text-sm mb-1 text-white">{member.role}</p>
                 <p className="text-sm mb-4 text-white">{member.role2}</p>
               </div>
-              <img src={member.image} alt={member.name} className="w-full h-64 object-contain" />
+              <div className="relative w-full h-64">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  layout="fill"
+                  objectFit="contain"
+                  className="w-full h-64 object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>
