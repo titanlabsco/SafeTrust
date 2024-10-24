@@ -59,7 +59,7 @@ const EscrowForm: React.FC<EscrowFormProps> = ({
       </button>
 
       {statusMessage && (
-        <p className="mt-4 text-center text-red-500">{statusMessage}</p>
+        <p className="mt-4 text-center text-green-600">{statusMessage}</p>
       )}
     </form>
   );
