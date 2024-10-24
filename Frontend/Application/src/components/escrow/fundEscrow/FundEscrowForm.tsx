@@ -10,11 +10,13 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/layouts/Loader";
 import { useLoader } from "@/hooks/useLoader";
 
+const initialFormValues = {
+  contractId: "",
+  engagementId: "",
+};
+
 const FundEscrowForm: React.FC = () => {
-  const [formValues, setFormValues] = useState({
-    contractId: "",
-    engagementId: "",
-  });
+  const [formValues, setFormValues] = useState(initialFormValues);
 
   const { loading, startLoading, stopLoading } = useLoader();
   const [statusMessage] = useState<string | null>(null);
@@ -46,6 +48,8 @@ const FundEscrowForm: React.FC = () => {
 
       toast.success("Escrow funded successfully!");
       toast.info("The data is located in the browser console");
+
+      setFormValues(initialFormValues);
     } catch (error) {
       console.error("Error funding escrow:", error);
       toast.error("Error funding escrow. Please try again.");
