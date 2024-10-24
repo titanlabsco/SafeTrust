@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import CancelledEscrowForm from "@/components/escrow/cancelled/CancelledEscrowForm";
+import CancelledEscrowForm from "@/components/escrow/cancelledEscrow/CancelledEscrowForm";
 import Header from "@/layouts/Header";
 
 const Home: React.FC = () => {

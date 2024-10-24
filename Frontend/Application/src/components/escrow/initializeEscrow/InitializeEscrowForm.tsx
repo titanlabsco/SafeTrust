@@ -5,6 +5,8 @@ import { initializeEscrow } from "@/services/escrow/initializeEscrow";
 import { kit } from "@/wallet/walletKit";
 import EscrowForm from "./EscrowForm";
 import Header from "@/layouts/Header";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const InitializeEscrowForm: React.FC = () => {
   const [formValues, setFormValues] = useState({
@@ -40,10 +42,10 @@ const InitializeEscrowForm: React.FC = () => {
 
       await initializeEscrow(payload);
 
-      setStatusMessage("Escrow initialized successfully!");
+      toast.success("Escrow initialized successfully!");
     } catch (error) {
       console.error("Error initializing escrow:", error);
-      setStatusMessage("Error initializing escrow. Please try again.");
+      toast.error("Error initializing escrow. Please try again.");
     }
   };
 
@@ -61,6 +63,7 @@ const InitializeEscrowForm: React.FC = () => {
           statusMessage={statusMessage}
         />
       </div>
+      <ToastContainer position="bottom-center" />
     </div>
   );
 };
