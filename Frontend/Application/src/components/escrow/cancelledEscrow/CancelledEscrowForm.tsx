@@ -4,16 +4,19 @@ import React, { useState } from "react";
 import { cancelEscrow } from "@/services/escrow/cancelEscrow";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/layouts/Loader";
+import { useLoader } from "@/hooks/useLoader";
 
 const FormComponent: React.FC = () => {
   const [contractId, setContractId] = useState("");
   const [engagementId, setEngagementId] = useState("");
   const [serviceProvider, setServiceProvider] = useState("");
-  const [loading, setLoading] = useState(false);
+
+  const { loading, startLoading, stopLoading } = useLoader();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    startLoading();
 
     const payload = {
       contractId,
@@ -36,7 +39,7 @@ const FormComponent: React.FC = () => {
         toast.error("An unexpected error occurred.");
       }
     } finally {
-      setLoading(false);
+      stopLoading();
     }
   };
 
@@ -45,49 +48,54 @@ const FormComponent: React.FC = () => {
       <h2 className="text-2xl font-bold mb-6 text-black text-left">
         Cancel Escrow
       </h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-sm text-black mb-1">Contract ID</label>
-          <input
-            type="text"
-            value={contractId}
-            onChange={(e) => setContractId(e.target.value)}
-            className="w-full p-2 border text-black border-gray-300 rounded"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm text-black mb-1">Engagement ID</label>
-          <input
-            type="text"
-            value={engagementId}
-            onChange={(e) => setEngagementId(e.target.value)}
-            className="w-full p-2 border text-black  border-gray-300 rounded"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm text-black mb-1">
-            Service Provider
-          </label>
-          <input
-            type="text"
-            value={serviceProvider}
-            onChange={(e) => setServiceProvider(e.target.value)}
-            className="w-full p-2 border text-black border-gray-300 rounded"
-          />
-        </div>
 
-        <button
-          type="submit"
-          className={`w-full bg-orange-500 text-white py-2 px-4 rounded mt-4 ${
-            loading ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          disabled={loading}
-        >
-          {loading ? "Cancelling..." : "Cancel Escrow"}
-        </button>
-      </form>
+      {loading ? (
+        <Loader />
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-sm text-black mb-1">Contract ID</label>
+            <input
+              type="text"
+              value={contractId}
+              onChange={(e) => setContractId(e.target.value)}
+              className="w-full p-2 border text-black border-gray-300 rounded"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm text-black mb-1">
+              Engagement ID
+            </label>
+            <input
+              type="text"
+              value={engagementId}
+              onChange={(e) => setEngagementId(e.target.value)}
+              className="w-full p-2 border text-black  border-gray-300 rounded"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm text-black mb-1">
+              Service Provider
+            </label>
+            <input
+              type="text"
+              value={serviceProvider}
+              onChange={(e) => setServiceProvider(e.target.value)}
+              className="w-full p-2 border text-black border-gray-300 rounded"
+            />
+          </div>
 
-      <ToastContainer position="bottom-center" />
+          <button
+            type="submit"
+            className="w-full bg-orange-500 text-white py-2 px-4 rounded mt-4"
+            disabled={loading}
+          >
+            {loading ? "Cancelling..." : "Cancel Escrow"}
+          </button>
+        </form>
+      )}
+
+      <ToastContainer position="top-right" />
     </div>
   );
 };

@@ -7,6 +7,8 @@ import EscrowForm from "./EscrowForm";
 import Header from "@/layouts/Header";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/layouts/Loader";
+import { useLoader } from "@/hooks/useLoader";
 
 const InitializeEscrowForm: React.FC = () => {
   const [formValues, setFormValues] = useState({
@@ -17,6 +19,7 @@ const InitializeEscrowForm: React.FC = () => {
   });
 
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const { loading, startLoading, stopLoading } = useLoader();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -29,6 +32,7 @@ const InitializeEscrowForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatusMessage(null);
+    startLoading();
 
     try {
       const { address } = await kit.getAddress();
@@ -43,9 +47,12 @@ const InitializeEscrowForm: React.FC = () => {
       await initializeEscrow(payload);
 
       toast.success("Escrow initialized successfully!");
+      toast.info("The data is located in the browser console");
     } catch (error) {
       console.error("Error initializing escrow:", error);
       toast.error("Error initializing escrow. Please try again.");
+    } finally {
+      stopLoading();
     }
   };
 
@@ -56,14 +63,19 @@ const InitializeEscrowForm: React.FC = () => {
         <h2 className="text-2xl text-black font-semibold mb-4">
           Create an Apartment
         </h2>
-        <EscrowForm
-          formValues={formValues}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-          statusMessage={statusMessage}
-        />
+
+        {loading ? (
+          <Loader />
+        ) : (
+          <EscrowForm
+            formValues={formValues}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+            statusMessage={statusMessage}
+          />
+        )}
       </div>
-      <ToastContainer position="bottom-center" />
+      <ToastContainer position="top-right" />
     </div>
   );
 };
