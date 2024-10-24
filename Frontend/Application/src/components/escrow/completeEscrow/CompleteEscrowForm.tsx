@@ -7,12 +7,16 @@ import Header from "@/layouts/Header";
 import EscrowForm from "./EscrowForm";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/layouts/Loader";
+import { useLoader } from "@/hooks/useLoader";
 
 const CompleteEscrowForm: React.FC = () => {
   const [formValues, setFormValues] = useState({
     contractId: "",
     engagementId: "",
   });
+
+  const { loading, startLoading, stopLoading } = useLoader();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,6 +28,7 @@ const CompleteEscrowForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    startLoading();
 
     try {
       const { address } = await kit.getAddress();
@@ -39,9 +44,12 @@ const CompleteEscrowForm: React.FC = () => {
       await completeEscrow(payload);
 
       toast.success("Escrow completed successfully!");
+      toast.info("The data is located in the browser console");
     } catch (error) {
       console.error("Error completing escrow:", error);
       toast.error("Error completing escrow. Please try again.");
+    } finally {
+      stopLoading();
     }
   };
 
@@ -52,13 +60,18 @@ const CompleteEscrowForm: React.FC = () => {
         <h2 className="text-2xl text-black font-semibold mb-4">
           Complete Escrow
         </h2>
-        <EscrowForm
-          formValues={formValues}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-        />
+
+        {loading ? (
+          <Loader />
+        ) : (
+          <EscrowForm
+            formValues={formValues}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+          />
+        )}
       </div>
-      <ToastContainer position="bottom-center" />
+      <ToastContainer position="top-right" />
     </div>
   );
 };
