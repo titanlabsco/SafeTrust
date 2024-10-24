@@ -17,14 +17,14 @@ interface Filter {
 
 const filters: Filter[] = [
   { label: "Tropical", icon: <FaUmbrellaBeach size={24} /> },
-  { label: "Vista increíble", icon: <FaTree size={24} /> },
-  { label: "Cuevas", icon: <FaMountain size={24} /> },
-  { label: "Mansiones", icon: <MdOutlineVilla size={24} /> },
-  { label: "Albercas increíbles", icon: <MdOutlinePool size={24} /> },
-  { label: "Cabañas", icon: <FaHome size={24} /> },
-  { label: "Frente a la playa", icon: <FaUmbrellaBeach size={24} /> },
-  { label: "En el campo", icon: <FaTree size={24} /> },
-  { label: "Misticismo", icon: <FaCloudSun size={24} /> },
+  { label: "Amazing View", icon: <FaTree size={24} /> },
+  { label: "Caves", icon: <FaMountain size={24} /> },
+  { label: "Mansions", icon: <MdOutlineVilla size={24} /> },
+  { label: "Incredible Pools", icon: <MdOutlinePool size={24} /> },
+  { label: "Cabins", icon: <FaHome size={24} /> },
+  { label: "Beachfront", icon: <FaUmbrellaBeach size={24} /> },
+  { label: "Countryside", icon: <FaTree size={24} /> },
+  { label: "Mysticism", icon: <FaCloudSun size={24} /> },
 ];
 
 const Filters: React.FC = () => {
