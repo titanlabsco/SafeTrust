@@ -66,7 +66,7 @@ const PropertyList: React.FC = () => {
   const router = useRouter();
 
   const handleCardClick = () => {
-    router.push("/infoApartaments");
+    router.push("/escrow/info");
   };
 
   return (
