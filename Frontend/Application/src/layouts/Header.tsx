@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
 import { useWalletStore } from "@/store/walletStore";
 import { useWallet } from "@/wallet/hooks/useWallet.hook";
-import { FaWallet, FaBars } from "react-icons/fa";
+import { FaWallet } from "react-icons/fa";
 import Link from "next/link";
 
 const Header: React.FC = () => {
   const { connectWallet, disconnectWallet } = useWallet();
   const { address, name } = useWalletStore();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleConnect = async () => {
     try {
@@ -48,49 +46,6 @@ const Header: React.FC = () => {
             <FaWallet size={20} className="mr-2" />
             {address && name ? "Disconnect" : "Connect"}
           </button>
-
-          {address && name && (
-            <>
-              <button
-                className="flex items-center justify-center bg-custom-orange text-white p-2 rounded-full"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <FaBars size={20} />
-              </button>
-              <div
-                className={`absolute top-12 right-0 bg-white text-black shadow-lg rounded-lg p-4 transition-all duration-300 ease-in-out transform z-50 ${
-                  menuOpen
-                    ? "scale-100 opacity-100 translate-y-0"
-                    : "scale-95 opacity-0 translate-y-[-20px]"
-                }`}
-              >
-                <Link
-                  href="/escrow/create"
-                  className="block mb-2 no-underline hover:no-underline"
-                >
-                  Initialize Escrow
-                </Link>
-                <Link
-                  href="/escrow/fund"
-                  className="block mb-2 no-underline hover:no-underline"
-                >
-                  Fund Escrow
-                </Link>
-                <Link
-                  href="/escrow/complete"
-                  className="block mb-2 no-underline hover:no-underline"
-                >
-                  Complete Escrow
-                </Link>
-                <Link
-                  href="/escrow/cancelled"
-                  className="block mb-2 no-underline hover:no-underline"
-                >
-                  Cancelled Escrow
-                </Link>
-              </div>
-            </>
-          )}
         </div>
       </div>
     </nav>
