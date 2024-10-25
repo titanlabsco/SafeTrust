@@ -7,7 +7,7 @@ SafeTrust is a decentralized, secure platform designed to transform the apartmen
 Crypto payments, being final and irreversible, come with inherent risks of fraud or non-delivery of services. SafeTrust mitigates these risks by creating a trustless environment, ensuring that deposits and payments are protected without relying on traditional chargebacks or payment reversals, providing a safer and more reliable rental experience for both parties.
 
 ---
-<h1> Benefits: </h1>
+## Benefits: 
 
 - Utilize trustless technology to secure and block deposits.
 - Implement wallet signatures for approvals and fund acceptance.
