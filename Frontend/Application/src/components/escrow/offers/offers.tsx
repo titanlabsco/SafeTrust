@@ -10,7 +10,7 @@ const Offers: React.FC = () => {
         Puerto Viejo House
       </h1>
       <p className="text-black text-lg mb-4">
-        A 130 km de distancia · 2 habitaciones · 2 camas · 1 baño
+        130 km away · 2 bedrooms · 2 beds · 1 bathroom
       </p>
 
       <div className="overflow-x-auto">
