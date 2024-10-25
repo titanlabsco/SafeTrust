@@ -110,6 +110,11 @@ SafeTrust is built using the following technologies:
 https://eth-pura-vida.devfolio.co/overview
 
 ---
+
+## Figma Version
+[See Figma](https://www.figma.com/design/CVg9hoim0f1FIlozIar7ZZ/SafeTrust?node-id=0-1&node-type=canvas&t=LCzPmGeJfVxCMWTT-0)
+
+---
 ## Contributors
 
 This project would not have been possible without the valuable participation of the members of TitanLabs:
