@@ -106,7 +106,7 @@ SafeTrust is built using the following technologies:
 
 ---
 
-<h1> Hackathon project for </h1>
+## Hackathon project 
 https://eth-pura-vida.devfolio.co/overview
 
 ---
