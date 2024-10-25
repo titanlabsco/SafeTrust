@@ -115,6 +115,11 @@ https://eth-pura-vida.devfolio.co/overview
 [See Figma](https://www.figma.com/design/CVg9hoim0f1FIlozIar7ZZ/SafeTrust?node-id=0-1&node-type=canvas&t=LCzPmGeJfVxCMWTT-0)
 
 ---
+
+## Application Link
+[See Application](https://safe-trust-mu.vercel.app/)
+
+---
 ## Contributors
 
 This project would not have been possible without the valuable participation of the members of TitanLabs:
