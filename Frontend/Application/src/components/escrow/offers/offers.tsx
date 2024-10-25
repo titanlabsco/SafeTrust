@@ -1,11 +1,24 @@
-import React from "react";
-import { SlLike } from "react-icons/sl";
-import { SlDislike } from "react-icons/sl";
+import React, { useEffect, useState } from "react";
+import { SlLike, SlDislike } from "react-icons/sl";
 import { FaUser } from "react-icons/fa";
 
+interface Reservation {
+  wallet: string;
+  date: string;
+}
+
 const Offers: React.FC = () => {
+  const [reservations, setReservations] = useState<Reservation[]>([]);
+
+  useEffect(() => {
+    const savedReservations = JSON.parse(
+      localStorage.getItem("reservations") || "[]"
+    );
+    setReservations(savedReservations);
+  }, []);
+
   return (
-    <div className="max-w-4xl w-full  p-6 rounded-lg ">
+    <div className="max-w-4xl w-full p-6 rounded-lg">
       <h1 className="text-3xl text-black font-semibold mb-2">
         Puerto Viejo House
       </h1>
@@ -23,20 +36,22 @@ const Offers: React.FC = () => {
             </tr>
           </thead>
           <tbody className="text-gray-700 text-sm">
-            <tr className="border-b hover:bg-gray-100">
-              <td className="py-3 px-6 flex items-center">
-                <FaUser className="mr-2" /> QXSZ...23S
-              </td>
-              <td className="py-3 px-6">2024-10-25</td>
-              <td className="py-3 px-6 flex space-x-2">
-                <button className="bg-green-500 text-white p-2 rounded-lg hover:bg-green-600">
-                  <SlLike />
-                </button>
-                <button className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600">
-                  <SlDislike />
-                </button>
-              </td>
-            </tr>
+            {reservations.map((reservation, index) => (
+              <tr key={index} className="border-b hover:bg-gray-100">
+                <td className="py-3 px-6 flex items-center">
+                  <FaUser className="mr-2" /> {reservation.wallet}
+                </td>
+                <td className="py-3 px-6">{reservation.date}</td>
+                <td className="py-3 px-6 flex space-x-2">
+                  <button className="bg-green-500 text-white p-2 rounded-lg hover:bg-green-600">
+                    <SlLike />
+                  </button>
+                  <button className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600">
+                    <SlDislike />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
