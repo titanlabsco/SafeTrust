@@ -16,7 +16,7 @@ const StatusSection: React.FC = () => {
 
         <div className="flex flex-col items-center">
           <h3 className="font-bold text-gray-800 mb-2">Status</h3>
-          <BsCheckCircleFill className="text-green-500 text-6xl" />
+          <BsCheckCircleFill className="text-green-500 text-4xl" />
         </div>
       </div>
     </div>
