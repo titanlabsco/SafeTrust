@@ -2,11 +2,15 @@
 
 import React from "react";
 import Offers from "@/components/escrow/offers/offers";
+import Header from "@/layouts/Header";
 
 const Home: React.FC = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Offers />
+      <Header />
+      <div className="flex justify-center items-start py-16">
+        <Offers />
+      </div>
     </div>
   );
 };
