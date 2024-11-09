@@ -1,4 +1,3 @@
-
 # 🌟 Contributing Guide | SafeTrust
 
 We’re excited you’re interested in contributing! Please follow these steps to ensure a smooth and efficient collaboration process.
@@ -42,6 +41,7 @@ We’re excited you’re interested in contributing! Please follow these steps t
 
 1. Make changes in your local repository.
 2. Follow **atomic commit principles**:
+
    - Each commit should address a single, logical change.
    - Avoid bundling unrelated changes in a single commit.
    - Write clear and descriptive commit messages using the format:
@@ -52,6 +52,7 @@ We’re excited you’re interested in contributing! Please follow these steps t
    ```
 
    > Examples:
+
    - `feat(authentication): add support for OAuth login`
    - `fix(api): resolve 404 error in user endpoint`
    - `docs(readme): update contribution guidelines`
