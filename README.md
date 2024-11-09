@@ -1,96 +1,68 @@
+# 🌐 SafeTrust - Landing Page
 
-# 🌐 SafeTrust
+Welcome to **SafeTrust** – a modern, sleek, and interactive landing page designed to make secure transactions P2P effortless. With the latest web technologies, SafeTrust leverages **Next.js** for efficient server-side rendering and **React** for a smooth, component-based user experience.
 
-## 🤝 Introduction
+## 👀 Preview
 
-SafeTrust is a **decentralized platform** designed to revolutionize **P2P transactions**. 🚀 It provides **secure deposits and payments**, powered by **blockchain** and **trustless technologies**. Experience **transparency** and **reliability** in every cryptocurrency transaction.
+🚀 **[Live Preview](https://safetrust-landing.vercel.app/)**
 
----
+## ![image](https://github.com/user-attachments/assets/a1816f13-48ad-49d0-9af6-559b4a949c9b)
 
-## 🌟 Benefits
+## 🛠️ Technology Stack
 
-- 🔐 **Trustless Security**: Safeguard deposits with advanced blockchain solutions.
-- ✍️ **Seamless Approvals**: Wallet signatures for fund access and transaction confirmation.
-- 🤝 **Optimized Payment Flows**: Efficiently manage funds with the Trustless Work API.
+SafeTrust is built using:
 
----
-
-## ✨ Features
-
-- **🛠️ Escrow Services**: Funds are securely held until transaction terms are fulfilled.
-- **🧾 Transparent Transactions**: Blockchain technology ensures visibility and accountability.
-- **💱 Cryptocurrency Compatibility**: Accept payments without fear of fraud or disputes.
-- **🛡️ Enhanced Trustlines**: Verify parties through a trustline system for added security.
-- **🔄 Automated Refunds**: Minimize manual intervention with automatic fund release mechanisms.
+- **Next.js**: v14.2.15 – fast, optimized server-side rendering
+- **React**: v18.3.1 – dynamic, interactive components
+- **Tailwind CSS**: v3.4.14 – beautiful and responsive styling
+- **Web3.js**: Ethereum wallet connection with Web3 integration
+- **Ethers.js**: secure and easy blockchain interaction
+- **TypeScript**: v5.6.3 – type safety for a smoother developer experience
 
 ---
 
-## ⚙️ How It Works
+## 🚀 Installation & Setup
 
-1. **📂 Open Escrow**: Create an escrow account for secure fund holding.
-2. **💳 Deposit Funds**: Add the agreed-upon amount to the escrow.
-3. **✍️ Set Terms**: Define conditions and store them securely on the blockchain.
-4. **✅ Release or Refund**: Upon agreement completion or cancellation, funds are managed as per terms.
-
----
-
-## 🚀 Getting Started
-
-### ✅ Prerequisites
-
-- 🖥️ **Node.js** v14 or later
-- 💼 **Blockchain Wallet**: Integration with **Albedo** is recommended.
-- 📄 **API Documentation**: Explore details [here](https://docs.trustlesswork.com/trustless-work)
-
-### 🔧 Installation
-
-1. Clone the repository:
-
+1. **Clone the repository** and **install dependencies**:
    ```bash
-   git clone https://github.com/titanlabsco/SafeTrust.git
+   git clone https://github.com/yourusername/safetrust.git
+   cd safetrust
+   npm install
    ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd SafeTrust/Frontend/Application
-   ```
-
-3. Configure environment variables:
-
-   ```bash
-   NEXT_PUBLIC_API_URL=https://api.trustlesswork.com
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
+2. **Scripts**:
+   - `npm run build`: Builds the project into `dist` (HTML, JS, CSS)
+   - `npm run build:assets`: Copies assets from `src/assets/` to `dist`
+   - `npm run build:pug`: Compiles Pug files in `src/pug/` to `dist`
+   - `npm run build:scripts`: Moves `src/js/scripts.js` to `dist`
+   - `npm run build:scss`: Compiles SCSS files in `src/scss/` to `dist`
+   - `npm run clean`: Cleans `dist` directory for a fresh build
+   - `npm run start:debug`: Runs the project in debug mode
+   - `npm start` or `npm run start`: Runs a live preview and watches for file changes
+     > ⚠️ **Note**: Ensure you have **npm** installed to run this environment.
 
 ---
 
-## 📡 API Reference
+## 🔍 About SafeTrust
 
-SafeTrust offers a suite of APIs for transaction management:
+**SafeTrust** is a Web3-powered platform that brings security and transparency to rental transactions. By using blockchain, SafeTrust protects both the renter and asset owner, making rental agreements seamless and trustworthy.
 
-- **/escrow/initiate**: Start a secure escrow process.
-- **/escrow/fund**: Deposit funds into escrow.
-- **/escrow/cancel**: Terminate the escrow and refund per terms.
-- **/escrow/complete**: Release funds to the recipient.
+### 🔒 How It Works
 
-📖 Detailed API reference: [here](https://docs.trustlesswork.com/trustless-work/api-reference).
+1. **Secure Deposits**: For example, when renting a house, a deposit is securely held in a smart contract, ensuring protection for both parties.
+2. **Transaction Safety**: If conditions are met (no damage, no breach of terms), the renter’s deposit is returned after transparent validation through SafeTrust.
+3. **Dispute Resolution**: Automated and transparent dispute handling ensures fair outcomes based on predefined terms agreed by both parties.
 
----
+### 🌟 Why SafeTrust?
 
-## 🛠️ Tech Stack
-
-- **💻 Frontend**: Developed with **TypeScript** and styled with **Tailwind CSS**.
-- **⛓️ Blockchain**: Smart contracts power secure and immutable transactions.
-- **🌐 API Connectivity**: Efficient interaction with the **Trustless Work API**.
-- **👛 Wallet Integration**: Compatible with leading cryptocurrency wallets.
+- **🔐 Security**: Blockchain ensures funds are secure and tamper-proof.
+- **🌈 Transparency**: Every transaction is visible on the blockchain, ensuring a fair process.
+- **🌍 Decentralized Trust**: No need for intermediaries – enjoy a decentralized experience!
+- **⚙️ Automation**: From deposits to refunds, SafeTrust automates everything, reducing errors and delays.
+  SafeTrust is the future of secure transactions for rentals, whether it’s for homes, cars, or any asset. By utilizing blockchain, SafeTrust brings trust and fairness to all transactions.
 
 ---
 
-## 🎨 Figma Version
-[🎨 View Design](https://www.figma.com/design/CVg9hoim0f1FIlozIar7ZZ/SafeTrust?node-id=0-1&node-type=canvas&t=LCzPmGeJfVxCMWTT-0)
+## 📜 License
+
+© 2024 SafeTrust. Released under the [MIT License](https://github.com/safetrustcr).
+Ready to join the future of secure rentals?

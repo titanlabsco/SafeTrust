@@ -16,7 +16,7 @@ export const cancelEscrow = async (payload: EscrowPayload) => {
   try {
     const response = await axios.post(
       `${API_URL}/escrow/cancel-escrow`,
-      payload
+      payload,
     );
     const { unsignedTransaction } = response.data;
     const { address } = await kit.getAddress();

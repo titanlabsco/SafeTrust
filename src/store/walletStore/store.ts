@@ -20,6 +20,6 @@ export const useWalletStore = create<WalletState>()(
     })),
     {
       name: "address-wallet",
-    }
-  )
+    },
+  ),
 );

@@ -15,7 +15,7 @@ export const completeEscrow = async (payload: EscrowPayload) => {
     console.log("Sending payload to complete-escrow:", payload);
     const response = await axios.post(
       `${API_URL}/escrow/complete-escrow`,
-      payload
+      payload,
     );
 
     const { unsignedTransaction } = response.data;

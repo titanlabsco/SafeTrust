@@ -12,7 +12,7 @@ const Offers: React.FC = () => {
 
   useEffect(() => {
     const savedReservations = JSON.parse(
-      localStorage.getItem("reservations") || "[]"
+      localStorage.getItem("reservations") || "[]",
     );
     setReservations(savedReservations);
   }, []);
