@@ -30,11 +30,11 @@ const ReservationCard: React.FC = () => {
   const { payReservation, loadingPay, isPaid } = usePayReservation(
     address,
     contractId,
-    engagementId
+    engagementId,
   );
   const { cancelReservation, loadingCancel } = useCancelReservation(
     contractId,
-    engagementId
+    engagementId,
   );
 
   return (

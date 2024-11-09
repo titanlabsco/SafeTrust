@@ -7,12 +7,12 @@ SafeTrust is a decentralized, secure platform designed to transform the apartmen
 Crypto payments, being final and irreversible, come with inherent risks of fraud or non-delivery of services. SafeTrust mitigates these risks by creating a trustless environment, ensuring that deposits and payments are protected without relying on traditional chargebacks or payment reversals, providing a safer and more reliable rental experience for both parties.
 
 ---
-## Benefits: 
+
+## Benefits:
 
 - Utilize trustless technology to secure and block deposits.
 - Implement wallet signatures for approvals and fund acceptance.
 - Manage funds through the Trustless Work API, ensuring a secure and streamlined payment release process.
-
 
 ## Features
 
@@ -106,20 +106,24 @@ SafeTrust is built using the following technologies:
 
 ---
 
-## Hackathon project 
+## Hackathon project
+
 https://eth-pura-vida.devfolio.co/overview
 
 ---
 
 ## Figma Version
+
 [See Figma](https://www.figma.com/design/CVg9hoim0f1FIlozIar7ZZ/SafeTrust?node-id=0-1&node-type=canvas&t=LCzPmGeJfVxCMWTT-0)
 
 ---
 
 ## Application Link
+
 [See Application](https://safe-trust-mu.vercel.app/)
 
 ---
+
 ## Contributors
 
 This project would not have been possible without the valuable participation of the members of TitanLabs:
