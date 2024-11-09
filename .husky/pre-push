@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if ! npm run format; then
+  echo "Error: Code formatting failed. Please fix the issues before committing."
+  exit 1
+fi
+
+if ! npm run lint; then
+  echo "Error: Linting failed. Please fix the issues before committing."
+  exit 1
+fi
+
+git pull origin develop
