@@ -31,7 +31,10 @@ const Filters: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>("Tropical");
 
   return (
-    <div className="flex justify-center space-x-8 py-4 bg-white shadow-sm">
+    <div 
+    
+    
+    className="flex justify-center space-x-8 py-4 bg-white shadow-sm">
       {filters.map((filter) => (
         <div
           key={filter.label}
