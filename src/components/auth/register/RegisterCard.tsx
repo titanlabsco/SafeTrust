@@ -19,7 +19,8 @@ const RegisterCard = () => {
           Create your account <span className="ml-2">🚀</span>
         </h1>
         <p className="text-sm text-gray-500 mb-6 text-center">
-        Welcome! Please provide your details to create a new account on the platform.
+          Welcome! Please provide your details to create a new account on the
+          platform.
         </p>
         <RegisterForm />
         <div className="flex items-center justify-center my-4 text-gray-500 text-sm">
