@@ -1,4 +1,4 @@
-import { FaGithub, FaGitlab } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const AuthButtons = () => {
   return (
