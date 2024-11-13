@@ -1,5 +1,4 @@
 const Sidebar: React.FC = () => {
-    
   return (
     <div className="w-[20%] bg-white p-6 border-r">
       <div className="mb-8">
