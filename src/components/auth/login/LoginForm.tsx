@@ -2,7 +2,10 @@ const LoginForm = () => {
   return (
     <form className="space-y-4">
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        >
           Email or username
         </label>
         <input
@@ -13,7 +16,10 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="password"
+          className="block text-sm font-medium text-gray-700"
+        >
           Password
         </label>
         <input
@@ -25,10 +31,13 @@ const LoginForm = () => {
       </div>
       <div className="flex items-center justify-between">
         <label className="flex items-center text-black text-sm">
-          <input type="checkbox" className="mr-2 rounded"/>
+          <input type="checkbox" className="mr-2 rounded" />
           Remember me
         </label>
-        <a href="/forgot-password" className="text-sm text-orange-500 hover:underline">
+        <a
+          href="/forgot-password"
+          className="text-sm text-orange-500 hover:underline"
+        >
           Forgot your password?
         </a>
       </div>
