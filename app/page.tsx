@@ -1,14 +1,18 @@
 import React from "react";
 import Header from "@/layouts/Header";
-import Filters from "@/components/home/Filters";
 import PropertyList from "@/components/home/PropertyList";
+import Sidebar from "@/layouts/Sidebar";
 
 const Home: React.FC = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       <Header />
-      <Filters />
-      <PropertyList />
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-grow">
+          <PropertyList />
+        </div>
+      </div>
     </div>
   );
 };
