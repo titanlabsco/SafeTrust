@@ -1,38 +1,22 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import LoginForm from "./LoginForm";
 import AuthButtons from "./AuthButtons";
 
 const LoginCard = () => {
-  const router = useRouter();
-
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      className="flex justify-start items-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('/img/background.png')",
+        backgroundImage: 'url("/img/background.png")',
       }}
     >
-      <div className="bg-white rounded-lg shadow-lg p-8 w-96">
-        <h1 className="text-2xl font-semibold mb-6 text-gray-800 text-center">
-          Log in to your account <span className="ml-2">🔒</span>
-        </h1>
-        <p className="text-sm text-gray-500 mb-6 text-center">
-          Welcome back! Please enter your credentials to access the platform.
-        </p>
+      <div className="bg-white p-8 rounded-lg w-full max-w-md ml-20">
         <LoginForm />
-        <div className="flex items-center justify-center my-4 text-gray-500 text-sm">
-          <span>or</span>
-        </div>
+        <div className="my-4 text-center text-gray-500">or</div>
         <AuthButtons />
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-black text-sm mt-4">
           Don’t have an account?{" "}
-          <a
-            onClick={() => router.push("/auth/register")}
-            className="text-blue-500 hover:underline cursor-pointer"
-          >
-            Sign up
+          <a href="/register" className="text-orange-500 hover:underline">
+            Register here
           </a>
         </p>
       </div>
