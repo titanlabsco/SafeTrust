@@ -50,8 +50,8 @@ const properties = [
 
 const PropertyList: React.FC = () => {
   const router = useRouter();
-  const [sortOption, setSortOption] = useState("Relevance"); 
-  const [dropdownOpen, setDropdownOpen] = useState(false); 
+  const [sortOption, setSortOption] = useState("Relevance");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCardClick = () => {
     router.push("/escrow/info");

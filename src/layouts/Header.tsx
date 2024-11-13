@@ -1,35 +1,14 @@
 "use client";
 
 import { useWalletStore } from "@/store/walletStore";
-import { useWallet } from "@/wallet/hooks/useWallet.hook";
 import { FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
 
 const Header: React.FC = () => {
-  const { connectWallet, disconnectWallet } = useWallet();
-  const { address, name } = useWalletStore();
-
-  const handleConnect = async () => {
-    try {
-      await connectWallet();
-    } catch (error) {
-      console.error("Error connecting wallet:", error);
-    }
-  };
-
-  const handleDisconnect = async () => {
-    try {
-      if (disconnectWallet) {
-        await disconnectWallet();
-      }
-    } catch (error) {
-      console.error("Error disconnecting wallet:", error);
-    }
-  };
+  const { name } = useWalletStore();
 
   return (
     <nav className="flex justify-between items-center bg-white py-[1rem] px-[2rem] shadow-md">
-      {/* Logo */}
       <Link href="/" className="flex items-center space-x-[0.5rem]">
         <img
           src="/img/logo2.png"
@@ -38,11 +17,8 @@ const Header: React.FC = () => {
         />
       </Link>
 
-      {/* Search Bar */}
       <div className="flex items-center bg-gray-200 rounded-full px-[0.7rem] py-[0.4rem] w-[45%]">
-        <select
-          className="bg-white border border-gray-300 text-gray-700 text-[1rem] rounded-full px-[0.8rem] py-[0.3rem] focus:outline-none"
-        >
+        <select className="bg-white border border-gray-300 text-gray-700 text-[1rem] rounded-full px-[0.8rem] py-[0.3rem] focus:outline-none">
           <option>Rent</option>
           <option>Buy</option>
         </select>
@@ -69,7 +45,6 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* User Info */}
       <div className="flex items-center space-x-[0.5rem]">
         <span className="text-gray-700 font-medium text-[1rem]">
           {name || "Randall Valenciano"}
