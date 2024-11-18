@@ -54,7 +54,7 @@ const PropertyList: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCardClick = () => {
-    router.push("/escrow/info");
+    router.push("/house");
   };
 
   const toggleDropdown = () => {
