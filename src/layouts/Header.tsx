@@ -39,7 +39,7 @@ const Header: React.FC = () => {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M21 21l-4.35-4.35M15 11a4 4 0 100-8 4 4 0 000 8zm-7 7H5a2 2 0 01-2-2v-5a2 2-2h3m10 5v1m0-4v1m0 4h1m-1-4h1"
+              d="M21 21l-4.35-4.35M15 11a4 4 0 100-8 4 4 0 000 8zm-7 7H5a2 2-2v-5a2 2-2h3m10 5v1m0-4v1m0 4h1m-1-4h1"
             />
           </svg>
         </button>
@@ -49,7 +49,9 @@ const Header: React.FC = () => {
         <span className="text-gray-700 font-medium text-[1rem]">
           {name || "Randall Valenciano"}
         </span>
-        <FaUserCircle size={24} className="text-gray-700" />
+        <Link href="/profile">
+          <FaUserCircle size={24} className="text-gray-700 cursor-pointer" />
+        </Link>
       </div>
     </nav>
   );
