@@ -1,5 +1,5 @@
 "use client"
-import dynamic from "next/dynamic"; // Importa dynamic
+import dynamic from "next/dynamic";
 
 const MapComponent = dynamic(() => import("@/components/map/Map"), { ssr: false });
 
