@@ -1,9 +1,9 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { LatLngTuple } from 'leaflet'; // Importa LatLngTuple
+import { MapContainer, TileLayer } from 'react-leaflet';
+import { LatLngTuple } from 'leaflet';
 
 const MapComponent: React.FC = () => {
-    const center: LatLngTuple = [37.7749, -122.4194]; // Coordenadas como LatLngTuple
+    const center: LatLngTuple = [37.7749, -122.4194];
 
     return (
         <MapContainer
