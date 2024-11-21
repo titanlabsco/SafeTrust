@@ -2,7 +2,6 @@ import React from "react";
 import Header from "@/layouts/Header";
 import PropertyList from "@/components/home/PropertyList";
 import Sidebar from "@/layouts/Sidebar";
-import Users from "@/components/Users";
 
 const Home: React.FC = () => {
   return (
@@ -11,8 +10,7 @@ const Home: React.FC = () => {
       <div className="flex">
         <Sidebar />
         <div className="flex-grow">
-          {/* <PropertyList /> */}
-          <Users/>
+          <PropertyList />
         </div>
       </div>
     </div>
