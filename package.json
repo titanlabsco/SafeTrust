@@ -15,6 +15,7 @@
   "dependencies": {
     "@albedo-link/intent": "^0.12.0",
     "@apollo/client": "^3.11.10",
+    "@apollo/experimental-nextjs-app-support": "^0.11.6",
     "@creit.tech/stellar-wallets-kit": "^1.2.3",
     "@hookform/resolvers": "^3.9.0",
     "@tanstack/react-query": "^5.61.0",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.3",
+    "@graphql-codegen/client-preset": "4.5.0",
     "@graphql-codegen/typescript": "^4.1.1",
     "@graphql-codegen/typescript-operations": "^4.3.1",
     "@graphql-codegen/typescript-react-apollo": "^4.3.2",
@@ -49,7 +51,6 @@
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5",
-    "@graphql-codegen/client-preset": "4.5.0"
+    "typescript": "^5"
   }
 }

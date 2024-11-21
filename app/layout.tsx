@@ -2,8 +2,8 @@
 
 import React from "react";
 import "./globals.css";
-import { ApolloProvider } from "@apollo/client";
-import { client } from "@/config/apollo";
+import { ApolloWrapper } from "@/ApolloProviderWrapper";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 
 export default function RootLayout({
@@ -14,11 +14,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased font-inter">
-        <ApolloProvider client={client}>
+        <ApolloWrapper>
+        <AuthProvider>
             <div className="min-h-screen flex flex-col">
               <main className="flex-1">{children}</main>
             </div>
-        </ApolloProvider>
+        </AuthProvider>
+        </ApolloWrapper>
       </body>
     </html>
   );
