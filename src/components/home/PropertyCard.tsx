@@ -25,7 +25,10 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   petFriendly,
 }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden border">
+    <div
+      className="bg-white 
+    shadow-md rounded-lg overflow-hidden border"
+    >
       <div className="relative">
         <Image
           src={image}

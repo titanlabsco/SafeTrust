@@ -10,9 +10,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased font-inter">
-          <div className="min-h-screen flex flex-col">
-            <main className="flex-1">{children}</main>
-          </div>
+        <div className="min-h-screen flex flex-col">
+          <main className="flex-1">{children}</main>
+        </div>
       </body>
     </html>
   );
