@@ -37,7 +37,7 @@ const ForgotPasswordCard: React.FC = () => {
         />
       </div>
 
-      {/* Main form */}
+      
       <div className="w-[90%] md:w-[440px] px-4 md:px-0">
         <div className="flex flex-col items-center mb-6">
           <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
