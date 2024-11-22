@@ -68,10 +68,7 @@ const PropertyList: React.FC = () => {
 
   return (
     <div className="px-12 py-8">
-      <div
-        className="flex 
-justify-between items-center mb-6"
-      >
+      <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-2xl text-black">
             Available for rent in{" "}
