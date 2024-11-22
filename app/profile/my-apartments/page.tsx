@@ -1,7 +1,7 @@
 "use client";
 import Header from "@/layouts/Header";
 import { IoHomeOutline } from "react-icons/io5";
-import ApartmentsComponent from "@/components/my-departments/ApartmentsComponent";
+import ApartmentsComponent from "@/components/profile/pages/ApartmentsComponent";
 
 const MyApartments: React.FC = () => {
   return (
