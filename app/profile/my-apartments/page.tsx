@@ -1,7 +1,7 @@
 "use client";
 import Header from "@/layouts/Header";
 import { IoHomeOutline } from "react-icons/io5";
-import Apartments from "@/components/my-departments/ApartmentsComponent";
+import ApartmentsComponent from "@/components/my-departments/ApartmentsComponent";
 
 const MyApartments: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const MyApartments: React.FC = () => {
       </section>
 
       <section className="px-4 sm:px-24 mt-6">
-        <Apartments />
+        <ApartmentsComponent />
       </section>
     </div>
   );

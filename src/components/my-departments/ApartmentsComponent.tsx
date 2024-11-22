@@ -7,7 +7,7 @@ import { HiOutlineFire } from "react-icons/hi2";
 import { FiChevronLeft, FiChevronRight, FiChevronDown } from "react-icons/fi";
 import { PiHandCoinsBold } from "react-icons/pi";
 
-const Apartments = () => {
+const ApartmentsComponent = () => {
   const allApartments = [
     {
       id: 1,
@@ -384,4 +384,4 @@ const Apartments = () => {
   );
 };
 
-export default Apartments;
+export default ApartmentsComponent;
