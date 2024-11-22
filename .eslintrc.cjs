@@ -7,7 +7,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
   ],
-  ignorePatterns: ["dist", ".next", "node_modules", ".eslintrc.cjs"],
+  ignorePatterns: ["dist", ".next", "node_modules", ".eslintrc.cjs", "graphql.ts"],
   parser: "@typescript-eslint/parser",
   plugins: ["prettier"],
   rules: {

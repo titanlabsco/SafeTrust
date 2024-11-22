@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import { useApolloClient } from "@apollo/client";
 
 const AuthContext = createContext<{
-  user: any;
+  user: User | null;
   loading: boolean;
 }>({
   user: null,
@@ -13,7 +13,7 @@ const AuthContext = createContext<{
 export const AuthProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const client = useApolloClient();
 
