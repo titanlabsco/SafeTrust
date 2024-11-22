@@ -6,14 +6,9 @@ if ! npm run format; then
   exit 1
 fi
 
-if ! npx prettier --write .; then
+if ! npm run lint; then
   echo "Error: Linting failed. Please fix the issues before committing."
   exit 1
 fi
 
-if ! npm run lint; then
-  echo "Error: Code linting failed. Please fix the issues before committing."
-  exit 1
-fi
-
-git pull origin main
+git pull origin develop

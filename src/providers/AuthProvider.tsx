@@ -10,7 +10,9 @@ const AuthContext = createContext<{
   loading: true,
 });
 
-export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const AuthProvider: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const client = useApolloClient();
