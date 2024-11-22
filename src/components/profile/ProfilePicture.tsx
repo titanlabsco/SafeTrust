@@ -6,7 +6,8 @@ const ProfilePicture: React.FC = () => {
       <img
         src="img/person.png"
         alt="Profile"
-        className="w-full h-full rounded-full object-cover border border-gray-300"
+        className
+        ="w-full h-full rounded-full object-cover border border-gray-300"
       />
     </div>
   );

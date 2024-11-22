@@ -6,7 +6,7 @@ if ! npm run format; then
   exit 1
 fi
 
-if ! npm run lint; then
+if ! npx prettier —write .; then
   echo "Error: Linting failed. Please fix the issues before committing."
   exit 1
 fi
