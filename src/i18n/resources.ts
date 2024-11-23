@@ -83,6 +83,12 @@ const resources = {
           peth: "Pet-friendly",
           bathroom: "Bathroom",
         },
+
+        languageBtn:{
+          es:"Spanish",
+          en:"English"
+        }
+
       },
     },
   
@@ -168,6 +174,12 @@ const resources = {
           peth: "Apto para mascotas",
           bathroom: "Baño",
         },
+
+        languageBtn:{
+          es:"Español",
+          en:"Inglés"
+        }
+        
       },
     },
   };
