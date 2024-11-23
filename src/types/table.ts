@@ -4,12 +4,13 @@ export interface TableData {
     phone: string
     wallet: string
     offerDate: string
-    status: 'pending' | 'accepted'
+    status: 'pending' | 'accepted' | 'rejected'
   }
   
   export interface DataTableProps {
     data: TableData[]
     onActionClick?: (action: string, item: TableData) => void
+    onStatusChange: (id: number, newStatus: "accepted" | "rejected" | "pending") => void;
   }
 
   export interface SearchAndFilterProps {

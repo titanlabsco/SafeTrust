@@ -8,43 +8,7 @@ import Header from "@/layouts/Header";
 import { TableData } from "@/types/table";
 import { filterTableData } from "@/utils/filterTableData";
 import DropdownPagination from "@/components/interestedPeople/DropdownPagnation";
-
-
-const MOCK_DATA: TableData[] = [
-  {
-    id: 1,
-    name: "Ben Duarte Fernández",
-    phone: "+506 6483252",
-    wallet: "XR6...32D",
-    offerDate: "09/12/2024",
-    status: "pending",
-  },
-  {
-    id: 2,
-    name: "Diego Duarte Fernández",
-    phone: "+506 6483252",
-    wallet: "XR6...32D",
-    offerDate: "09/12/2024",
-    status: "accepted",
-  },
-  {
-    id: 3,
-    name: "Diego Duarte Fernández",
-    phone: "+506 6483252",
-    wallet: "XR6...32D",
-    offerDate: "09/12/2024",
-    status: "pending",
-  },
-  {
-    id: 4,
-    name: "Diego Duarte Fernández",
-    phone: "+506 6483252",
-    wallet: "XR6...32D",
-    offerDate: "09/12/2024",
-    status: "pending",
-  },
-];
-
+import { MOCK_DATA } from "@/mockData/tableData";
 export interface FilterState {
   search: string;
   dateRange: string;
@@ -61,6 +25,7 @@ const Page = () => {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(2);
+  const [tableData, setTableData] = useState<TableData[]>(MOCK_DATA);
 
   const apartment = {
     name: "La sabana house",
@@ -73,8 +38,8 @@ const Page = () => {
 
   // Filter data
   const filteredData = useMemo(() => {
-    return filterTableData(MOCK_DATA, filters);
-  }, [filters]);
+    return filterTableData(tableData, filters);
+  }, [tableData, filters]);
 
   // Paginate data
   const paginatedData = useMemo(() => {
@@ -106,8 +71,34 @@ const Page = () => {
     setCurrentPage(1);
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   const handleActionClick = (action: string, item: TableData) => {
-    console.log(`Action ${action} clicked for item:`, item);
+    switch (action) {
+      case "accept":
+        handleStatusUpdate(item.id, "accepted");
+        break;
+      case "reject":
+        handleStatusUpdate(item.id, "rejected");
+        break;
+        case "pend":
+          handleStatusUpdate(item.id, "pending");
+          break;
+      case "edit":
+      case "delete":
+        console.log(`Action ${action} clicked for item:`, item);
+        break;
+    }
+  };
+
+  const handleStatusUpdate = (id: number, newStatus: "accepted" | "rejected" | "pending") => {
+    setTableData(prevData => 
+      prevData.map(item => 
+        item.id === id ? { ...item, status: newStatus } : item
+      )
+    );
   };
 
   // Calculate total pages
@@ -132,11 +123,12 @@ const Page = () => {
           itemsPerPage={itemsPerPage}
           totalItems={filteredData.length}
           onItemsPerPageChange={handleItemsPerPageChange}
-          onPageChange={setCurrentPage}
+          onPageChange={handlePageChange}
         />        
         <Table 
           data={paginatedData}
           onActionClick={handleActionClick}
+          onStatusChange={handleStatusUpdate}
         />
         <div className="hidden sm:block">
           <DropdownPagination
@@ -146,7 +138,7 @@ const Page = () => {
             itemsPerPage={itemsPerPage}
             totalItems={filteredData.length}
             onItemsPerPageChange={handleItemsPerPageChange}
-            onPageChange={setCurrentPage}
+            onPageChange={handlePageChange}
           />
         </div>
       </div>
@@ -155,3 +147,4 @@ const Page = () => {
 };
 
 export default Page;
+

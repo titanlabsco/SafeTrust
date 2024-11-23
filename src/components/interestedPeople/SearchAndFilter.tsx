@@ -18,8 +18,7 @@ const statusOptions = [
     { label: 'All', value: '' },
     { label: 'Pending', value: 'pending' },
     { label: 'Accepted', value: 'accepted' },
-    { label: 'Completed', value: 'completed' },
-    { label: 'Cancelled', value: 'cancelled' }
+    { label: 'Rejected', value: 'rejected' },
 ];
 
 export default function SearchAndFilter({

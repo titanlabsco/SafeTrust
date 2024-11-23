@@ -1,5 +1,4 @@
-'use client'
-
+import React from 'react';
 import {
     Card,
     Typography,
@@ -9,16 +8,18 @@ import {
     MenuHandler,
     MenuList,
     MenuItem,
+    Tooltip,
 } from "@material-tailwind/react"
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline"
-import { DataTableProps } from "@/types/table";
-
-
-
+import { DataTableProps, TableData } from "@/types/table";
 
 const TABLE_HEAD = ["ID No.", "Name", "Phone", "Wallet", "Offer date", "Status", "Actions"];
 
-export function Table({ data, onActionClick }: DataTableProps) {
+export function Table({ data, onActionClick, onStatusChange }: {
+    data: TableData[];
+    onActionClick: (action: string, item: TableData) => void;
+    onStatusChange: (id: number, newStatus: "accepted" | "rejected") => void;
+}) {
     return (
         <Card className="w-full bg-transparent shadow-none" {...({} as any)}>
             <CardBody className="overflow-x-auto px-0" {...({} as any)}>
@@ -86,11 +87,12 @@ export function Table({ data, onActionClick }: DataTableProps) {
                                             <div className="w-max">
                                                 <Typography
                                                     variant="small"
-                                                    className={`font-medium ${
-                                                        item.status === "pending"
+                                                    className={`font-medium ${item.status === "rejected"
                                                             ? "text-red-600 bg-red-200"
-                                                            : "text-light-blue-600 bg-light-blue-200"
-                                                    } px-2 py-1 rounded-full`}
+                                                            : item.status === "pending"
+                                                                ? "text-yellow-600 bg-yellow-200"
+                                                                : "text-light-blue-600 bg-light-blue-200"
+                                                        } px-2  rounded-full`}
                                                     {...({} as any)}
                                                 >
                                                     {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
@@ -99,19 +101,27 @@ export function Table({ data, onActionClick }: DataTableProps) {
                                         </td>
                                         <td className={classes}>
                                             <Menu placement="left-start">
-                                                <MenuHandler>
-                                                    <IconButton variant="text" color="blue-gray" {...({} as any)}>
-                                                        <EllipsisHorizontalIcon fontSize={50} className="h-10 w-10 text-orange-500" />
-                                                    </IconButton>
-                                                </MenuHandler>
+                                                <Tooltip content="Actions">
+                                                    <MenuHandler>
+                                                        <IconButton variant="text" color="blue-gray" {...({} as any)}>
+                                                            <EllipsisHorizontalIcon className="h-10 w-10 text-orange-500" />
+                                                        </IconButton>
+                                                    </MenuHandler>
+                                                </Tooltip>
                                                 <MenuList {...({} as any)}>
-                                                    <MenuItem onClick={() => onActionClick?.("view", item)} {...({} as any)}>
-                                                        View Details
+                                                    <MenuItem onClick={() => onActionClick("accept", item)} {...({} as any)}>
+                                                        Accept
                                                     </MenuItem>
-                                                    <MenuItem onClick={() => onActionClick?.("edit", item)} {...({} as any)}>
+                                                    <MenuItem onClick={() => onActionClick("reject", item)} {...({} as any)}>
+                                                        Reject
+                                                    </MenuItem>
+                                                    <MenuItem onClick={() => onActionClick("pend", item)} {...({} as any)}>
+                                                        Pend
+                                                    </MenuItem>
+                                                    <MenuItem onClick={() => onActionClick("edit", item)} {...({} as any)}>
                                                         Edit
                                                     </MenuItem>
-                                                    <MenuItem onClick={() => onActionClick?.("delete", item)} {...({} as any)}>
+                                                    <MenuItem onClick={() => onActionClick("delete", item)} {...({} as any)}>
                                                         Delete
                                                     </MenuItem>
                                                 </MenuList>
@@ -127,3 +137,4 @@ export function Table({ data, onActionClick }: DataTableProps) {
         </Card>
     )
 }
+
