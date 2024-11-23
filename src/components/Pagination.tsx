@@ -5,31 +5,17 @@ interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  maxVisiblePages?: number;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
-  maxVisiblePages = 4,
 }) => {
-  const getPageNumbers = () => {
-    const pageNumbers = [];
-    const halfVisiblePages = Math.floor(maxVisiblePages / 2);
-    let startPage = Math.max(currentPage - halfVisiblePages, 1);
-    let endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
-
-    if (endPage - startPage + 1 < maxVisiblePages) {
-      startPage = Math.max(endPage - maxVisiblePages + 1, 1);
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-      pageNumbers.push(i);
-    }
-
-    return pageNumbers;
-  };
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
 
   return (
     <nav className="flex items-center justify-center space-x-1" aria-label="Pagination">
@@ -42,7 +28,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <IoChevronBack className="w-5 h-5" />
       </button>
       
-      {getPageNumbers().map((pageNumber) => (
+      {pageNumbers.map((pageNumber) => (
         <button
           key={pageNumber}
           onClick={() => onPageChange(pageNumber)}
@@ -57,19 +43,6 @@ const Pagination: React.FC<PaginationProps> = ({
         </button>
       ))}
       
-      {totalPages > maxVisiblePages && currentPage < totalPages - 1 && (
-        <span className="px-2 py-1 text-gray-500">...</span>
-      )}
-      
-      {totalPages > maxVisiblePages && currentPage < totalPages && (
-        <button
-          onClick={() => onPageChange(totalPages)}
-          className="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100"
-        >
-          {totalPages}
-        </button>
-      )}
-      
       <button
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}
@@ -83,4 +56,3 @@ const Pagination: React.FC<PaginationProps> = ({
 };
 
 export default Pagination;
-
