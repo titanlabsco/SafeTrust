@@ -26,6 +26,7 @@
     "leaflet-defaulticon-compatibility": "^0.1.2",
     "next": "^15.0.0",
     "react": "^18.3.1",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
     "react-icons": "^5.3.0",
