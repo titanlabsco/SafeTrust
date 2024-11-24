@@ -10,7 +10,7 @@ const ForgotPasswordCard: React.FC = () => {
     e.preventDefault();
     console.log("Reset password for:", email);
   };
-
+// forgot password card
   return (
     <>
       
