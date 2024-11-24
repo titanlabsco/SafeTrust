@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { VerificationCodeInput } from "../../../../src/features/auth/components/VerificationCodeInput";
-import { CityBackground } from "../../../../src/features/auth/components/CityBackground";
+import { VerificationCodeInput } from "../../../src/features/auth/components/VerificationCodeInput";
+import { CityBackground } from "../../../src/features/auth/components/CityBackground";
 
 const EmailVerification = () => {
   const [isResending, setIsResending] = useState(false);
