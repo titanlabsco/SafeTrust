@@ -5,9 +5,9 @@ import { ApartmentDetails } from "@/components/interestedPeople/ApartmentDetails
 import SearchAndFilter from "@/components/interestedPeople/SearchAndFilter";
 import { Table } from "@/components/Table";
 import Header from "@/layouts/Header";
-import { TableData } from "@/types/table";
+import { TableData } from "@/@types/table";
 import { filterTableData } from "@/utils/filterTableData";
-import DropdownPagination from "@/components/interestedPeople/DropdownPagnation";
+import DropdownPagination from "@/components/interestedPeople/DropdownPagination";
 import { MOCK_DATA } from "@/mockData/tableData";
 export interface FilterState {
   search: string;

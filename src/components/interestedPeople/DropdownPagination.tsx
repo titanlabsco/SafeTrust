@@ -1,8 +1,10 @@
 "use client"
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { CgChevronDown } from 'react-icons/cg';
 import Pagination from '../Pagination';
-import { DropdownPaginationProps } from '@/types/table';
+import { DropdownPaginationProps } from '@/@types/table';
+import { useDropdownPagination } from '@/hooks/profile/interested-people/useDropdownPagination';
+
 
 const DropdownPagination: React.FC<DropdownPaginationProps> = ({
     paginationVisible,
@@ -13,33 +15,23 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
     onItemsPerPageChange,
     onPageChange
 }) => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
-    const showing = Math.min((currentPage * itemsPerPage), totalItems);
-    const startItem = Math.min(((currentPage - 1) * itemsPerPage) + 1, totalItems);
-
-    useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-                setDropdownOpen(false);
-            }
-        }
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
-    const handleItemsPerPageChange = (value: number) => {
-        onItemsPerPageChange(value);
-        setDropdownOpen(false);
-    };
+    const {
+        dropdownOpen,
+        dropdownRef,
+        showing,
+        handleItemsPerPageChange,
+        toggleDropdown
+    } = useDropdownPagination({
+        currentPage,
+        itemsPerPage,
+        totalItems,
+        onItemsPerPageChange
+    });
 
     return (
         <div className="flex items-center justify-between mt-4 sm:mt-5">
             <p className="text-gray-700">
-                Showing  {showing} of {totalItems}
+                Showing {showing} of {totalItems}
             </p>
             {paginationVisible && (
                 <Pagination
@@ -54,7 +46,7 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
                 </label>
                 <div className="relative flex-1 sm:flex-none" ref={dropdownRef}>
                     <button
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        onClick={toggleDropdown}
                         className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500

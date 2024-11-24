@@ -10,7 +10,7 @@ interface IconBadgeProps {
 export default function IconBadge({ 
   Icon, 
   bgColor = 'bg-orange-300', 
-  iconColor = 'text-orange-500' 
+  iconColor = 'text-white' 
 }: IconBadgeProps) {
   return (
     <div className={`w-8 h-8 ${bgColor} rounded-full grid place-content-center`}>

@@ -12,10 +12,27 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   onPageChange,
 }) => {
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
+  const getPageNumbers = () => {
+    const pages: (number | string)[] = [];
+
+    if (totalPages <= 5) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      pages.push(1);
+
+      if (currentPage <= 3) {
+        pages.push(2, 3, 4, '...', totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pages.push('...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+      } else {
+        pages.push('...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+      }
+    }
+
+    return pages;
+  };
 
   return (
     <nav className="flex items-center justify-center space-x-1" aria-label="Pagination">
@@ -27,22 +44,30 @@ const Pagination: React.FC<PaginationProps> = ({
       >
         <IoChevronBack className="w-5 h-5" />
       </button>
-      
-      {pageNumbers.map((pageNumber) => (
-        <button
-          key={pageNumber}
-          onClick={() => onPageChange(pageNumber)}
-          className={`px-4 py-1 rounded-md border-2 ${
-            currentPage === pageNumber
-              ? 'bg-orange-500 text-white'
-              : 'text-gray-700 hover:bg-gray-100'
-          }`}
-          aria-current={currentPage === pageNumber ? 'page' : undefined}
-        >
-          {pageNumber}
-        </button>
+
+      {getPageNumbers().map((pageNumber, index) => (
+        pageNumber === '...' ? (
+          <span
+            key={`ellipsis-${index}`}
+            className="px-4 py-1 text-gray-700"
+          >
+            ...
+          </span>
+        ) : (
+          <button
+            key={pageNumber}
+            onClick={() => onPageChange(pageNumber as number)}
+            className={`px-4 py-1 rounded-md border-2 ${currentPage === pageNumber
+                ? 'bg-orange-500 text-white'
+                : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            aria-current={currentPage === pageNumber ? 'page' : undefined}
+          >
+            {pageNumber}
+          </button>
+        )
       ))}
-      
+
       <button
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}

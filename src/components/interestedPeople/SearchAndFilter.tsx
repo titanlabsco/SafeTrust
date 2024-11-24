@@ -1,25 +1,9 @@
 "use client"
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { FiSearch, FiCalendar, FiTag } from 'react-icons/fi';
 import { CgChevronDown } from "react-icons/cg";
-import { SearchAndFilterProps } from '@/types/table';
-
-
-
-const dateRangeOptions = [
-    { label: 'Today', value: 'today' },
-    { label: 'Last 7 days', value: 'last7days' },
-    { label: 'Last 30 days', value: 'last30days' },
-    { label: 'Last 90 days', value: 'last90days' },
-    { label: 'Custom range', value: 'custom' }
-];
-
-const statusOptions = [
-    { label: 'All', value: '' },
-    { label: 'Pending', value: 'pending' },
-    { label: 'Accepted', value: 'accepted' },
-    { label: 'Rejected', value: 'rejected' },
-];
+import { SearchAndFilterProps } from '@/@types/table';
+import { useSearchAndFilter, dateRangeOptions, statusOptions } from '@/hooks/profile/interested-people/useSearchAndFilter';
 
 export default function SearchAndFilter({
     onSearch,
@@ -28,34 +12,23 @@ export default function SearchAndFilter({
     selectedDateRange,
     selectedStatus
 }: SearchAndFilterProps) {
-    const [dateRangeOpen, setDateRangeOpen] = useState(false);
-    const [statusOpen, setStatusOpen] = useState(false);
-    const dateRef = useRef<HTMLDivElement>(null);
-    const statusRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
-            if (dateRef.current && !dateRef.current.contains(event.target as Node)) {
-                setDateRangeOpen(false);
-            }
-            if (statusRef.current && !statusRef.current.contains(event.target as Node)) {
-                setStatusOpen(false);
-            }
-        }
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
-
-    const getSelectedDateRangeLabel = () => {
-        const option = dateRangeOptions.find(opt => opt.value === selectedDateRange);
-        return option ? option.label : 'Date range';
-    };
-
-    const getSelectedStatusLabel = () => {
-        const option = statusOptions.find(opt => opt.value === selectedStatus);
-        return option ? option.label : 'Status';
-    };
+    const {
+        dateRangeOpen,
+        statusOpen,
+        dateRef,
+        statusRef,
+        getSelectedDateRangeLabel,
+        getSelectedStatusLabel,
+        handleDateRangeChange,
+        handleStatusChange,
+        toggleDateRange,
+        toggleStatus
+    } = useSearchAndFilter({
+        onDateRangeChange,
+        onStatusChange,
+        selectedDateRange,
+        selectedStatus
+    });
 
     return (
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-4 sm:mt-8">
@@ -75,7 +48,7 @@ export default function SearchAndFilter({
             <div className="flex flex-row gap-2 sm:gap-3">
                 <div className="relative flex-1 sm:flex-none" ref={dateRef}>
                     <button
-                        onClick={() => setDateRangeOpen(!dateRangeOpen)}
+                        onClick={toggleDateRange}
                         className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
@@ -92,10 +65,7 @@ export default function SearchAndFilter({
                                     <button
                                         className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
                                                   transition-colors duration-150 ${selectedDateRange === option.value ? 'bg-gray-100' : ''}`}
-                                        onClick={() => {
-                                            onDateRangeChange(option.value);
-                                            setDateRangeOpen(false);
-                                        }}
+                                        onClick={() => handleDateRangeChange(option.value)}
                                     >
                                         {option.label}
                                     </button>
@@ -107,7 +77,7 @@ export default function SearchAndFilter({
 
                 <div className="relative flex-1 sm:flex-none" ref={statusRef}>
                     <button
-                        onClick={() => setStatusOpen(!statusOpen)}
+                        onClick={toggleStatus}
                         className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
@@ -124,10 +94,7 @@ export default function SearchAndFilter({
                                     <button
                                         className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
                                                   transition-colors duration-150 ${selectedStatus === option.value ? 'bg-gray-100' : ''}`}
-                                        onClick={() => {
-                                            onStatusChange(option.value);
-                                            setStatusOpen(false);
-                                        }}
+                                        onClick={() => handleStatusChange(option.value)}
                                     >
                                         {option.label}
                                     </button>

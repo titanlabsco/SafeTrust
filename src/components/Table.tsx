@@ -11,7 +11,7 @@ import {
     Tooltip,
 } from "@material-tailwind/react"
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline"
-import { DataTableProps, TableData } from "@/types/table";
+import { DataTableProps, TableData } from "@/@types/table";
 
 const TABLE_HEAD = ["ID No.", "Name", "Phone", "Wallet", "Offer date", "Status", "Actions"];
 

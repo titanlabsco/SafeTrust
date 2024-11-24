@@ -1,4 +1,4 @@
-import { TableData } from "@/types/table";
+import { TableData } from "@/@types/table";
 
 export const MOCK_DATA: TableData[] = [
     {
