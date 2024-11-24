@@ -1,5 +1,5 @@
 import React from "react";
-import ForgotPasswordCard from "@/components/auth/forgot-password/ForgotPasswordCard";
+import ForgotPasswordCard from "@/components/auth/ForgotPassword/ForgotPasswordCard";
 
 const ForgotPasswordPage: React.FC = () => {
   return (
