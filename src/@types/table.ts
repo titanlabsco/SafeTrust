@@ -30,3 +30,10 @@ export interface TableData {
     onItemsPerPageChange: (value: number) => void;
     onPageChange: (page: number) => void;
   }
+
+  export interface FilterState {
+    search: string;
+    dateRange: string;
+    status: string;
+    name: string;
+  }
