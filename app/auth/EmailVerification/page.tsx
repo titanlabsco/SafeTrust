@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { VerificationCodeInput } from "../../../src/features/auth/components/VerificationCodeInput";
-import { CityBackground } from "../../../src/features/auth/components/CityBackground";
+import { VerificationCodeInput } from "../../../src/components/auth/VerificationCodeInput";
+import { CityBackground } from "../../../src/components/auth/CityBackground";
 
-const EmailVerification = () => {
+const EmailVerificationForm = () => {
   const [isResending, setIsResending] = useState(false);
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "your-email@example.com";
@@ -24,8 +24,8 @@ const EmailVerification = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
-        <div className="max-w-md w-full space-y-8 text-center">
+      <div className="flex flex-col items-center justify-center p-4 z-10">
+        <div className="max-w-lg w-full space-y-8 text-center">
           <h1 className="text-3xl font-bold text-black">Check your E-mail</h1>
           <p className="text-black">
             Please check your email and type the code sent to{" "}
@@ -44,8 +44,19 @@ const EmailVerification = () => {
           </button>
         </div>
       </div>
+    </div>
+  );
+};
+
+const EmailVerificationContent = () => {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
+      <Suspense fallback={<div>Loading...</div>}>
+        <EmailVerificationForm />
+      </Suspense>
       <CityBackground />
     </div>
   );
 };
-export default EmailVerification;
+
+export default EmailVerificationContent;
