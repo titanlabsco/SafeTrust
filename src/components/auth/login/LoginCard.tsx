@@ -10,7 +10,7 @@ const LoginCard = () => {
         <AuthButtons />
         <p className="text-center text-black text-sm mt-4">
           Don’t have an account?{" "}
-          <a href="/register" className="text-orange-500 hover:underline">
+          <a href="/auth/tenant-register" className="text-orange-500 hover:underline">
             Register here
           </a>
         </p>

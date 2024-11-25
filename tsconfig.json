@@ -25,7 +25,8 @@
       "@/*": ["./src/*"],
       "@store/*": ["src/store/*"],
       "@wallet/*": ["src/wallet/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@graphql/*": ["src/graphql/*"]
     }
   },
   "include": [
