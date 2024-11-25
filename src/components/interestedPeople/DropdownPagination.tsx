@@ -15,6 +15,7 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
     onItemsPerPageChange,
     onPageChange
 }) => {
+    //Custom hook for DropdownPagination
     const {
         dropdownOpen,
         dropdownRef,

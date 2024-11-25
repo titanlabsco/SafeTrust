@@ -10,6 +10,7 @@ interface IconBadgeProps {
 export default function IconBadge({ 
   Icon, 
   bgColor = 'bg-orange-300', 
+  //IconColor must be white
   iconColor = 'text-white' 
 }: IconBadgeProps) {
   return (
