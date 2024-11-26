@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased font-inter">
+      <body className="antialiased font-inter" suppressHydrationWarning={true}>
         <div className="min-h-screen flex flex-col">
           <ThemeProvider>
             <main className="flex-1">{children}</main>
