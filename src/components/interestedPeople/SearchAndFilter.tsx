@@ -40,7 +40,7 @@ export default function SearchAndFilter({
                     onChange={(e) => onSearch(e.target.value)}
                     className="w-full sm:w-2/3 lg:w-1/2 text-black placeholder:text-gray-500 py-2 pl-10 pr-4 
                              bg-white border border-gray-300 rounded-full shadow-sm
-                             focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500
+                             focus:border-custom-orange focus:outline-none focus:ring-1 focus:ring-custom-orange
                              transition-colors duration-200"
                 />
             </div>

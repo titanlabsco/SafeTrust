@@ -104,7 +104,7 @@ export function Table({ data, onActionClick, onStatusChange }: {
                                                 <Tooltip content="Actions">
                                                     <MenuHandler>
                                                         <IconButton variant="text" color="blue-gray" {...({} as any)}>
-                                                            <EllipsisHorizontalIcon className="h-10 w-10 text-orange-500" />
+                                                            <EllipsisHorizontalIcon className="h-10 w-10 text-custom-orange" />
                                                         </IconButton>
                                                     </MenuHandler>
                                                 </Tooltip>
