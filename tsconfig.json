@@ -12,6 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "types": ["jest", "node", "@testing-library/jest-dom"],
     "incremental": true,
     "plugins": [
       {
@@ -26,6 +27,6 @@
       "@components/*": ["src/components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.config.js", "cypres/e2e/user-list.cy.js", "mocks/handlers.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.config.js", "cypres/e2e/user-list.cy.js", "mocks/handlers.ts", "__test__/post-api-test.js"],
   "exclude": ["node_modules"]
 }
