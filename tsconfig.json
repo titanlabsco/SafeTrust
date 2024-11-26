@@ -38,7 +38,8 @@
     "cypres/e2e/user-list.cy.js",
     "mocks/handlers.ts",
     "__test__/post-api-test.js",
-    "example.test.js"
+    "example.test.js",
+    "global.d.ts"
   ],
   "exclude": ["node_modules"]
 }
