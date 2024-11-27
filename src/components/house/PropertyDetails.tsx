@@ -4,7 +4,6 @@ import React from 'react';
 import { MdLocationOn } from 'react-icons/md';
 import { FaBed, FaPaw, FaBath } from 'react-icons/fa';
 import Loader from '@/layouts/Loader';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import usePropertyDetails from '@/hooks/house/usePropertyDetails';
 
@@ -108,7 +107,6 @@ const PropertyDetails: React.FC = () => {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-right" />
     </div>
   );
 };

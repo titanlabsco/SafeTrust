@@ -85,8 +85,6 @@ const Details: React.FC = () => {
         <p className="text-gray-700 text-sm mt-2">+506 6845-2179</p>
         <p className="text-gray-700 text-sm">albertoCasas100@gmail.com</p>
       </div>
-
-      <ToastContainer position="top-right" />
     </div>
   );
 };

@@ -35,7 +35,7 @@ const LoginForm = () => {
           Remember me
         </label>
         <a
-          href="/forgot-password"
+          href="/auth/ForgotPassword"
           className="text-sm text-orange-500 hover:underline"
         >
           Forgot your password?
