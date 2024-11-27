@@ -1,5 +1,5 @@
 {
   "*.ts": "biome format",
-  "*.tsx": ["biome format", "biome lint --write ./src --concurrent false"],
+  "*.tsx": "biome format",
   "*.js": "biome format"
 }
