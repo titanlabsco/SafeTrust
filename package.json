@@ -67,5 +67,10 @@
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.15",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

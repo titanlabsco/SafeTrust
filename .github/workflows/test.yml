@@ -1,13 +1,13 @@
-name: Test
+name: Test and Build
 
 on:
   push:
-    branches: [main]
+    branches: [test]
   pull_request:
-    branches: [main]
+    branches: [test]
 
 jobs:
-  test:
+  test-and-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,10 +18,17 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Format check
+        run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,json,css,md}"
+      - name: GraphQL Codegen
+        run: npm run codegen
       - name: Run Jest tests
         run: npm run test
       - name: Run E2E tests
         run: npm run test:e2e
+      - name: Build
+        run: npm run build
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
-
