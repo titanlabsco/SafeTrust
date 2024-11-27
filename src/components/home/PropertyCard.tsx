@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import { FaBed, FaBath, FaPaw } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
+import React from 'react';
+import Image from 'next/image';
+import { FaBed, FaBath, FaPaw } from 'react-icons/fa';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 interface PropertyCardProps {
   image: string;

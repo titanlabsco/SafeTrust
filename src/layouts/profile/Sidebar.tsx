@@ -1,5 +1,5 @@
-import React from "react";
-import { FaUser, FaHome, FaUsers } from "react-icons/fa";
+import React from 'react';
+import { FaUser, FaHome, FaUsers } from 'react-icons/fa';
 
 const Sidebar: React.FC = () => {
   return (

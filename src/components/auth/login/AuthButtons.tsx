@@ -1,5 +1,5 @@
-import { FcGoogle } from "react-icons/fc";
-import { FaWallet } from "react-icons/fa";
+import { FcGoogle } from 'react-icons/fc';
+import { FaWallet } from 'react-icons/fa';
 
 const AuthButtons = () => {
   return (

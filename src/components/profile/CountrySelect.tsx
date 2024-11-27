@@ -1,12 +1,12 @@
-import React from "react";
-import countryData from "@/hooks/countryData";
+import React from 'react';
+import countryData from '@/hooks/countryData';
 
 interface CountrySelectProps {
   defaultValue?: string;
 }
 
 const CountrySelect: React.FC<CountrySelectProps> = ({
-  defaultValue = "+506",
+  defaultValue = '+506',
 }) => {
   return (
     <select

@@ -1,8 +1,8 @@
-import axios from "axios";
-import { kit } from "@/wallet/walletKit";
-import { WalletNetwork } from "@creit.tech/stellar-wallets-kit";
-import { signTransaction } from "@stellar/freighter-api";
-import { handleAxiosError } from "@/utils/handleAxiosError";
+import axios from 'axios';
+import { kit } from '@/wallet/walletKit';
+import { WalletNetwork } from '@creit.tech/stellar-wallets-kit';
+import { signTransaction } from '@stellar/freighter-api';
+import { handleAxiosError } from '@/utils/handleAxiosError';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -16,7 +16,7 @@ export const cancelEscrow = async (payload: EscrowPayload) => {
   try {
     const response = await axios.post(
       `${API_URL}/escrow/cancel-escrow`,
-      payload,
+      payload
     );
     const { unsignedTransaction } = response.data;
     const { address } = await kit.getAddress();
@@ -29,7 +29,7 @@ export const cancelEscrow = async (payload: EscrowPayload) => {
       signedXdr: signedTxXdr,
     });
     const { data } = tx;
-    console.log("API Response:", data);
+    console.log('API Response:', data);
     return data;
   } catch (error) {
     handleAxiosError(error);

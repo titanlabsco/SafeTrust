@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { kit } from "@/wallet/walletKit";
-import { useBookReservation } from "@/hooks/escrow/useBookReservation";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { kit } from '@/wallet/walletKit';
+import { useBookReservation } from '@/hooks/escrow/useBookReservation';
 
 const usePropertyDetails = () => {
   const [address, setAddress] = useState<string | null>(null);
@@ -16,7 +16,7 @@ const usePropertyDetails = () => {
         const { address } = await kit.getAddress();
         setAddress(address);
       } catch (error) {
-        console.error("Error fetching wallet address:", error);
+        console.error('Error fetching wallet address:', error);
       }
     };
 
@@ -25,8 +25,8 @@ const usePropertyDetails = () => {
 
   useEffect(() => {
     if (isBooked && contractId && engagementId) {
-      localStorage.setItem("contractId", contractId);
-      localStorage.setItem("engagementId", engagementId);
+      localStorage.setItem('contractId', contractId);
+      localStorage.setItem('engagementId', engagementId);
 
       router.push(`/house/pending`);
     }

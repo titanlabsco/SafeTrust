@@ -1,5 +1,5 @@
-import React from "react";
-import { FaFilePdf } from "react-icons/fa";
+import React from 'react';
+import { FaFilePdf } from 'react-icons/fa';
 
 const Details: React.FC = () => {
   return (

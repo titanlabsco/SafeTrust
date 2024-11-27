@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useWalletStore } from "@/store/walletStore";
-import { FaUserCircle } from "react-icons/fa";
-import Link from "next/link";
+import { useWalletStore } from '@/store/walletStore';
+import { FaUserCircle } from 'react-icons/fa';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const { name } = useWalletStore();
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
 
       <div className="flex items-center space-x-[0.5rem]">
         <span className="text-gray-700 font-medium text-[1rem]">
-          {name || "Randall Valenciano"}
+          {name || 'Randall Valenciano'}
         </span>
         <Link href="/profile">
           <FaUserCircle size={24} className="text-gray-700 cursor-pointer" />

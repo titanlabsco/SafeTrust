@@ -1,47 +1,47 @@
-import React from "react";
-import { AiOutlineHeart } from "react-icons/ai";
+import React from 'react';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 const Sidebar: React.FC = () => {
   const suggestions = [
     {
       id: 1,
-      title: "Los Yoses",
-      address: "329 Calle Santos, Paseo Colón, San José",
-      details: "2bd - pet friendly · 1 ba",
-      price: "$4,000",
-      image: "/img/house1.jpg",
+      title: 'Los Yoses',
+      address: '329 Calle Santos, Paseo Colón, San José',
+      details: '2bd - pet friendly · 1 ba',
+      price: '$4,000',
+      image: '/img/house1.jpg',
     },
     {
       id: 2,
-      title: "Los Yoses",
-      address: "329 Calle Santos, Paseo Colón, San José",
-      details: "2bd - pet friendly · 1 ba",
-      price: "$4,000",
-      image: "/img/house1.jpg",
+      title: 'Los Yoses',
+      address: '329 Calle Santos, Paseo Colón, San José',
+      details: '2bd - pet friendly · 1 ba',
+      price: '$4,000',
+      image: '/img/house1.jpg',
     },
     {
       id: 3,
-      title: "Los Yoses",
-      address: "329 Calle Santos, Paseo Colón, San José",
-      details: "2bd - pet friendly · 1 ba",
-      price: "$4,000",
-      image: "/img/house1.jpg",
+      title: 'Los Yoses',
+      address: '329 Calle Santos, Paseo Colón, San José',
+      details: '2bd - pet friendly · 1 ba',
+      price: '$4,000',
+      image: '/img/house1.jpg',
     },
     {
       id: 4,
-      title: "Los Yoses",
-      address: "329 Calle Santos, Paseo Colón, San José",
-      details: "2bd - pet friendly · 1 ba",
-      price: "$4,000",
-      image: "/img/house1.jpg",
+      title: 'Los Yoses',
+      address: '329 Calle Santos, Paseo Colón, San José',
+      details: '2bd - pet friendly · 1 ba',
+      price: '$4,000',
+      image: '/img/house1.jpg',
     },
     {
       id: 5,
-      title: "Los Yoses",
-      address: "329 Calle Santos, Paseo Colón, San José",
-      details: "2bd - pet friendly · 1 ba",
-      price: "$4,000",
-      image: "/img/house1.jpg",
+      title: 'Los Yoses',
+      address: '329 Calle Santos, Paseo Colón, San José',
+      details: '2bd - pet friendly · 1 ba',
+      price: '$4,000',
+      image: '/img/house1.jpg',
     },
   ];
 

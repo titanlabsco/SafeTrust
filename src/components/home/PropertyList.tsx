@@ -1,46 +1,46 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { BsSortDownAlt } from "react-icons/bs";
-import PropertyCard from "./PropertyCard";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { BsSortDownAlt } from 'react-icons/bs';
+import PropertyCard from './PropertyCard';
 
 const properties = [
   {
-    image: "/img/house1.jpg",
-    title: "La sabana sur",
-    address: "329 Calle Curridabat, patio estación, San José",
-    price: "4058",
+    image: '/img/house1.jpg',
+    title: 'La sabana sur',
+    address: '329 Calle Curridabat, patio estación, San José',
+    price: '4058',
     promoted: true,
     beds: 2,
     baths: 1,
     petFriendly: true,
   },
   {
-    image: "/img/house1.jpg",
-    title: "La sabana sur",
-    address: "329 Calle Curridabat, patio estación, San José",
-    price: "4058",
+    image: '/img/house1.jpg',
+    title: 'La sabana sur',
+    address: '329 Calle Curridabat, patio estación, San José',
+    price: '4058',
     promoted: false,
     beds: 2,
     baths: 1,
     petFriendly: true,
   },
   {
-    image: "/img/house1.jpg",
-    title: "La sabana sur",
-    address: "329 Calle Curridabat, patio estación, San José",
-    price: "4058",
+    image: '/img/house1.jpg',
+    title: 'La sabana sur',
+    address: '329 Calle Curridabat, patio estación, San José',
+    price: '4058',
     promoted: false,
     beds: 2,
     baths: 1,
     petFriendly: true,
   },
   {
-    image: "/img/house1.jpg",
-    title: "La sabana sur",
-    address: "329 Calle Curridabat, patio estación, San José",
-    price: "4058",
+    image: '/img/house1.jpg',
+    title: 'La sabana sur',
+    address: '329 Calle Curridabat, patio estación, San José',
+    price: '4058',
     promoted: true,
     beds: 2,
     baths: 1,
@@ -50,11 +50,11 @@ const properties = [
 
 const PropertyList: React.FC = () => {
   const router = useRouter();
-  const [sortOption, setSortOption] = useState("Relevance");
+  const [sortOption, setSortOption] = useState('Relevance');
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCardClick = () => {
-    router.push("/house");
+    router.push('/house');
   };
 
   const toggleDropdown = () => {
@@ -71,7 +71,7 @@ const PropertyList: React.FC = () => {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-2xl text-black">
-            Available for rent in{" "}
+            Available for rent in{' '}
             <span className="text-black font-bold">Costa Rica, San José</span>
           </h2>
           <p className="text-gray-500">204 units available</p>
@@ -83,7 +83,7 @@ const PropertyList: React.FC = () => {
             className="flex items-center text-gray-500 text-sm focus:outline-none"
           >
             <BsSortDownAlt className="text-lg mr-2" />
-            Sort by:{" "}
+            Sort by:{' '}
             <span className="text-orange-500 cursor-pointer hover:underline ml-1">
               {sortOption}
             </span>
@@ -93,25 +93,25 @@ const PropertyList: React.FC = () => {
               <ul className="py-1">
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Relevance")}
+                  onClick={() => handleSortOptionChange('Relevance')}
                 >
                   Relevance
                 </li>
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Price (Low to High)")}
+                  onClick={() => handleSortOptionChange('Price (Low to High)')}
                 >
                   Price (Low to High)
                 </li>
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Price (High to Low)")}
+                  onClick={() => handleSortOptionChange('Price (High to Low)')}
                 >
                   Price (High to Low)
                 </li>
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Newest")}
+                  onClick={() => handleSortOptionChange('Newest')}
                 >
                   Newest
                 </li>

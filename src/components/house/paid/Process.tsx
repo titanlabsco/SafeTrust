@@ -1,19 +1,19 @@
-import React from "react";
-import { FaHome, FaMoneyBill, FaFileAlt, FaUsers } from "react-icons/fa";
+import React from 'react';
+import { FaHome, FaMoneyBill, FaFileAlt, FaUsers } from 'react-icons/fa';
 
 const Process: React.FC = () => {
   return (
     <div className="relative mt-4 ml-4">
       <div className="absolute w-0.5 bg-gray-300 h-full left-4"></div>
       {[
-        { icon: FaHome, color: "bg-green-500", text: "Step 1 description" },
+        { icon: FaHome, color: 'bg-green-500', text: 'Step 1 description' },
         {
           icon: FaMoneyBill,
-          color: "bg-green-500",
-          text: "Step 2 description",
+          color: 'bg-green-500',
+          text: 'Step 2 description',
         },
-        { icon: FaFileAlt, color: "bg-gray-400", text: "Step 3 description" },
-        { icon: FaUsers, color: "bg-gray-400", text: "Step 4 description" },
+        { icon: FaFileAlt, color: 'bg-gray-400', text: 'Step 3 description' },
+        { icon: FaUsers, color: 'bg-gray-400', text: 'Step 4 description' },
       ].map((step, index) => (
         <div key={index} className="flex items-center mb-6 gap-4 relative">
           <div

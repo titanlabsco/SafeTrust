@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React from "react";
-import { MdLocationOn } from "react-icons/md";
-import { FaBed, FaPaw, FaBath } from "react-icons/fa";
-import Loader from "@/layouts/Loader";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import usePropertyDetails from "@/hooks/house/usePropertyDetails";
+import React from 'react';
+import { MdLocationOn } from 'react-icons/md';
+import { FaBed, FaPaw, FaBath } from 'react-icons/fa';
+import Loader from '@/layouts/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import usePropertyDetails from '@/hooks/house/usePropertyDetails';
 
 const PropertyDetails: React.FC = () => {
   const { bookReservation, loadingBook, isBooked } = usePropertyDetails();
@@ -15,7 +15,7 @@ const PropertyDetails: React.FC = () => {
     try {
       await bookReservation();
     } catch (error) {
-      console.error("Error during booking:", error);
+      console.error('Error during booking:', error);
     }
   };
 
@@ -58,11 +58,11 @@ const PropertyDetails: React.FC = () => {
               <button
                 onClick={handleBook}
                 className={`bg-orange-500 text-white px-12 py-2 rounded-lg text-sm font-semibold hover:bg-orange-600 ${
-                  isBooked || loadingBook ? "opacity-50 cursor-not-allowed" : ""
+                  isBooked || loadingBook ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 disabled={isBooked || loadingBook}
               >
-                {loadingBook ? <Loader /> : isBooked ? "BOOKED" : "BOOK"}
+                {loadingBook ? <Loader /> : isBooked ? 'BOOKED' : 'BOOK'}
               </button>
             </div>
             <div className="flex justify-between items-center mt-4">

@@ -1,12 +1,12 @@
-"use client";
-import { HttpLink, ApolloLink } from "@apollo/client";
+'use client';
+import { HttpLink, ApolloLink } from '@apollo/client';
 import {
   ApolloClient,
   InMemoryCache,
-} from "@apollo/experimental-nextjs-app-support";
-import { setContext } from "@apollo/client/link/context";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { app } from "./firebase";
+} from '@apollo/experimental-nextjs-app-support';
+import { setContext } from '@apollo/client/link/context';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { app } from './firebase';
 
 const auth = getAuth(app);
 
@@ -34,7 +34,7 @@ async function getToken() {
 function makeClient() {
   const httpLink = new HttpLink({
     uri: process.env.NEXT_PUBLIC_APP_HASURA_ENDPOINT,
-    fetchOptions: { cache: "no-store" },
+    fetchOptions: { cache: 'no-store' },
   });
 
   const authLink = setContext(async (_, { headers }) => {
@@ -42,7 +42,7 @@ function makeClient() {
     return {
       headers: {
         ...headers,
-        Authorization: token ? `Bearer ${token}` : "",
+        Authorization: token ? `Bearer ${token}` : '',
       },
     };
   });

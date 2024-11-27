@@ -1,5 +1,5 @@
-import axios from "axios";
-import { handleAxiosError } from "@/utils/handleAxiosError";
+import axios from 'axios';
+import { handleAxiosError } from '@/utils/handleAxiosError';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -16,7 +16,7 @@ export const initializeEscrow = async (payload: EscrowPayload) => {
 
   try {
     const { data } = await axios.post(url, payload);
-    console.log("API Response:", data);
+    console.log('API Response:', data);
     return data;
   } catch (error) {
     handleAxiosError(error);
