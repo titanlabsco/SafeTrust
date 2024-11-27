@@ -24,11 +24,11 @@ jobs:
       #   run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,json,css,md}"
       # - name: GraphQL Codegen
       #   run: npm run codegen
+      - name: Build
+        run: npm run build
       - name: Run Jest tests
         run: npm run test
       - name: Run E2E tests
         run: npm run test:e2e:ci
-      - name: Build
-        run: npm run build
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
