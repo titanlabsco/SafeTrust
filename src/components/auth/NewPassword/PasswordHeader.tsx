@@ -24,4 +24,3 @@ export function PasswordHeader({ title, subtitle }: PasswordHeaderProps) {
     </div>
   );
 }
-

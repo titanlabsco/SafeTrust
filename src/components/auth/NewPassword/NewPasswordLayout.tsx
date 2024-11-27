@@ -13,4 +13,3 @@ export function NewPasswordLayout({ children }: NewPasswordLayoutProps) {
     </div>
   );
 }
-

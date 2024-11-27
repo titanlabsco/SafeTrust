@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "typeRoots": ["node_modules/@types", "src/@types"],
+    "typeRoots": ["node_modules/@types", "src/@types","node_modules/@testing-library"],
+    "types": ["jest", "node", "@testing-library/jest-dom"],
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -13,7 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "types": ["jest", "node", "@testing-library/jest-dom"],
     "incremental": true,
     "plugins": [
       {

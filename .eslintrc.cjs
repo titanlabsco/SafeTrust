@@ -6,6 +6,8 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
   ],
   ignorePatterns: [
     "dist",
@@ -15,9 +17,9 @@ module.exports = {
     "graphql.ts",
   ],
   parser: "@typescript-eslint/parser",
-  plugins: ["prettier"],
+  plugins: ["prettier", "js-dom"],
   rules: {
     "prettier/prettier": "error",
-    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };
