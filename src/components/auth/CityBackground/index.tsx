@@ -13,6 +13,6 @@ export const CityBackground: React.FC<Props> = ({ className }) => {
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
-    ></div>
+    />
   );
 };

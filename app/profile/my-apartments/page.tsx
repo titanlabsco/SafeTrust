@@ -7,7 +7,6 @@ const MyApartments: React.FC = () => {
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
       <Header />
-
       <section className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center w-full pt-16 px-6 sm:px-24 gap-4">
         <h1 className="text-[#000000] font-bold text-[28px] sm:text-[36px]">
           My apartments

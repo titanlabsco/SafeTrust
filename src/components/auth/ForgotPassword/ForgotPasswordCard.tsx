@@ -50,13 +50,16 @@ const ForgotPasswordCard: React.FC = () => {
             Forgot password?
           </h1>
           <p className="text-gray-500 text-center mt-2 text-sm md:text-base">
-            No worries, we'll send you a temporary password
+            No worries, we'll send you a temporary password\
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Email
             </label>
             <input

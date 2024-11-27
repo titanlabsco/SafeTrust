@@ -1,5 +1,5 @@
 import React from "react";
-import CountrySelect from "./CountrySelect";
+import CountrySelect from "@/components/profile/CountrySelect";
 
 const ProfileForm: React.FC = () => {
   return (
