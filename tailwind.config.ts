@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         "custom-dark": "#1A1D26",
         "custom-orange": "#F97316",
-        "custom-grey": "#656464"
+        "custom-grey": "#656464",
       },
     },
   },

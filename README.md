@@ -1,4 +1,3 @@
-
 # 🌟 SafeTrust 🌟
 
 **SafeTrust** is a decentralized platform designed to revolutionize P2P transactions, providing secure deposits and payments powered by blockchain and trustless technologies. 🌐✨ Experience transparency and reliability in every cryptocurrency transaction. 💸🔒
@@ -139,4 +138,3 @@ Check out our Figma design here: [SafeTrust Figma](https://www.figma.com/design/
 ---
 
 🌟 **Join SafeTrust today and revolutionize the way you manage P2P transactions!** 🌟
-
