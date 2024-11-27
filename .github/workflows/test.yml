@@ -27,7 +27,7 @@ jobs:
       - name: Run Jest tests
         run: npm run test
       - name: Run E2E tests
-        run: npm run test:e2e
+        run: npm run test:e2e:ci
       - name: Build
         run: npm run build
       - name: Upload coverage reports to Codecov
