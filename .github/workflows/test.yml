@@ -22,8 +22,8 @@ jobs:
       #   run: npm run lint
       # - name: Format check
       #   run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,json,css,md}"
-      - name: GraphQL Codegen
-        run: npm run codegen
+      # - name: GraphQL Codegen
+      #   run: npm run codegen
       - name: Run Jest tests
         run: npm run test
       - name: Run E2E tests
