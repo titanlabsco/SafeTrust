@@ -1,5 +1,5 @@
-import React from 'react';
-import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
+import React from "react";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 interface PaginationProps {
   currentPage: number;
@@ -23,11 +23,24 @@ const Pagination: React.FC<PaginationProps> = ({
       pages.push(1);
 
       if (currentPage <= 3) {
-        pages.push(2, 3, 4, '...', totalPages);
+        pages.push(2, 3, 4, "...", totalPages);
       } else if (currentPage >= totalPages - 2) {
-        pages.push('...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+        pages.push(
+          "...",
+          totalPages - 3,
+          totalPages - 2,
+          totalPages - 1,
+          totalPages,
+        );
       } else {
-        pages.push('...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+        pages.push(
+          "...",
+          currentPage - 1,
+          currentPage,
+          currentPage + 1,
+          "...",
+          totalPages,
+        );
       }
     }
 
@@ -35,7 +48,10 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <nav className="flex items-center justify-center space-x-1" aria-label="Pagination">
+    <nav
+      className="flex items-center justify-center space-x-1"
+      aria-label="Pagination"
+    >
       <button
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
@@ -45,28 +61,26 @@ const Pagination: React.FC<PaginationProps> = ({
         <IoChevronBack className="w-5 h-5" />
       </button>
 
-      {getPageNumbers().map((pageNumber, index) => (
-        pageNumber === '...' ? (
-          <span
-            key={`ellipsis-${index}`}
-            className="px-4 py-1 text-gray-700"
-          >
+      {getPageNumbers().map((pageNumber, index) =>
+        pageNumber === "..." ? (
+          <span key={`ellipsis-${index}`} className="px-4 py-1 text-gray-700">
             ...
           </span>
         ) : (
           <button
             key={pageNumber}
             onClick={() => onPageChange(pageNumber as number)}
-            className={`px-4 py-1 rounded-md border-2 ${currentPage === pageNumber
-                ? 'bg-custom-orange text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-              }`}
-            aria-current={currentPage === pageNumber ? 'page' : undefined}
+            className={`px-4 py-1 rounded-md border-2 ${
+              currentPage === pageNumber
+                ? "bg-custom-orange text-white"
+                : "text-gray-700 hover:bg-gray-100"
+            }`}
+            aria-current={currentPage === pageNumber ? "page" : undefined}
           >
             {pageNumber}
           </button>
-        )
-      ))}
+        ),
+      )}
 
       <button
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
