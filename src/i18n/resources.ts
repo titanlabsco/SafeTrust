@@ -119,6 +119,48 @@ const resources = {
           apartmentTwelve: "Lakeview Apartment",
         },
       },
+      interestedPeople: {
+        title: "The Sabana house",
+        subtitle: "Interested people",
+        address: "329 Santos Street, Colón Avenue, San José",
+        bed: "2 bd",
+        bathroom: "1 ba",
+        petFriendly: "Pet-friendly",
+        price: "Per month",
+        searchHolder: "Search anything...",
+
+        dateRange: {
+          default: "Date range",
+          rangeOne: "Today",
+          rangeTwo: "Last 7 days",
+          rangeThree: "Last 30 days",
+          rangeFour: "Last 90 days",
+          rangeFive: "Custom range",
+        },
+        filter: {
+          default: "All",
+          filterOne: "Pending",
+          filterTwo: "Accepted",
+          filterThree: "Rejected",
+        },
+        table: {
+          items: "Items per Page",
+          columnOne: "ID No",
+          columnTwo: "Name",
+          columnThree: "Phone",
+          columnFour: "Wallet",
+          columnFive: "Offer Date",
+          columnSix: "Status",
+          columnSeven: "Actions",
+          actionList: {
+            actionOne: "Accept",
+            actionTwo: "Reject",
+            actionThree: "Pend",
+            actionFour: "Edit",
+            actionFive: "Delete",
+          },
+        },
+      },
 
       common: {
         bed: "Bed",
