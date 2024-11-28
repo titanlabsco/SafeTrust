@@ -123,9 +123,6 @@ const resources = {
         title: "The Sabana house",
         subtitle: "Interested people",
         address: "329 Santos Street, Colón Avenue, San José",
-        bed: "2 bd",
-        bathroom: "1 ba",
-        petFriendly: "Pet-friendly",
         price: "Per month",
         searchHolder: "Search anything...",
 
@@ -164,7 +161,7 @@ const resources = {
 
       common: {
         bed: "Bed",
-        peth: "Pet-friendly",
+        pet: "Pet-friendly",
         bathroom: "Bathroom",
       },
 
@@ -298,9 +295,6 @@ const resources = {
         title: "Casa La Sabana",
         subtitle: "Personas interesadas",
         address: "329 Calle Santos, Paseo Colón, San José",
-        bed: "2 hab.",
-        bathroom: "1 baño",
-        petFriendly: "Acepta mascotas",
         price: "Por mes",
         searchHolder: "Buscar...",
       
@@ -339,7 +333,7 @@ const resources = {
 
       common: {
         bed: "Cama",
-        peth: "Apto para mascotas",
+        pet: "Apto para mascotas",
         bathroom: "Baño",
       },
 
