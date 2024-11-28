@@ -294,6 +294,49 @@ const resources = {
         },
       },
 
+      interestedPeople: {
+        title: "Casa La Sabana",
+        subtitle: "Personas interesadas",
+        address: "329 Calle Santos, Paseo Colón, San José",
+        bed: "2 hab.",
+        bathroom: "1 baño",
+        petFriendly: "Acepta mascotas",
+        price: "Por mes",
+        searchHolder: "Buscar...",
+      
+        dateRange: {
+          default: "Rango de fechas",
+          rangeOne: "Hoy",
+          rangeTwo: "Últimos 7 días",
+          rangeThree: "Últimos 30 días",
+          rangeFour: "Últimos 90 días",
+          rangeFive: "Rango personalizado",
+        },
+        filter: {
+          default: "Todos",
+          filterOne: "Pendientes",
+          filterTwo: "Aceptados",
+          filterThree: "Rechazados",
+        },
+        table: {
+          items: "Elementos por página",
+          columnOne: "ID No",
+          columnTwo: "Nombre",
+          columnThree: "Teléfono",
+          columnFour: "Billetera",
+          columnFive: "Fecha de la oferta",
+          columnSix: "Estado",
+          columnSeven: "Acciones",
+          actionList: {
+            actionOne: "Aceptar",
+            actionTwo: "Rechazar",
+            actionThree: "Pendiente",
+            actionFour: "Editar",
+            actionFive: "Eliminar",
+          },
+        },
+      },
+
       common: {
         bed: "Cama",
         peth: "Apto para mascotas",
