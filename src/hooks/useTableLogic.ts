@@ -8,16 +8,16 @@ interface UseTableLogicProps {
   initialItemsPerPage?: number;
 }
 
-export const useTableLogic = ({ 
+export const useTableLogic = ({
   initialData,
-  initialItemsPerPage = 2 
+  initialItemsPerPage = 2,
 }: UseTableLogicProps) => {
   // State
   const [filters, setFilters] = useState<FilterState>({
-    search: '',
-    dateRange: '',
-    status: '',
-    name: ''
+    search: "",
+    dateRange: "",
+    status: "",
+    name: "",
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(initialItemsPerPage);
@@ -42,15 +42,15 @@ export const useTableLogic = ({
 
   // Handlers
   const handleSearch = (searchTerm: string) => {
-    setFilters(prev => ({ ...prev, search: searchTerm, name: searchTerm }));
+    setFilters((prev) => ({ ...prev, search: searchTerm, name: searchTerm }));
   };
 
   const handleDateRangeChange = (range: string) => {
-    setFilters(prev => ({ ...prev, dateRange: range }));
+    setFilters((prev) => ({ ...prev, dateRange: range }));
   };
 
   const handleStatusChange = (status: string) => {
-    setFilters(prev => ({ ...prev, status: status }));
+    setFilters((prev) => ({ ...prev, status: status }));
   };
 
   const handleItemsPerPageChange = (newItemsPerPage: number) => {
@@ -62,11 +62,14 @@ export const useTableLogic = ({
     setCurrentPage(page);
   };
 
-  const handleStatusUpdate = (id: number, newStatus: "accepted" | "rejected" | "pending") => {
-    setTableData(prevData => 
-      prevData.map(item => 
-        item.id === id ? { ...item, status: newStatus } : item
-      )
+  const handleStatusUpdate = (
+    id: number,
+    newStatus: "accepted" | "rejected" | "pending",
+  ) => {
+    setTableData((prevData) =>
+      prevData.map((item) =>
+        item.id === id ? { ...item, status: newStatus } : item,
+      ),
     );
   };
 
@@ -107,6 +110,6 @@ export const useTableLogic = ({
     handleItemsPerPageChange,
     handlePageChange,
     handleActionClick,
-    handleStatusUpdate
+    handleStatusUpdate,
   };
 };
