@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  PiEye,
-  PiEyeBold,
-  PiEyeClosed,
-  PiEyeSlash,
-  PiEyeSlashBold,
-} from 'react-icons/pi';
+import { PiEye, PiEyeSlash } from 'react-icons/pi';
 
 interface PasswordInputProps {
   id: string;

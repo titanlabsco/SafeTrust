@@ -26,11 +26,9 @@ const TABLE_HEAD = [
 export function Table({
   data,
   onActionClick,
-  onStatusChange,
 }: {
   data: TableData[];
   onActionClick: (action: string, item: TableData) => void;
-  onStatusChange: (id: number, newStatus: 'accepted' | 'rejected') => void;
 }) {
   return (
     <Card className="w-full bg-transparent shadow-none" {...({} as any)}>

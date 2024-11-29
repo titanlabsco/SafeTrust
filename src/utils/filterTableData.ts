@@ -1,5 +1,5 @@
 import { TableData } from '@/@types/table';
-import { FilterState } from 'app/profile/interested-people/page';
+import { FilterState } from '@/@types/table';
 
 export const filterTableData = (data: TableData[], filters: FilterState) => {
   return data.filter((item) => {
