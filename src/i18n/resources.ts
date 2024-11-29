@@ -159,6 +159,16 @@ const resources = {
         },
       },
 
+      emailVerification:{
+        title:"Check your E-mail",
+        subTitle:"Please check your email and type the code sent to",
+        loadingMsg:"Loading...",
+        sendBtn:{
+          firstTitle:"Sending...",
+          secondTitle:"Resent code"
+        }
+      },
+
       common: {
         bed: "Bed",
         pet: "Pet-friendly",
@@ -329,6 +339,16 @@ const resources = {
             actionFive: "Eliminar",
           },
         },
+      },
+
+      emailVerification: {
+        title: "Revisa tu correo electrónico",
+        subTitle: "Por favor revisa tu correo electrónico e ingresa el código enviado a",
+        loadingMsg:"Cargando...",
+        sendBtn: {
+          firstTitle: "Enviando...",
+          secondTitle: "Código reenviado"
+        }
       },
 
       common: {
