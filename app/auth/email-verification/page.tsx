@@ -9,7 +9,7 @@ import { GraphQLClient } from "graphql-request";
 const EmailVerificationForm = () => {
   const [isResending, setIsResending] = useState(false);
   const searchParams = useSearchParams();
-  const email = searchParams.get("email") || "josuemarin2009@hotmail.com";
+  const email = searchParams.get("email") || "email.example@example.com";
   const graphQLClient = new GraphQLClient("http://localhost:8080/v1/graphql");
   const [message, setMessage] = useState<string>('');
   const [verificationCode, setVerificationCode] = useState<string>('');
