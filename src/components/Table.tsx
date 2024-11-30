@@ -12,14 +12,24 @@ import {
 } from "@material-tailwind/react"
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline"
 import { DataTableProps, TableData } from "@/@types/table";
-
-const TABLE_HEAD = ["ID No.", "Name", "Phone", "Wallet", "Offer date", "Status", "Actions"];
+import { useTranslation } from 'react-i18next';
 
 export function Table({ data, onActionClick, onStatusChange }: {
     data: TableData[];
     onActionClick: (action: string, item: TableData) => void;
     onStatusChange: (id: number, newStatus: "accepted" | "rejected") => void;
 }) {
+    const {t}=useTranslation();
+    const TABLE_HEAD = [
+        t("interestedPeople.table.columnOne"),
+        t("interestedPeople.table.columnTwo"),
+        t("interestedPeople.table.columnThree"),
+        t("interestedPeople.table.columnFour"),
+        t("interestedPeople.table.columnFive"),
+        t("interestedPeople.table.columnSix"),
+        t("interestedPeople.table.columnSeven"),
+      ];
+
     return (
         <Card className="w-full bg-transparent shadow-none" {...({} as any)}>
             <CardBody className="overflow-x-auto px-0" {...({} as any)}>
@@ -48,7 +58,7 @@ export function Table({ data, onActionClick, onStatusChange }: {
                         {data.length === 0 ? (
                             <tr>
                                 <td colSpan={TABLE_HEAD.length} className="p-4 text-center text-gray-500">
-                                    No data found
+                                  {t("interestedPeople.table.notFound")}
                                 </td>
                             </tr>
                         ) : (
@@ -95,7 +105,15 @@ export function Table({ data, onActionClick, onStatusChange }: {
                                                         } px-2  rounded-full`}
                                                     {...({} as any)}
                                                 >
-                                                    {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
+                                                 {
+                                                     item.status === "accepted" ? (
+                                                    <>{t("interestedPeople.filter.filterTwo")}</> 
+                                                     ) : item.status === "rejected" ? (
+                                                     <>{t("interestedPeople.filter.filterThree")}</> 
+                                                     ) : (
+                                                    <>{t("interestedPeople.filter.filterOne")}</> 
+                                                        )
+                                                    }
                                                 </Typography>
                                             </div>
                                         </td>
@@ -109,21 +127,23 @@ export function Table({ data, onActionClick, onStatusChange }: {
                                                     </MenuHandler>
                                                 </Tooltip>
                                                 <MenuList {...({} as any)}>
-                                                    <MenuItem onClick={() => onActionClick("accept", item)} {...({} as any)}>
-                                                        Accept
+                                                <MenuItem onClick={() => onActionClick("accept", item)} {...({} as any)}>
+                                                        {t("interestedPeople.table.actionList.actionOne")}
+                                                      
                                                     </MenuItem>
                                                     <MenuItem onClick={() => onActionClick("reject", item)} {...({} as any)}>
-                                                        Reject
+                                                    {t("interestedPeople.table.actionList.actionTwo")}
                                                     </MenuItem>
                                                     <MenuItem onClick={() => onActionClick("pend", item)} {...({} as any)}>
-                                                        Pend
+                                                    {t("interestedPeople.table.actionList.actionThree")}
                                                     </MenuItem>
                                                     <MenuItem onClick={() => onActionClick("edit", item)} {...({} as any)}>
-                                                        Edit
+                                                    {t("interestedPeople.table.actionList.actionFour")}
                                                     </MenuItem>
                                                     <MenuItem onClick={() => onActionClick("delete", item)} {...({} as any)}>
-                                                        Delete
+                                                    {t("interestedPeople.table.actionList.actionFive")}
                                                     </MenuItem>
+
                                                 </MenuList>
                                             </Menu>
                                         </td>

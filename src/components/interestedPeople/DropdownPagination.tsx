@@ -4,6 +4,7 @@ import { CgChevronDown } from 'react-icons/cg';
 import Pagination from '../Pagination';
 import { DropdownPaginationProps } from '@/@types/table';
 import { useDropdownPagination } from '@/hooks/profile/interested-people/useDropdownPagination';
+import { useTranslation } from 'react-i18next';
 
 
 const DropdownPagination: React.FC<DropdownPaginationProps> = ({
@@ -28,11 +29,11 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
         totalItems,
         onItemsPerPageChange
     });
-
+    const {t}=useTranslation();
     return (
         <div className="flex items-center justify-between mt-4 sm:mt-5">
             <p className="text-gray-700">
-                Showing {showing} of {totalItems}
+                {t("interestedPeople.table.title",{current:showing,total:totalItems})}
             </p>
             {paginationVisible && (
                 <Pagination
@@ -43,7 +44,7 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
             )}
             <div className="flex items-center gap-2">
                 <label htmlFor="itemsPerPage" className="text-gray-700">
-                    Items per page
+                   {t("interestedPeople.table.items")}
                 </label>
                 <div className="relative flex-1 sm:flex-none" ref={dropdownRef}>
                     <button

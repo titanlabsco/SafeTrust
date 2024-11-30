@@ -3,6 +3,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { LuBedDouble, LuBath } from "react-icons/lu";
 import { LiaPawSolid } from "react-icons/lia";
 import IconBadge from '../IconBadge';
+import { useTranslation } from "react-i18next";
 
 interface ApartmentDetailsProps {
     name: string
@@ -21,6 +22,7 @@ export function ApartmentDetails({
     petFriendly, 
     price 
 }: ApartmentDetailsProps) {
+    const {t}=useTranslation();
     return (
         <div className="w-full">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
@@ -31,7 +33,7 @@ export function ApartmentDetails({
                     </h1>
                 </div>
                 <span className="text-gray-400 text-sm md:text-base">
-                    Interested people
+                   {t("interestedPeople.subtitle")}
                 </span>
             </div>
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -43,18 +45,18 @@ export function ApartmentDetails({
                     
                     <div className="flex items-center">
                         <IconBadge Icon={LuBedDouble} />
-                        <span className="ml-1 text-sm md:text-base text-gray-600">{bedrooms} bd.</span>
+                        <span className="ml-1 text-sm md:text-base text-gray-600">{bedrooms} {t("common.bed")}</span>
                     </div>
                     
                     <div className="flex items-center">
                         <IconBadge Icon={LuBath} />
-                        <span className="ml-1 text-sm md:text-base text-gray-600">{bathrooms} ba.</span>
+                        <span className="ml-1 text-sm md:text-base text-gray-600">{bathrooms} {t("common.bathroom")}</span>
                     </div>
                     
                     {petFriendly && (
                         <div className="flex items-center">
                             <IconBadge Icon={LiaPawSolid} />
-                            <span className="ml-1 text-sm md:text-base text-gray-600">Pet friendly</span>
+                            <span className="ml-1 text-sm md:text-base text-gray-600"> {t("common.pet")}</span>
                         </div>
                     )}
                 </div>
@@ -63,7 +65,7 @@ export function ApartmentDetails({
                         ${price.toLocaleString()}
                     </span>
                     <span className="text-gray-500 text-sm md:text-base">
-                        Per month
+                    {t("interestedPeople.perMonth")}
                     </span>
                 </div>
             </div>
