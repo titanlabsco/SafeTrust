@@ -165,6 +165,11 @@ const resources = {
             actionFour: "Edit",
             actionFive: "Delete",
           },
+          state:{
+            stateOne:"Accept",
+            stateTwo:"Reject",
+            stateThree:"Pend"
+          }
         },
       },
 
@@ -355,6 +360,11 @@ const resources = {
             actionFour: "Editar",
             actionFive: "Eliminar",
           },
+          state:{
+            stateOne:"Aceptado",
+            stateTwo:"Rechazado",
+            stateThree:"Pendiente"
+          }
         },
       },
 

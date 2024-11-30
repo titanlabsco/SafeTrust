@@ -107,11 +107,11 @@ export function Table({ data, onActionClick, onStatusChange }: {
                                                 >
                                                  {
                                                      item.status === "accepted" ? (
-                                                    <>{t("interestedPeople.filter.filterTwo")}</> 
+                                                    <>{t("interestedPeople.table.state.stateOne")}</> 
                                                      ) : item.status === "rejected" ? (
-                                                     <>{t("interestedPeople.filter.filterThree")}</> 
+                                                     <>{t("interestedPeople.table.state.stateTwo")}</> 
                                                      ) : (
-                                                    <>{t("interestedPeople.filter.filterOne")}</> 
+                                                    <>{t("interestedPeople.table.state.stateThree")}</> 
                                                         )
                                                     }
                                                 </Typography>
