@@ -4,7 +4,7 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider } from "@material-tailwind/react";
-
+import '../src/i18n/config'
 export default function RootLayout({
   children,
 }: {
