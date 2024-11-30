@@ -1,5 +1,3 @@
 {
-  "*.ts": "biome format --write ./src",
-  "*.tsx": "biome format --write ./src",
-  "*.js": "biome format --write ./src"
+  "*.{ts,tsx,js,jsx}": "biome format --write"
 }
