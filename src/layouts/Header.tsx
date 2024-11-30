@@ -1,12 +1,13 @@
 "use client";
-
 import { useWalletStore } from "@/store/walletStore";
 import { FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
+import LanguageSwitcher from "@/components/language/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Header: React.FC = () => {
   const { name } = useWalletStore();
-
+  const {t} = useTranslation();
   return (
     <nav className="flex justify-between items-center bg-white py-[1rem] px-[2rem] shadow-md">
       <Link href="/" className="flex items-center space-x-[0.5rem]">
@@ -19,12 +20,12 @@ const Header: React.FC = () => {
 
       <div className="flex items-center bg-gray-200 rounded-full px-[0.7rem] py-[0.4rem] w-[45%]">
         <select className="bg-white border border-gray-300 text-gray-700 text-[1rem] rounded-full px-[0.8rem] py-[0.3rem] focus:outline-none">
-          <option>Rent</option>
-          <option>Buy</option>
+          <option>{t("navBar.rent")}</option>
+          <option>{t("navBar.buy")}</option>
         </select>
         <input
           type="text"
-          placeholder="City, province or neighborhood"
+          placeholder={t("navBar.searchPlaceHolder")}
           className="bg-transparent w-full text-[1rem] text-gray-700 placeholder-gray-500 px-[0.8rem] focus:outline-none"
         />
         <button>
@@ -44,7 +45,7 @@ const Header: React.FC = () => {
           </svg>
         </button>
       </div>
-
+<LanguageSwitcher></LanguageSwitcher>
       <div className="flex items-center space-x-[0.5rem]">
         <span className="text-gray-700 font-medium text-[1rem]">
           {name || "Randall Valenciano"}
