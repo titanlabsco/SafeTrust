@@ -97,7 +97,7 @@ const resources = {
         },
 
         table: {
-          title: "Showing {current} of {total}",
+          title: "Showing {{current}} of {{total}}",
           items: "Items per page",
           columnOne: "ID No",
           columnTwo: "Apartment Name",
@@ -226,8 +226,8 @@ const resources = {
         propertyCard: {
           promo: "Promocionado",
           perMonth: "Por mes",
-          title: "La Savanna del sur",
-          address: "329 Calle Curridabat, patio de estación, San José", //cambiar ese patio
+          title: "La Sabana del sur",
+          address: "329 Calle Curridabat, patio de estación, San José",
         },
       },
 
@@ -288,7 +288,7 @@ const resources = {
         },
 
         table: {
-          title: "Mostrando {current} de {total}",
+          title: "Mostrando {{current}} de {{total}}",
           items: "Elementos por página",
           rowOne: "ID No",
           columnTwo: "Nombre del apartamento",
