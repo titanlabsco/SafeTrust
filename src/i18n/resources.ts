@@ -193,6 +193,9 @@ const resources = {
         es: "Spanish",
         en: "English",
       },
+      toast:{
+        walletError:"Please connect your wallet first"
+      }
     },
   },
 
@@ -388,6 +391,9 @@ const resources = {
         es: "Español",
         en: "Inglés",
       },
+      toast:{
+        walletError:"Por favor conecta tu billetera primero"
+      }
     },
   },
 };
