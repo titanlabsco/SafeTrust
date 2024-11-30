@@ -22,7 +22,7 @@ const PaidStateBidRequest: React.FC = () => {
           {/* Notas y Proceso */}
           <div className="col-span-4">
             <div className="bg-white shadow rounded p-4 mb-6">
-              <h3 className="text-lg font-bold text-black">Notes</h3>
+              {/* Aquí se elimina el encabezado redundante */}
               <Notes />
             </div>
             <div className="bg-white shadow rounded p-4">
