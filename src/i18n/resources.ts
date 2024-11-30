@@ -17,7 +17,8 @@ const resources = {
       },
 
       propertyList: {
-        title: "Available for rent in Costa Rica, San José",
+        title: "Available for rent in ",
+        subtitle:"Costa Rica, San José",
         unitsAvailable: "204 units available",
         filterOne: "All apartments",
         filterTwo: "1 bedroom",
@@ -59,24 +60,28 @@ const resources = {
           address: "329 Santos Street, Colon Walk, San José",
         },
       },
-
       profile: {
-        profileTitle: "Edit profile",
+        title: "Edit profile",
         sideTitle: "General",
-        account: "account",
+        account: "Account",
         sideSecondTitle: "Other",
         apartments: "Apartments",
         offers: "Offers",
-
+        summaryHolder:"Summary",
+        nameHolder:"First Name",
+        SurnameHolder:"Surnames",
+        phoneHolder:"Phone",
+        LocationHolder:"Location",
+    
         overView: {
-          title: "Account overview",
-          date: "Creation date",
-          WalletAddress: "Wallet address",
-          email: "Email",
-          action: "Action",
-          saveBtn: "Save changes",
-        },
-      },
+            title: "Account overview",
+            date: "Creation date",
+            walletAddress: "Wallet address",
+            email: "Email",
+            action: "Action",
+            saveBtn: "Save changes",
+        }
+    },
 
       myApartments: {
         title: "My apartments",
@@ -102,6 +107,7 @@ const resources = {
           columnSix: "Promoted",
           columnSeven: "Price",
           columnEight: "Actions",
+          
         },
 
         apartmentNames: {
@@ -119,11 +125,12 @@ const resources = {
           apartmentTwelve: "Lakeview Apartment",
         },
       },
+      
       interestedPeople: {
         title: "The Sabana house",
         subtitle: "Interested people",
         address: "329 Santos Street, Colón Avenue, San José",
-        price: "Per month",
+        perMonth: "Per month",
         searchHolder: "Search anything...",
 
         dateRange: {
@@ -141,6 +148,8 @@ const resources = {
           filterThree: "Rejected",
         },
         table: {
+          title: "Showing {{current}} of {{total}}",
+          notFound:"No data found",
           items: "Items per Page",
           columnOne: "ID No",
           columnTwo: "Name",
@@ -170,9 +179,9 @@ const resources = {
       },
 
       common: {
-        bed: "Bed",
+        bed: "bd",
         pet: "Pet-friendly",
-        bathroom: "Bathroom",
+        bathroom: "ba",
       },
 
       languageBtn: {
@@ -198,7 +207,8 @@ const resources = {
       },
 
       propertyList: {
-        title: "Disponible para rentar en Costa Rica, San José",
+        title: "Disponible para rentar en",
+        subtitle:"Costa Rica, San José",
         unitsAvailable: "204 unidades disponibles",
         filterOne: "Todos los apartamentos",
         filterTwo: "1 baño",
@@ -217,7 +227,7 @@ const resources = {
           promo: "Promocionado",
           perMonth: "Por mes",
           title: "La Savanna del sur",
-          address: "329 Calle Curridabat, patio estación, San José", //cambiar ese patio
+          address: "329 Calle Curridabat, patio de estación, San José", //cambiar ese patio
         },
       },
 
@@ -242,22 +252,27 @@ const resources = {
       },
 
       profile: {
-        profileTitle: "Editar perfil",
+        title: "Editar perfil",
         sideTitle: "General",
         account: "Cuenta",
         sideSecondTitle: "Otros",
         apartments: "Apartamentos",
         offers: "Ofertas",
-
+        summaryHolder: "Resumen",
+        nameHolder: "Nombre",
+        SurnameHolder: "Apellidos",
+        phoneHolder: "Teléfono",
+        LocationHolder: "Ubicación",
+        
         overView: {
-          title: "Account overview",
-          date: "Fecha de creación",
-          WalletAddress: "Dirección de billetera",
-          email: "Correo",
-          action: "Acción",
-          saveBtn: "Guardar cambios",
-        },
-      },
+            title: "Resumen de cuenta",
+            date: "Fecha de creación",
+            walletAddress: "Dirección de billetera",
+            email: "Correo electrónico",
+            action: "Acción",
+            saveBtn: "Guardar cambios",
+        }
+    },
 
       myApartments: {
         title: "Mis apartamentos",
@@ -305,7 +320,7 @@ const resources = {
         title: "Casa La Sabana",
         subtitle: "Personas interesadas",
         address: "329 Calle Santos, Paseo Colón, San José",
-        price: "Por mes",
+        perMonth:"Por mes",
         searchHolder: "Buscar...",
       
         dateRange: {
@@ -323,6 +338,8 @@ const resources = {
           filterThree: "Rechazados",
         },
         table: {
+          title: "Mostrando {{current}} de {{total}}",
+          notFound:"No hay datos",
           items: "Elementos por página",
           columnOne: "ID No",
           columnTwo: "Nombre",
@@ -352,9 +369,9 @@ const resources = {
       },
 
       common: {
-        bed: "Cama",
+        bed: "cm",
         pet: "Apto para mascotas",
-        bathroom: "Baño",
+        bathroom: "bñ",
       },
 
       languageBtn: {
