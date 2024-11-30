@@ -41,8 +41,8 @@
     "@graphql-codegen/typescript": "^4.1.1",
     "@graphql-codegen/typescript-operations": "^4.3.1",
     "@graphql-codegen/typescript-react-apollo": "^4.3.2",
-    "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/node": "20.17.7",
+    "@types/react": "18.3.12",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
     "autoprefixer": "^10.4.20",
@@ -53,6 +53,6 @@
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5"
+    "typescript": "5.7.2"
   }
 }
