@@ -177,6 +177,9 @@ const resources = {
         title:"Check your E-mail",
         subTitle:"Please check your email and type the code sent to",
         loadingMsg:"Loading...",
+        successEmail:"Email verified successfully.",
+        verificationMsg:"Please enter the verification code.",
+        errorMsg: "Failed to resend verification code.", 
         sendBtn:{
           firstTitle:"Sending...",
           secondTitle:"Resent code"
@@ -375,6 +378,9 @@ const resources = {
         title: "Revisa tu correo electrónico",
         subTitle: "Por favor revisa tu correo electrónico e ingresa el código enviado a",
         loadingMsg:"Cargando...",
+        successEmail: "Correo verificado con éxito.",
+        verificationMsg: "Por favor, introduce el código de verificación.",
+        errorMsg: "Error al reenvíar el código de verificación.",
         sendBtn: {
           firstTitle: "Enviando...",
           secondTitle: "Código reenviado"
