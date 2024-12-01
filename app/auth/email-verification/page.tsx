@@ -1,26 +1,109 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect} from "react";
 import { useSearchParams } from "next/navigation";
 import { VerificationCodeInput } from "../../../src/components/auth/VerificationCodeInput";
 import { CityBackground } from "../../../src/components/auth/CityBackground";
+import { GraphQLClient } from "graphql-request";
 
 const EmailVerificationForm = () => {
   const [isResending, setIsResending] = useState(false);
   const searchParams = useSearchParams();
-  const email = searchParams.get("email") || "your-email@example.com";
+  const email = searchParams.get("email") || "josuemarin2009@hotmail.com";
+  const graphQLClient = new GraphQLClient("http://localhost:8080/v1/graphql", {
+    headers: {
+      "x-hasura-admin-secret": "myadminsecretkey", 
+    },
+  });
+  
+  const [message, setMessage] = useState<string>('');
+  const [verificationCode, setVerificationCode] = useState<string>('');
+
+  type SendVerificationCodeResponse = {
+    sendVerificationCode: {
+      success: boolean;
+      message: string;
+      expiresAt: string;
+    };
+  };  
 
   const handleResendCode = async () => {
     setIsResending(true);
+    setMessage('');  
+  
     try {
-      console.log("Resending code to:", email);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const mutation = `
+        mutation SendVerificationCode($email: String!) {
+          sendVerificationCode(input: { email: $email }) {
+            success
+            message
+            expiresAt
+          }
+        }
+      `;
+      const variables = { email };
+  
+      const data = await graphQLClient.request<SendVerificationCodeResponse>(mutation, variables);
+  
+      if (data.sendVerificationCode.success) {
+        setMessage("Verification code sent successfully.");
+      } else {
+        setMessage(data.sendVerificationCode.message || "An error occurred.");
+      }
     } catch (error) {
       console.error("Error resending code:", error);
+      setMessage("Failed to resend verification code.");
     } finally {
       setIsResending(false);
     }
   };
+  
+  useEffect(() => {
+    if (verificationCode) {
+      handleVerifyCode(); 
+    }
+  }, [verificationCode]);  
+  
+
+  type VerifyEmailCodeResponse = {
+    verifyEmailCode: {
+      success: boolean;
+      message: string;
+    };
+  };
+  
+  const handleVerifyCode = async () => {
+    if (!verificationCode) {
+        setMessage("Please enter the verification code.");
+        return;
+    }
+
+    setMessage(''); 
+
+    try {
+        const mutation = `
+            mutation VerifyEmailCode($email: String!, $code: String!) {
+                verifyEmailCode(input: { email: $email, code: $code }) {
+                    success
+                    message
+                }
+            }
+        `;
+        const variables = { email, code: verificationCode };
+
+        const data = await graphQLClient.request<VerifyEmailCodeResponse>(mutation, variables);
+
+        console.log(data);
+
+        if (data.verifyEmailCode.success) {
+            setMessage("Email verified successfully.");
+        }
+    } catch (error: any) {
+
+      setMessage(error.response.errors[0].message);
+      console.log(error.response.errors[0].message);
+    }
+};
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
@@ -33,8 +116,16 @@ const EmailVerificationForm = () => {
           </p>
           <VerificationCodeInput
             length={6}
-            onComplete={(code) => console.log("Code entered:", code)}
+            onComplete={(code) => {
+              setVerificationCode(code);
+            }}
           />
+
+          {/* Message here */}
+        {message && (
+          <p className="text-lg font-medium text-black-250 mt-4">{message}</p>
+        )}
+
           <button
             onClick={handleResendCode}
             disabled={isResending}
