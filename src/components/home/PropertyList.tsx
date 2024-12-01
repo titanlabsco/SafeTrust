@@ -70,17 +70,19 @@ const PropertyList: React.FC = () => {
     <div className="px-12 py-8">
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h2 className="text-2xl text-black">
+          <h2 className="text-2xl text-gray-900 dark:text-gray-100">
             Available for rent in{" "}
-            <span className="text-black font-bold">Costa Rica, San José</span>
+            <span className="text-gray-900 dark:text-white font-bold">
+              Costa Rica, San José
+            </span>
           </h2>
-          <p className="text-gray-500">204 units available</p>
+          <p className="text-gray-500 dark:text-gray-400">204 units available</p>
         </div>
 
         <div className="relative">
           <button
             onClick={toggleDropdown}
-            className="flex items-center text-gray-500 text-sm focus:outline-none"
+            className="flex items-center text-gray-500 dark:text-gray-400 text-sm focus:outline-none"
           >
             <BsSortDownAlt className="text-lg mr-2" />
             Sort by:{" "}
@@ -89,32 +91,19 @@ const PropertyList: React.FC = () => {
             </span>
           </button>
           {dropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+            <div className="absolute right-0 mt-2 w-48 bg-light-primary dark:bg-dark-surface border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-10">
               <ul className="py-1">
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Relevance")}
-                >
-                  Relevance
-                </li>
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Price (Low to High)")}
-                >
-                  Price (Low to High)
-                </li>
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Price (High to Low)")}
-                >
-                  Price (High to Low)
-                </li>
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange("Newest")}
-                >
-                  Newest
-                </li>
+                {["Relevance", "Price (Low to High)", "Price (High to Low)", "Newest"].map(
+                  (option) => (
+                    <li
+                      key={option}
+                      className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                      onClick={() => handleSortOptionChange(option)}
+                    >
+                      {option}
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           )}
@@ -122,18 +111,14 @@ const PropertyList: React.FC = () => {
       </div>
 
       <div className="flex space-x-2 mb-8">
-        <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          All apartments
-        </button>
-        <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          1 bedroom
-        </button>
-        <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          2 bedrooms
-        </button>
-        <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          3 bedrooms
-        </button>
+        {["All apartments", "1 bedroom", "2 bedrooms", "3 bedrooms"].map((filter) => (
+          <button
+            key={filter}
+            className="px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            {filter}
+          </button>
+        ))}
       </div>
 
       <div className="grid grid-cols-3 gap-6">
@@ -141,18 +126,9 @@ const PropertyList: React.FC = () => {
           <div
             key={index}
             onClick={handleCardClick}
-            className="transform transition-transform hover:scale-105 hover:shadow-lg duration-300 ease-in-out cursor-pointer"
+            className="transform transition-transform hover:scale-105 hover:shadow-lg dark:hover:shadow-gray-900 duration-300 ease-in-out cursor-pointer"
           >
-            <PropertyCard
-              image={property.image}
-              title={property.title}
-              address={property.address}
-              price={property.price}
-              promoted={property.promoted}
-              beds={property.beds}
-              baths={property.baths}
-              petFriendly={property.petFriendly}
-            />
+            <PropertyCard {...property} />
           </div>
         ))}
       </div>

@@ -25,7 +25,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   petFriendly,
 }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden border">
+    <div className="bg-light-primary dark:bg-dark-surface2 shadow-md dark:shadow-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
       <div className="relative">
         <Image
           src={image}
@@ -42,14 +42,14 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
       </div>
       <div className="p-4">
         <div className="flex items-center justify-between">
-          <p className="text-green-600 font-bold text-lg">${price}.00</p>
-          <AiOutlineHeart className="text-gray-400 text-xl cursor-pointer hover:text-red-500" />
+          <p className="text-green-600 dark:text-green-400 font-bold text-lg">${price}.00</p>
+          <AiOutlineHeart className="text-gray-400 dark:text-gray-500 text-xl cursor-pointer hover:text-red-500 dark:hover:text-red-400" />
         </div>
-        <p className="text-gray-500 text-sm">Per month</p>
-        <h3 className="text-gray-900 font-semibold mt-2">{title}</h3>
-        <p className="text-gray-600 text-sm">{address}</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm">Per month</p>
+        <h3 className="text-gray-900 dark:text-gray-100 font-semibold mt-2">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 text-sm">{address}</p>
       </div>
-      <div className="p-4 border-t flex justify-between items-center text-gray-600 text-sm">
+      <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center text-gray-600 dark:text-gray-300 text-sm">
         <div className="flex items-center">
           <FaBed className="mr-1" />
           <span>{beds} bd</span>

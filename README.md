@@ -53,27 +53,33 @@ Ensures funds are automatically released based on the terms of the agreement, wi
 
 1️⃣ Clone the repository:
 
-\`\`\`bash
+```
 git clone https://github.com/titanlabsco/SafeTrust.git
-\`\`\`
+```
 
 2️⃣ Navigate to the project directory:
 
-\`\`\`bash
+```
 cd SafeTrust/Frontend/Application
-\`\`\`
+```
 
 3️⃣ Set up environment variables:
 
-\`\`\`bash
+```
 echo "NEXT_PUBLIC_API_URL=https://api.trustlesswork.com" > .env
-\`\`\`
+```
 
-4️⃣ Start the development server:
+4️⃣ Install dependencies:
 
-\`\`\`bash
+```
+npm install
+```
+
+5️⃣ Start the development server:
+
+```
 npm run dev
-\`\`\`
+```
 
 ---
 
@@ -89,7 +95,8 @@ npm run dev
 
 ## 🛠️ **Tech Stack**
 
-- **Frontend**: 🧑‍💻 Built with **TypeScript** and styled using **Tailwind CSS** for rapid UI development.
+- **Frontend**:  🧑‍💻 Built with **TypeScript** and styled using **Tailwind CSS** for rapid UI development.
+  - The application supports both light and dark themes. When creating new UI components, ensure to include dark mode variants (`dark:`) for colors and styles.
 - **Blockchain**: 🛡️ Utilizes smart contracts for secure, immutable transactions.
 - **API Integration**: 🌐 Interacts with the Trustless Work API for seamless escrow management.
 - **Wallet Integration**: 🪙 Compatible with wallets like Albedo for secure payment handling.
