@@ -7,12 +7,12 @@ import AccountOverview from "@/components/profile/AccountOverview";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="bg-gray-50 dark:bg-dark-surface min-h-screen flex flex-col">
       <Header />
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-5xl mx-auto mt-8 flex h-full">
+      <div className="bg-white dark:bg-dark-surface2 shadow-lg dark:shadow-gray-900 rounded-lg p-8 w-full max-w-5xl mx-auto mt-8 flex h-full">
         <Sidebar />
         <div className="w-3/4 pl-8 overflow-hidden">
-          <h1 className="text-2xl font-semibold mb-6 text-black">
+          <h1 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
             Edit profile
           </h1>
           <div className="flex items-center gap-6 mb-6">
@@ -20,14 +20,14 @@ const Home: React.FC = () => {
             <textarea
               placeholder="Summary"
               defaultValue="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-              className="border border-gray-300 rounded-lg p-4 w-full text-black"
+              className="border border-gray-300 dark:border-gray-700 rounded-lg p-4 w-full text-gray-900 dark:text-gray-100 bg-white dark:bg-dark-surface placeholder-gray-500 dark:placeholder-gray-400"
               rows={3}
             />
           </div>
           <ProfileForm />
           <AccountOverview />
           <div className="text-right">
-            <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
+            <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
               Save changes
             </button>
           </div>

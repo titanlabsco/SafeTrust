@@ -5,7 +5,7 @@ import Sidebar from "@/layouts/Sidebar";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-100 dark:bg-dark-background min-h-screen">
       <Header />
       <div className="flex">
         <Sidebar />
