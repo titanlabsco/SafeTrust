@@ -1,18 +1,19 @@
-"use client"
-import React from 'react';
-import { FiSearch, FiCalendar, FiTag } from 'react-icons/fi';
+"use client";
+import React from "react";
+import { FiSearch, FiCalendar, FiTag } from "react-icons/fi";
 import { CgChevronDown } from "react-icons/cg";
 import { SearchAndFilterProps } from '@/@types/table';
 import { useSearchAndFilter } from '@/hooks/profile/interested-people/useSearchAndFilter';
 import { useTranslation } from 'react-i18next';
 
 export default function SearchAndFilter({
-    onSearch,
-    onDateRangeChange,
-    onStatusChange,
-    selectedDateRange,
-    selectedStatus
+  onSearch,
+  onDateRangeChange,
+  onStatusChange,
+  selectedDateRange,
+  selectedStatus,
 }: SearchAndFilterProps) {
+ 
     const {
         dateRangeOpen,
         statusOpen,
@@ -58,68 +59,68 @@ export default function SearchAndFilter({
                              bg-white border border-gray-300 rounded-full shadow-sm
                              focus:border-custom-orange focus:outline-none focus:ring-1 focus:ring-custom-orange
                              transition-colors duration-200"
-                />
-            </div>
+        />
+      </div>
 
-            <div className="flex flex-row gap-2 sm:gap-3">
-                <div className="relative flex-1 sm:flex-none" ref={dateRef}>
-                    <button
-                        onClick={toggleDateRange}
-                        className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
+      <div className="flex flex-row gap-2 sm:gap-3">
+        <div className="relative flex-1 sm:flex-none" ref={dateRef}>
+          <button
+            onClick={toggleDateRange}
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
                                  transition-colors duration-200"
-                    >
-                        <FiCalendar className="w-4 h-4" />
-                        <span className="inline">{getSelectedDateRangeLabel()}</span>
-                        <CgChevronDown className="w-4 h-4" />
-                    </button>
-                    {dateRangeOpen && (
-                        <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
-                            {dateRangeOptions.map((option) => (
-                                <li key={option.value}>
-                                    <button
-                                        className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
-                                                  transition-colors duration-150 ${selectedDateRange === option.value ? 'bg-gray-100' : ''}`}
-                                        onClick={() => handleDateRangeChange(option.value)}
-                                    >
-                                        {option.label}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
-
-                <div className="relative flex-1 sm:flex-none" ref={statusRef}>
-                    <button
-                        onClick={toggleStatus}
-                        className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
-                                 text-gray-700 bg-white border border-gray-300 rounded-lg 
-                                 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
-                                 transition-colors duration-200"
-                    >
-                        <FiTag className="w-4 h-4" />
-                        <span className="inline">{getSelectedStatusLabel()}</span>
-                        <CgChevronDown className="w-4 h-4" />
-                    </button>
-                    {statusOpen && (
-                        <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
-                            {statusOptions.map((option) => (
-                                <li key={option.value}>
-                                    <button
-                                        className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
-                                                  transition-colors duration-150 ${selectedStatus === option.value ? 'bg-gray-100' : ''}`}
-                                        onClick={() => handleStatusChange(option.value)}
-                                    >
-                                        {option.label}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
-            </div>
+          >
+            <FiCalendar className="w-4 h-4" />
+            <span className="inline">{getSelectedDateRangeLabel()}</span>
+            <CgChevronDown className="w-4 h-4" />
+          </button>
+          {dateRangeOpen && (
+            <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+              {dateRangeOptions.map((option) => (
+                <li key={option.value}>
+                  <button
+                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
+                                                  transition-colors duration-150 ${selectedDateRange === option.value ? "bg-gray-100" : ""}`}
+                    onClick={() => handleDateRangeChange(option.value)}
+                  >
+                    {option.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-    );
+
+        <div className="relative flex-1 sm:flex-none" ref={statusRef}>
+          <button
+            onClick={toggleStatus}
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
+                                 text-gray-700 bg-white border border-gray-300 rounded-lg 
+                                 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
+                                 transition-colors duration-200"
+          >
+            <FiTag className="w-4 h-4" />
+            <span className="inline">{getSelectedStatusLabel()}</span>
+            <CgChevronDown className="w-4 h-4" />
+          </button>
+          {statusOpen && (
+            <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+              {statusOptions.map((option) => (
+                <li key={option.value}>
+                  <button
+                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
+                                                  transition-colors duration-150 ${selectedStatus === option.value ? "bg-gray-100" : ""}`}
+                    onClick={() => handleStatusChange(option.value)}
+                  >
+                    {option.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }

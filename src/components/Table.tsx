@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
     Card,
     Typography,
@@ -14,10 +14,12 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline"
 import { DataTableProps, TableData } from "@/@types/table";
 import { useTranslation } from 'react-i18next';
 
-export function Table({ data, onActionClick, onStatusChange }: {
-    data: TableData[];
-    onActionClick: (action: string, item: TableData) => void;
-    onStatusChange: (id: number, newStatus: "accepted" | "rejected") => void;
+export function Table({
+  data,
+  onActionClick,
+}: {
+  data: TableData[];
+  onActionClick: (action: string, item: TableData) => void;
 }) {
     const {t}=useTranslation();
     const TABLE_HEAD = [
@@ -157,4 +159,3 @@ export function Table({ data, onActionClick, onStatusChange }: {
         </Card>
     )
 }
-

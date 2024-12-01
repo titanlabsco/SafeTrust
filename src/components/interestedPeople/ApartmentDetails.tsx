@@ -6,22 +6,23 @@ import IconBadge from '../IconBadge';
 import { useTranslation } from "react-i18next";
 
 interface ApartmentDetailsProps {
-    name: string
-    location: string
-    bedrooms: number
-    bathrooms: number
-    petFriendly: boolean
-    price: number
+  name: string;
+  location: string;
+  bedrooms: number;
+  bathrooms: number;
+  petFriendly: boolean;
+  price: number;
 }
 
-export function ApartmentDetails({ 
-    name, 
-    location, 
-    bedrooms, 
-    bathrooms, 
-    petFriendly, 
-    price 
+export function ApartmentDetails({
+  name,
+  location,
+  bedrooms,
+  bathrooms,
+  petFriendly,
+  price,
 }: ApartmentDetailsProps) {
+
     const {t}=useTranslation();
     return (
         <div className="w-full">
@@ -70,7 +71,7 @@ export function ApartmentDetails({
                 </div>
             </div>
         </div>
-    );
+  );
 }
 
 export default ApartmentDetails;

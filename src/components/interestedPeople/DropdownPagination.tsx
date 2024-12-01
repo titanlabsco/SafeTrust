@@ -6,29 +6,28 @@ import { DropdownPaginationProps } from '@/@types/table';
 import { useDropdownPagination } from '@/hooks/profile/interested-people/useDropdownPagination';
 import { useTranslation } from 'react-i18next';
 
-
 const DropdownPagination: React.FC<DropdownPaginationProps> = ({
-    paginationVisible,
+  paginationVisible,
+  currentPage,
+  totalPages,
+  itemsPerPage,
+  totalItems,
+  onItemsPerPageChange,
+  onPageChange,
+}) => {
+  //Custom hook for DropdownPagination
+  const {
+    dropdownOpen,
+    dropdownRef,
+    showing,
+    handleItemsPerPageChange,
+    toggleDropdown,
+  } = useDropdownPagination({
     currentPage,
-    totalPages,
     itemsPerPage,
     totalItems,
     onItemsPerPageChange,
-    onPageChange
-}) => {
-    //Custom hook for DropdownPagination
-    const {
-        dropdownOpen,
-        dropdownRef,
-        showing,
-        handleItemsPerPageChange,
-        toggleDropdown
-    } = useDropdownPagination({
-        currentPage,
-        itemsPerPage,
-        totalItems,
-        onItemsPerPageChange
-    });
+  });
     const {t}=useTranslation();
     return (
         <div className="flex items-center justify-between mt-4 sm:mt-5">
@@ -53,29 +52,29 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
                                  transition-colors duration-200"
-                    >
-                        <span className="inline">{itemsPerPage}</span>
-                        <CgChevronDown className="w-4 h-4" />
-                    </button>
-                    {dropdownOpen && (
-                        <ul className="absolute right-0 mt-2 w-24 bg-white border border-gray-200 rounded-md shadow-lg z-20">
-                            {[1, 2, 3, 4, 5].map((value) => (
-                                <li key={value}>
-                                    <button
-                                        onClick={() => handleItemsPerPageChange(value)}
-                                        className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
-                                                  transition-colors duration-150 ${itemsPerPage === value ? 'bg-gray-100' : ''}`}
-                                    >
-                                        {value}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
-            </div>
+          >
+            <span className="inline">{itemsPerPage}</span>
+            <CgChevronDown className="w-4 h-4" />
+          </button>
+          {dropdownOpen && (
+            <ul className="absolute right-0 mt-2 w-24 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+              {[1, 2, 3, 4, 5].map((value) => (
+                <li key={value}>
+                  <button
+                    onClick={() => handleItemsPerPageChange(value)}
+                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
+                                                  transition-colors duration-150 ${itemsPerPage === value ? "bg-gray-100" : ""}`}
+                  >
+                    {value}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default DropdownPagination;

@@ -4,22 +4,22 @@ import { useTranslation } from 'react-i18next';
 
 
 interface UseSearchAndFilterProps {
-    onDateRangeChange: (value: string) => void;
-    onStatusChange: (value: string) => void;
-    selectedDateRange: string;
-    selectedStatus: string;
+  onDateRangeChange: (value: string) => void;
+  onStatusChange: (value: string) => void;
+  selectedDateRange: string;
+  selectedStatus: string;
 }
 
 export const useSearchAndFilter = ({
-    onDateRangeChange,
-    onStatusChange,
-    selectedDateRange,
-    selectedStatus
+  onDateRangeChange,
+  onStatusChange,
+  selectedDateRange,
+  selectedStatus,
 }: UseSearchAndFilterProps) => {
-    const [dateRangeOpen, setDateRangeOpen] = useState(false);
-    const [statusOpen, setStatusOpen] = useState(false);
-    const dateRef = useRef<HTMLDivElement>(null);
-    const statusRef = useRef<HTMLDivElement>(null);
+  const [dateRangeOpen, setDateRangeOpen] = useState(false);
+  const [statusOpen, setStatusOpen] = useState(false);
+  const dateRef = useRef<HTMLDivElement>(null);
+  const statusRef = useRef<HTMLDivElement>(null);
 
     const {t}=useTranslation();
     const dateRangeOptions = [
@@ -68,16 +68,15 @@ export const useSearchAndFilter = ({
     const handleDateRangeChange = (value: string) => {
         onDateRangeChange(value);
         setDateRangeOpen(false);
-    };
-
-    const handleStatusChange = (value: string) => {
+      }
+      const handleStatusChange = (value: string) => {
         onStatusChange(value);
         setStatusOpen(false);
-    };
-
-    const toggleDateRange = () => setDateRangeOpen(!dateRangeOpen);
-    const toggleStatus = () => setStatusOpen(!statusOpen);
-
+      };
+    
+      const toggleDateRange = () => setDateRangeOpen(!dateRangeOpen);
+      const toggleStatus = () => setStatusOpen(!statusOpen);
+      
     return {
         dateRangeOpen,
         statusOpen,

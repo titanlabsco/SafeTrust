@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PiEye, PiEyeBold, PiEyeClosed, PiEyeSlash, PiEyeSlashBold } from "react-icons/pi";
+import { PiEye, PiEyeSlash } from "react-icons/pi";
 
 interface PasswordInputProps {
   id: string;
@@ -8,7 +8,12 @@ interface PasswordInputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function PasswordInput({ id, label, value, onChange }: PasswordInputProps) {
+export function PasswordInput({
+  id,
+  label,
+  value,
+  onChange,
+}: PasswordInputProps) {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <div>
@@ -46,4 +51,3 @@ export function PasswordInput({ id, label, value, onChange }: PasswordInputProps
     </div>
   );
 }
-
