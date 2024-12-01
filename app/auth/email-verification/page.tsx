@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { VerificationCodeInput } from "../../../src/components/auth/VerificationCodeInput";
 import { CityBackground } from "../../../src/components/auth/CityBackground";
 import { GraphQLClient } from "graphql-request";
+import { useTranslation } from "react-i18next";
 
 const EmailVerificationForm = () => {
   const [isResending, setIsResending] = useState(false);
@@ -52,7 +53,7 @@ const EmailVerificationForm = () => {
       }
     } catch (error) {
       console.error("Error resending code:", error);
-      setMessage("Failed to resend verification code.");
+      setMessage(t("emailVerification.errorMsg"));
     } finally {
       setIsResending(false);
     }
@@ -74,7 +75,7 @@ const EmailVerificationForm = () => {
   
   const handleVerifyCode = async () => {
     if (!verificationCode) {
-        setMessage("Please enter the verification code.");
+        setMessage(t("emailVerification.verificationMsg"));
         return;
     }
 
@@ -96,7 +97,7 @@ const EmailVerificationForm = () => {
         console.log(data);
 
         if (data.verifyEmailCode.success) {
-            setMessage("Email verified successfully.");
+            setMessage(t("emailVerification.successEmail"));
         }
     } catch (error: any) {
 
@@ -104,14 +105,14 @@ const EmailVerificationForm = () => {
       console.log(error.response.errors[0].message);
     }
 };
-
+const {t}=useTranslation();
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
       <div className="flex flex-col items-center justify-center p-4 z-10">
         <div className="max-w-lg w-full space-y-8 text-center">
-          <h1 className="text-3xl font-bold text-black">Check your E-mail</h1>
+          <h1 className="text-3xl font-bold text-black">{t("emailVerification.title")}</h1>
           <p className="text-black">
-            Please check your email and type the code sent to{" "}
+          {t("emailVerification.subTitle")}{" "}
             <span className="font-medium">{email}</span>.
           </p>
           <VerificationCodeInput
@@ -131,7 +132,7 @@ const EmailVerificationForm = () => {
             disabled={isResending}
             className="w-full py-3 px-4 bg-orange-500 text-white rounded-md hover:bg-orange-600 disabled:opacity-50"
           >
-            {isResending ? "Sending..." : "Resend code"}
+           {isResending ?  t("emailVerification.sendBtn.firstTitle") :  t("emailVerification.sendBtn.secondTitle")}
           </button>
         </div>
       </div>
@@ -140,9 +141,10 @@ const EmailVerificationForm = () => {
 };
 
 const EmailVerificationContent = () => {
+  const {t}=useTranslation();
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
-      <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>{t("emailVerification.loadingMsg")}</div>}>
         <EmailVerificationForm />
       </Suspense>
       <CityBackground />

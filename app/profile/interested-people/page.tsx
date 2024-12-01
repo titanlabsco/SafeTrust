@@ -6,11 +6,13 @@ import Header from "@/layouts/Header";
 import DropdownPagination from "@/components/interestedPeople/DropdownPagination";
 import { MOCK_DATA } from "@/mockData/tableData";
 import { useTableLogic } from "@/hooks/useTableLogic";
+import { useTranslation } from "react-i18next";
 
 const Page = () => {
+  const {t}=useTranslation();
   const apartment = {
-    name: "La sabana house",
-    location: "329 Calle santos, paseo colón, San José",
+    name: t("interestedPeople.title"),
+    location: t("interestedPeople.address"),
     bedrooms: 2,
     bathrooms: 1,
     petFriendly: true,

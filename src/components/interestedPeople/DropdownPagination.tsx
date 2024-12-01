@@ -1,9 +1,10 @@
-"use client";
-import React from "react";
-import { CgChevronDown } from "react-icons/cg";
-import Pagination from "../Pagination";
-import { DropdownPaginationProps } from "@/@types/table";
-import { useDropdownPagination } from "@/hooks/profile/interested-people/useDropdownPagination";
+"use client"
+import React from 'react';
+import { CgChevronDown } from 'react-icons/cg';
+import Pagination from '../Pagination';
+import { DropdownPaginationProps } from '@/@types/table';
+import { useDropdownPagination } from '@/hooks/profile/interested-people/useDropdownPagination';
+import { useTranslation } from 'react-i18next';
 
 const DropdownPagination: React.FC<DropdownPaginationProps> = ({
   paginationVisible,
@@ -27,27 +28,27 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
     totalItems,
     onItemsPerPageChange,
   });
-
-  return (
-    <div className="flex items-center justify-between mt-4 sm:mt-5">
-      <p className="text-gray-700">
-        Showing {showing} of {totalItems}
-      </p>
-      {paginationVisible && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
-      )}
-      <div className="flex items-center gap-2">
-        <label htmlFor="itemsPerPage" className="text-gray-700">
-          Items per page
-        </label>
-        <div className="relative flex-1 sm:flex-none" ref={dropdownRef}>
-          <button
-            onClick={toggleDropdown}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
+    const {t}=useTranslation();
+    return (
+        <div className="flex items-center justify-between mt-4 sm:mt-5">
+            <p className="text-gray-700">
+                {t("interestedPeople.table.title",{current:showing,total:totalItems})}
+            </p>
+            {paginationVisible && (
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={onPageChange}
+                />
+            )}
+            <div className="flex items-center gap-2">
+                <label htmlFor="itemsPerPage" className="text-gray-700">
+                   {t("interestedPeople.table.items")}
+                </label>
+                <div className="relative flex-1 sm:flex-none" ref={dropdownRef}>
+                    <button
+                        onClick={toggleDropdown}
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
                                  transition-colors duration-200"
