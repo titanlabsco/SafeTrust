@@ -12,7 +12,7 @@ const LoginForm = () => {
           id="email"
           type="email"
           placeholder="bartoon_bell@gmail.com"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-black"
         />
       </div>
       <div>
@@ -26,7 +26,7 @@ const LoginForm = () => {
           id="password"
           type="password"
           placeholder="********"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-black"
         />
       </div>
       <div className="flex items-center justify-between">

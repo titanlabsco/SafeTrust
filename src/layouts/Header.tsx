@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const Header: React.FC = () => {
   const { name } = useWalletStore();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
     <nav className="flex justify-between items-center bg-white py-[1rem] px-[2rem] shadow-md">
       {/* Logo */}
@@ -58,14 +58,15 @@ const Header: React.FC = () => {
         </div>
 
         {/* User Profile */}
-<LanguageSwitcher></LanguageSwitcher>
-      <div className="flex items-center space-x-[0.5rem]">
-        <span className="text-gray-700 font-medium text-[1rem]">
-          {name || "Randall Valenciano"}
-        </span>
-        <Link href="/profile">
-          <FaUserCircle size={24} className="text-gray-700 cursor-pointer" />
-        </Link>
+        <LanguageSwitcher />
+        <div className="flex items-center space-x-[0.5rem]">
+          <span className="text-gray-700 font-medium text-[1rem]">
+            {name || "Randall Valenciano"}
+          </span>
+          <Link href="/profile">
+            <FaUserCircle size={24} className="text-gray-700 cursor-pointer" />
+          </Link>
+        </div>
       </div>
     </nav>
   );
