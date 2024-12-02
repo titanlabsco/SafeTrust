@@ -27,7 +27,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden border">
+    <div className="bg-white shadow-md rounded-lg dark:bg-dark-surface overflow-hidden border">
       <div className="relative">
         <Image
           src={image}
@@ -47,17 +47,17 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           <p className="text-green-600 font-bold text-lg">${price}.00</p>
           <AiOutlineHeart className="text-gray-400 text-xl cursor-pointer hover:text-red-500" />
         </div>
-        <p className="text-gray-500 text-sm">
+        <p className="text-gray-500 text-sm dark:text-gray-200">
           {t('propertyList.propertyCard.perMonth')}
         </p>
-        <h3 className="text-gray-900 font-semibold mt-2">
+        <h3 className="text-gray-900 font-semibold mt-2 dark:text-gray-200">
           {t('propertyList.propertyCard.title')}
         </h3>
         <p className="text-gray-600 text-sm">
           {t('propertyList.propertyCard.address')}
         </p>
       </div>
-      <div className="p-4 border-t flex justify-between items-center text-gray-600 text-sm">
+      <div className="p-4 border-t flex justify-between items-center text-gray-600 dark:text-gray-200 text-sm">
         <div className="flex items-center">
           <FaBed className="mr-1" />
           <span>

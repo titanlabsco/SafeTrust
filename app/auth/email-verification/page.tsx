@@ -6,6 +6,7 @@ import { VerificationCodeInput } from '../../../src/components/auth/Verification
 import { CityBackground } from '../../../src/components/auth/CityBackground';
 import { GraphQLClient } from 'graphql-request';
 import { useTranslation } from 'react-i18next';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const EmailVerificationForm = () => {
   const [isResending, setIsResending] = useState(false);
@@ -111,13 +112,13 @@ const EmailVerificationForm = () => {
   };
   const { t } = useTranslation();
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white relative dark:bg-dark-surface">
       <div className="flex flex-col items-center justify-center p-4 z-10">
         <div className="max-w-lg w-full space-y-8 text-center">
-          <h1 className="text-3xl font-bold text-black">
+          <h1 className="text-3xl font-bold text-black dark:text-gray-200">
             {t('emailVerification.title')}
           </h1>
-          <p className="text-black">
+          <p className="text-black dark:text-gray-200">
             {t('emailVerification.subTitle')}{' '}
             <span className="font-medium">{email}</span>.
           </p>
@@ -151,7 +152,10 @@ const EmailVerificationForm = () => {
 const EmailVerificationContent = () => {
   const { t } = useTranslation();
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white relative dark:bg-dark-surface">
+      <div className="absolute top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
       <Suspense fallback={<div>{t('emailVerification.loadingMsg')}</div>}>
         <EmailVerificationForm />
       </Suspense>
