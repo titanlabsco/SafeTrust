@@ -51,25 +51,33 @@ Ensures funds are automatically released based on the terms of the agreement, wi
 
 ### **Installation**
 
-1️⃣ Clone the repository:
+1️⃣ Fork this repository and then clone it:
 
-\`\`\`bash
-git clone https://github.com/titanlabsco/SafeTrust.git
-\`\`\`
+```bash
+git clone https://github.com/your_user/FrontEnd.git
+```
+
+```bash
+git remote add upstream https://github.com/safetrustcr/FrontEnd.git
+```
 
 2️⃣ Navigate to the project directory:
 
-\`\`\`bash
-cd SafeTrust/Frontend/Application
-\`\`\`
+```bash
+cd /Frontend
+```
 
-3️⃣ Set up environment variables:
+3️⃣ Set up environment variables (make sure the .env file was created)
 
 \`\`\`bash
 echo "NEXT_PUBLIC_API_URL=https://api.trustlesswork.com" > .env
 \`\`\`
 
-4️⃣ Start the development server:
+4️⃣ Install the app and start the development server:
+
+```bash
+npm install
+```
 
 \`\`\`bash
 npm run dev

@@ -1,5 +1,6 @@
 'use client'
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
 
 const Sidebar: React.FC = () => {
   const {t}=useTranslation();
@@ -27,7 +28,7 @@ const Sidebar: React.FC = () => {
               defaultChecked
             />
             <label htmlFor="category2" className="ml-2 text-sm text-gray-700">
-               {t("sideBar.categoryTwo")}
+              {t("sideBar.categoryTwo")}
             </label>
           </div>
           <div className="flex items-center">
