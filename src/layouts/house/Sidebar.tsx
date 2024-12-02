@@ -1,55 +1,60 @@
+'use client';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { AiOutlineHeart } from 'react-icons/ai';
 
 const Sidebar: React.FC = () => {
+  const { t } = useTranslation();
   const suggestions = [
     {
       id: 1,
-      title: 'Los Yoses',
-      address: '329 Calle Santos, Paseo Colón, San José',
-      details: '2bd - pet friendly · 1 ba',
+      title: t('sideSuggestions.cards.title'),
+      address: t('sideSuggestions.cards.address'),
+      details: `2${t('common.bed')}  ${t('common.pet')}  1${t('common.bathroom')}`,
       price: '$4,000',
       image: '/img/house1.jpg',
     },
     {
       id: 2,
-      title: 'Los Yoses',
-      address: '329 Calle Santos, Paseo Colón, San José',
-      details: '2bd - pet friendly · 1 ba',
+      title: t('sideSuggestions.cards.title'),
+      address: t('sideSuggestions.cards.address'),
+      details: `2${t('common.bed')}  ${t('common.pet')}  1${t('common.bathroom')}`,
       price: '$4,000',
       image: '/img/house1.jpg',
     },
     {
       id: 3,
-      title: 'Los Yoses',
-      address: '329 Calle Santos, Paseo Colón, San José',
-      details: '2bd - pet friendly · 1 ba',
+      title: t('sideSuggestions.cards.title'),
+      address: t('sideSuggestions.cards.address'),
+      details: `2${t('common.bed')}  ${t('common.pet')}  1${t('common.bathroom')}`,
       price: '$4,000',
       image: '/img/house1.jpg',
     },
     {
       id: 4,
-      title: 'Los Yoses',
-      address: '329 Calle Santos, Paseo Colón, San José',
-      details: '2bd - pet friendly · 1 ba',
+      title: t('sideSuggestions.cards.title'),
+      address: t('sideSuggestions.cards.address'),
+      details: `2${t('common.bed')}  ${t('common.pet')}  1${t('common.bathroom')}`,
       price: '$4,000',
       image: '/img/house1.jpg',
     },
     {
       id: 5,
-      title: 'Los Yoses',
-      address: '329 Calle Santos, Paseo Colón, San José',
-      details: '2bd - pet friendly · 1 ba',
+      title: t('sideSuggestions.cards.title'),
+      address: t('sideSuggestions.cards.address'),
+      details: `2${t('common.bed')}  ${t('common.pet')}  1${t('common.bathroom')}`,
       price: '$4,000',
       image: '/img/house1.jpg',
     },
   ];
 
   return (
-    <div className="w-96 p-4 bg-white">
-      <h2 className="text-xl font-bold text-black mb-2">Suggestions</h2>
+    <div className="w-97 p-4 bg-white">
+      <h2 className="text-xl font-bold text-black mb-2">
+        {t('sideSuggestions.title')}
+      </h2>
       <p className="text-gray-700 text-sm mb-4">
-        More than 200 units available
+        {t('sideSuggestions.unitAvailable')}
       </p>
       <div className="space-y-4">
         {suggestions.map((suggestion) => (

@@ -3,11 +3,8 @@ import React from 'react';
 import { FiSearch, FiCalendar, FiTag } from 'react-icons/fi';
 import { CgChevronDown } from 'react-icons/cg';
 import { SearchAndFilterProps } from '@/@types/table';
-import {
-  useSearchAndFilter,
-  dateRangeOptions,
-  statusOptions,
-} from '@/hooks/profile/interested-people/useSearchAndFilter';
+import { useSearchAndFilter } from '@/hooks/profile/interested-people/useSearchAndFilter';
+import { useTranslation } from 'react-i18next';
 
 export default function SearchAndFilter({
   onSearch,
@@ -33,6 +30,21 @@ export default function SearchAndFilter({
     selectedDateRange,
     selectedStatus,
   });
+  const { t } = useTranslation();
+  const dateRangeOptions = [
+    { label: t('interestedPeople.dateRange.rangeOne'), value: 'today' },
+    { label: t('interestedPeople.dateRange.rangeTwo'), value: 'last7days' },
+    { label: t('interestedPeople.dateRange.rangeThree'), value: 'last30days' },
+    { label: t('interestedPeople.dateRange.rangeFour'), value: 'last90days' },
+    { label: t('interestedPeople.dateRange.rangeFive'), value: 'custom' },
+  ];
+
+  const statusOptions = [
+    { label: t('interestedPeople.filter.default'), value: '' },
+    { label: t('interestedPeople.filter.filterOne'), value: 'pending' },
+    { label: t('interestedPeople.filter.filterTwo'), value: 'accepted' },
+    { label: t('interestedPeople.filter.filterThree'), value: 'rejected' },
+  ];
 
   return (
     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-4 sm:mt-8">
@@ -40,7 +52,7 @@ export default function SearchAndFilter({
         <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black" />
         <input
           type="search"
-          placeholder="Search anything..."
+          placeholder={t('interestedPeople.searchHolder')}
           onChange={(e) => onSearch(e.target.value)}
           className="w-full sm:w-2/3 lg:w-1/2 text-black placeholder:text-gray-500 py-2 pl-10 pr-4 
                              bg-white border border-gray-300 rounded-full shadow-sm

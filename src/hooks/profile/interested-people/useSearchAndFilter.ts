@@ -1,19 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-
-export const dateRangeOptions = [
-  { label: 'Today', value: 'today' },
-  { label: 'Last 7 days', value: 'last7days' },
-  { label: 'Last 30 days', value: 'last30days' },
-  { label: 'Last 90 days', value: 'last90days' },
-  { label: 'Custom range', value: 'custom' },
-];
-
-export const statusOptions = [
-  { label: 'All', value: '' },
-  { label: 'Pending', value: 'pending' },
-  { label: 'Accepted', value: 'accepted' },
-  { label: 'Rejected', value: 'rejected' },
-];
+import { useTranslation } from 'react-i18next';
 
 interface UseSearchAndFilterProps {
   onDateRangeChange: (value: string) => void;
@@ -32,6 +18,22 @@ export const useSearchAndFilter = ({
   const [statusOpen, setStatusOpen] = useState(false);
   const dateRef = useRef<HTMLDivElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
+
+  const { t } = useTranslation();
+  const dateRangeOptions = [
+    { label: t('interestedPeople.dateRange.rangeOne'), value: 'today' },
+    { label: t('interestedPeople.dateRange.rangeTwo'), value: 'last7days' },
+    { label: t('interestedPeople.dateRange.rangeThree'), value: 'last30days' },
+    { label: t('interestedPeople.dateRange.rangeFour'), value: 'last90days' },
+    { label: t('interestedPeople.dateRange.rangeFive'), value: 'custom' },
+  ];
+
+  const statusOptions = [
+    { label: t('interestedPeople.filter.default'), value: '' },
+    { label: t('interestedPeople.filter.filterOne'), value: 'pending' },
+    { label: t('interestedPeople.filter.filterTwo'), value: 'accepted' },
+    { label: t('interestedPeople.filter.filterThree'), value: 'rejected' },
+  ];
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -54,11 +56,13 @@ export const useSearchAndFilter = ({
     const option = dateRangeOptions.find(
       (opt) => opt.value === selectedDateRange
     );
-    return option ? option.label : 'Date range';
+    console.log(option);
+    return option ? option.label : t('interestedPeople.dateRange.default');
   };
 
   const getSelectedStatusLabel = () => {
     const option = statusOptions.find((opt) => opt.value === selectedStatus);
+    console.log(option);
     return option ? option.label : 'Status';
   };
 
@@ -66,7 +70,6 @@ export const useSearchAndFilter = ({
     onDateRangeChange(value);
     setDateRangeOpen(false);
   };
-
   const handleStatusChange = (value: string) => {
     onStatusChange(value);
     setStatusOpen(false);

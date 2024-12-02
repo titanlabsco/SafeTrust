@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { BsSortDownAlt } from 'react-icons/bs';
 import PropertyCard from './PropertyCard';
+import { useTranslation } from 'react-i18next';
 
 const properties = [
   {
@@ -49,8 +50,11 @@ const properties = [
 ];
 
 const PropertyList: React.FC = () => {
+  const { t } = useTranslation();
   const router = useRouter();
-  const [sortOption, setSortOption] = useState('Relevance');
+  const [sortOption, setSortOption] = useState(
+    t('propertyList.sortBy.orderOne')
+  );
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCardClick = () => {
@@ -66,15 +70,22 @@ const PropertyList: React.FC = () => {
     setDropdownOpen(false);
   };
 
+  useEffect(() => {
+    setSortOption(t('propertyList.sortBy.orderOne'));
+  }, [t]);
+
   return (
     <div className="px-12 py-8">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-2xl text-black">
-            Available for rent in{' '}
-            <span className="text-black font-bold">Costa Rica, San José</span>
+            {t('propertyList.title')}{' '}
+            <span className="text-black font-bold">
+              {' '}
+              {t('propertyList.subtitle')}
+            </span>
           </h2>
-          <p className="text-gray-500">204 units available</p>
+          <p className="text-gray-500"> {t('propertyList.unitsAvailable')}</p>
         </div>
 
         <div className="relative">
@@ -83,7 +94,7 @@ const PropertyList: React.FC = () => {
             className="flex items-center text-gray-500 text-sm focus:outline-none"
           >
             <BsSortDownAlt className="text-lg mr-2" />
-            Sort by:{' '}
+            {t('propertyList.sortBy.title')}{' '}
             <span className="text-orange-500 cursor-pointer hover:underline ml-1">
               {sortOption}
             </span>
@@ -93,27 +104,35 @@ const PropertyList: React.FC = () => {
               <ul className="py-1">
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange('Relevance')}
+                  onClick={() =>
+                    handleSortOptionChange(t('propertyList.sortBy.orderOne'))
+                  }
                 >
-                  Relevance
+                  {t('propertyList.sortBy.orderOne')}
                 </li>
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange('Price (Low to High)')}
+                  onClick={() =>
+                    handleSortOptionChange(t('propertyList.sortBy.orderTwo'))
+                  }
                 >
-                  Price (Low to High)
+                  {t('propertyList.sortBy.orderTwo')}
                 </li>
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange('Price (High to Low)')}
+                  onClick={() =>
+                    handleSortOptionChange(t('propertyList.sortBy.orderThree'))
+                  }
                 >
-                  Price (High to Low)
+                  {t('propertyList.sortBy.orderThree')}
                 </li>
                 <li
                   className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSortOptionChange('Newest')}
+                  onClick={() =>
+                    handleSortOptionChange(t('propertyList.sortBy.orderFour'))
+                  }
                 >
-                  Newest
+                  {t('propertyList.sortBy.orderFour')}
                 </li>
               </ul>
             </div>
@@ -123,16 +142,16 @@ const PropertyList: React.FC = () => {
 
       <div className="flex space-x-2 mb-8">
         <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          All apartments
+          {t('propertyList.filterOne')}
         </button>
         <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          1 bedroom
+          {t('propertyList.filterTwo')}
         </button>
         <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          2 bedrooms
+          {t('propertyList.filterThree')}
         </button>
         <button className="px-4 py-2 text-sm border border-gray-300 rounded-full text-gray-500 hover:bg-gray-100">
-          3 bedrooms
+          {t('propertyList.filterFour')}
         </button>
       </div>
 
