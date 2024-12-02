@@ -1,15 +1,16 @@
 "use client";
 import { useWalletStore } from "@/store/walletStore";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaBell } from "react-icons/fa";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/language/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
 const Header: React.FC = () => {
   const { name } = useWalletStore();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
     <nav className="flex justify-between items-center bg-white py-[1rem] px-[2rem] shadow-md">
+      {/* Logo */}
       <Link href="/" className="flex items-center space-x-[0.5rem]">
         <img
           src="/img/logo2.png"
@@ -18,6 +19,7 @@ const Header: React.FC = () => {
         />
       </Link>
 
+      {/* Search Bar */}
       <div className="flex items-center bg-gray-200 rounded-full px-[0.7rem] py-[0.4rem] w-[45%]">
         <select className="bg-white border border-gray-300 text-gray-700 text-[1rem] rounded-full px-[0.8rem] py-[0.3rem] focus:outline-none">
           <option>{t("navBar.rent")}</option>
@@ -45,14 +47,26 @@ const Header: React.FC = () => {
           </svg>
         </button>
       </div>
-<LanguageSwitcher></LanguageSwitcher>
-      <div className="flex items-center space-x-[0.5rem]">
-        <span className="text-gray-700 font-medium text-[1rem]">
-          {name || "Randall Valenciano"}
-        </span>
-        <Link href="/profile">
-          <FaUserCircle size={24} className="text-gray-700 cursor-pointer" />
-        </Link>
+
+      {/* User Section */}
+      <div className="flex items-center space-x-[1rem] ml-auto">
+        {/* Notification Bell */}
+        <div className="relative">
+          <FaBell size={24} className="text-gray-700 cursor-pointer" />
+          {/* Notification Badge */}
+          <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+        </div>
+
+        {/* User Profile */}
+        <LanguageSwitcher />
+        <div className="flex items-center space-x-[0.5rem]">
+          <span className="text-gray-700 font-medium text-[1rem]">
+            {name || "Randall Valenciano"}
+          </span>
+          <Link href="/profile">
+            <FaUserCircle size={24} className="text-gray-700 cursor-pointer" />
+          </Link>
+        </div>
       </div>
     </nav>
   );
