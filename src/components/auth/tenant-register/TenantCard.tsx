@@ -1,4 +1,4 @@
-import { TenantRegister } from "./TenantRegister";
+import { TenantRegister } from './TenantRegister';
 
 const TenantCard = () => {
   return (

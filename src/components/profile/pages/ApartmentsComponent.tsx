@@ -1,121 +1,121 @@
-import React, { useEffect, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { FaTags } from "react-icons/fa";
-import { BsCheck } from "react-icons/bs";
-import { FaEllipsisH } from "react-icons/fa";
-import { HiOutlineFire } from "react-icons/hi2";
-import { FiChevronLeft, FiChevronRight, FiChevronDown } from "react-icons/fi";
-import { PiHandCoinsBold } from "react-icons/pi";
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { FaTags } from 'react-icons/fa';
+import { BsCheck } from 'react-icons/bs';
+import { FaEllipsisH } from 'react-icons/fa';
+import { HiOutlineFire } from 'react-icons/hi2';
+import { FiChevronLeft, FiChevronRight, FiChevronDown } from 'react-icons/fi';
+import { PiHandCoinsBold } from 'react-icons/pi';
+import { useTranslation } from 'react-i18next';
 
 const ApartmentsComponent = () => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
   const allApartments = [
     {
       id: 1,
-      name: t("myApartments.apartmentNames.apartmentOne"),
-      location: "San José",
+      name: t('myApartments.apartmentNames.apartmentOne'),
+      location: 'San José',
       offers: 2,
-      status: t("myApartments.status.optionOne"),
+      status: t('myApartments.status.optionOne'),
       promoted: true,
       price: 4000,
     },
     {
       id: 2,
-      name: t("myApartments.apartmentNames.apartmentTwo"),
-      location: "Escazú",
+      name: t('myApartments.apartmentNames.apartmentTwo'),
+      location: 'Escazú',
       offers: 5,
-      status: t("myApartments.status.optionTwo"),
+      status: t('myApartments.status.optionTwo'),
       promoted: false,
       price: 4000,
     },
     {
       id: 3,
-      name: t("myApartments.apartmentNames.apartmentThree"),
-      location: "Santa Ana",
+      name: t('myApartments.apartmentNames.apartmentThree'),
+      location: 'Santa Ana',
       offers: 7,
-      status: t("myApartments.status.optionTwo"),
+      status: t('myApartments.status.optionTwo'),
       promoted: false,
       price: 4000,
     },
     {
       id: 4,
-      name: t("myApartments.apartmentNames.apartmentFour"),
-      location: "Jacó",
+      name: t('myApartments.apartmentNames.apartmentFour'),
+      location: 'Jacó',
       offers: 1,
-      status: t("myApartments.status.optionOne"),
+      status: t('myApartments.status.optionOne'),
       promoted: false,
       price: 4000,
     },
     {
       id: 5,
-      name: t("myApartments.apartmentNames.apartmentFive"),
-      location: "San José",
+      name: t('myApartments.apartmentNames.apartmentFive'),
+      location: 'San José',
       offers: 2,
-      status: t("myApartments.status.optionOne"),
+      status: t('myApartments.status.optionOne'),
       promoted: true,
       price: 4000,
     },
     {
       id: 6,
-      name: t("myApartments.apartmentNames.apartmentSix"),
-      location: "Cartago",
+      name: t('myApartments.apartmentNames.apartmentSix'),
+      location: 'Cartago',
       offers: 3,
-      status: t("myApartments.status.optionOne"),
+      status: t('myApartments.status.optionOne'),
       promoted: false,
       price: 4000,
     },
     {
       id: 7,
-      name: t("myApartments.apartmentNames.apartmentSeven"),
-      location: "San José",
+      name: t('myApartments.apartmentNames.apartmentSeven'),
+      location: 'San José',
       offers: 4,
-      status: t("myApartments.status.optionTwo"),
+      status: t('myApartments.status.optionTwo'),
       promoted: true,
       price: 4000,
     },
     {
       id: 8,
-      name: t("myApartments.apartmentNames.apartmentEight"),
-      location: "San José",
+      name: t('myApartments.apartmentNames.apartmentEight'),
+      location: 'San José',
       offers: 6,
-      status: t("myApartments.status.optionOne"),
+      status: t('myApartments.status.optionOne'),
       promoted: true,
       price: 4000,
     },
     {
       id: 9,
-      name: t("myApartments.apartmentNames.apartmentNine"),
-      location: "Heredia",
+      name: t('myApartments.apartmentNames.apartmentNine'),
+      location: 'Heredia',
       offers: 8,
-      status: t("myApartments.status.optionTwo"),
+      status: t('myApartments.status.optionTwo'),
       promoted: true,
       price: 4000,
     },
     {
       id: 10,
-      name: t("myApartments.apartmentNames.apartmentTen"),
-      location: "Alajuela",
+      name: t('myApartments.apartmentNames.apartmentTen'),
+      location: 'Alajuela',
       offers: 3,
-      status: t("myApartments.status.optionOne"),
+      status: t('myApartments.status.optionOne'),
       promoted: false,
       price: 4000,
     },
     {
       id: 11,
-      name: t("myApartments.apartmentNames.apartmentEleven"),
-      location: "San José",
+      name: t('myApartments.apartmentNames.apartmentEleven'),
+      location: 'San José',
       offers: 2,
-      status: t("myApartments.status.optionOne"),
+      status: t('myApartments.status.optionOne'),
       promoted: false,
       price: 5000,
     },
     {
       id: 12,
-      name: t("myApartments.apartmentNames.apartmentTwelve"),
-      location: "Cartago",
+      name: t('myApartments.apartmentNames.apartmentTwelve'),
+      location: 'Cartago',
       offers: 4,
-      status: t("myApartments.status.optionTwo"),
+      status: t('myApartments.status.optionTwo'),
       promoted: true,
       price: 4500,
     },
@@ -124,15 +124,20 @@ const ApartmentsComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [isPromotedFilterActive, setIsPromotedFilterActive] = useState(false);
-  const [statusFilter, setStatusFilter] = useState<string | null>(t("myApartments.status.default"));
+  const [statusFilter, setStatusFilter] = useState<string | null>(
+    t('myApartments.status.default')
+  );
   const [statusDropdownOpen, setStatusDropdownOpen] = useState(false);
   const [priceRangeDropdownOpen, setPriceRangeDropdownOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
 
   const filteredApartments = allApartments.filter((apartment) => {
     if (isPromotedFilterActive && !apartment.promoted) return false;
-    if (statusFilter !== t("myApartments.status.default") && apartment.status !== statusFilter)
+    if (
+      statusFilter !== t('myApartments.status.default') &&
+      apartment.status !== statusFilter
+    )
       return false;
     if (
       searchQuery &&
@@ -150,7 +155,7 @@ const ApartmentsComponent = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentApartments = filteredApartments.slice(
     indexOfFirstItem,
-    indexOfLastItem,
+    indexOfLastItem
   );
 
   const togglePromotedFilter = () => {
@@ -171,10 +176,10 @@ const ApartmentsComponent = () => {
   };
 
   const maxItemsPerPage = filteredApartments.length;
-useEffect(()=>{
-  console.log("Hola")
-  setStatusFilter(t("myApartments.status.default"));
-},[t])
+  useEffect(() => {
+    console.log('Hola');
+    setStatusFilter(t('myApartments.status.default'));
+  }, [t]);
   return (
     <div className="p-4 sm:p-6 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -182,7 +187,7 @@ useEffect(()=>{
           <AiOutlineSearch className="text-gray-500 mr-2 w-[24px] h-[24px]" />
           <input
             type="text"
-            placeholder={t("myApartments.searchHolder")}
+            placeholder={t('myApartments.searchHolder')}
             className="w-full outline-none text-[16px] text-custom-grey"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -195,11 +200,11 @@ useEffect(()=>{
             onClick={togglePromotedFilter}
           >
             <span className="text-custom-grey font-[400] text-[16px]">
-              {t("myApartments.promo")}
+              {t('myApartments.promo')}
             </span>
             <div
               className={`w-[20px] h-[20px] rounded flex items-center justify-center ${
-                isPromotedFilterActive ? "bg-[#FF7F00]" : "bg-gray-300"
+                isPromotedFilterActive ? 'bg-[#FF7F00]' : 'bg-gray-300'
               }`}
             >
               {isPromotedFilterActive && <BsCheck className="text-white" />}
@@ -212,12 +217,12 @@ useEffect(()=>{
               onClick={() => setPriceRangeDropdownOpen(!priceRangeDropdownOpen)}
             >
               <PiHandCoinsBold size={22} />
-              <span>{t("myApartments.priceRange")}</span>
+              <span>{t('myApartments.priceRange')}</span>
               <FiChevronDown className="ml-auto" />
             </button>
             {priceRangeDropdownOpen && (
               <div className="absolute top-[40px] left-0 w-[150px] border border-gray-300 rounded-[7px] bg-white shadow-md z-10">
-                {["$0-$1000", "$1000-$2000", "$2000-$3000", "$3000+"].map(
+                {['$0-$1000', '$1000-$2000', '$2000-$3000', '$3000+'].map(
                   (range) => (
                     <div
                       key={range}
@@ -228,7 +233,7 @@ useEffect(()=>{
                     >
                       {range}
                     </div>
-                  ),
+                  )
                 )}
               </div>
             )}
@@ -240,12 +245,16 @@ useEffect(()=>{
               onClick={() => setStatusDropdownOpen(!statusDropdownOpen)}
             >
               <FaTags />
-              <span>{statusFilter ||t("myApartments.status.default")}</span>
+              <span>{statusFilter || t('myApartments.status.default')}</span>
               <FiChevronDown className="ml-auto" />
             </button>
             {statusDropdownOpen && (
               <div className="absolute top-[40px] left-0 w-[150px] border border-gray-300 rounded-[7px] bg-white shadow-md z-10">
-                {[t("myApartments.status.default"), t("myApartments.status.optionOne"), t("myApartments.status.optionTwo")].map((status) => (
+                {[
+                  t('myApartments.status.default'),
+                  t('myApartments.status.optionOne'),
+                  t('myApartments.status.optionTwo'),
+                ].map((status) => (
                   <div
                     key={status}
                     className="px-3 py-2 cursor-pointer hover:bg-gray-100 text-[16px] text-custom-grey"
@@ -263,13 +272,16 @@ useEffect(()=>{
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div className="text-gray-600 text-[16px]">
           <span>
-            {t("myApartments.table.title",{current:currentApartments.length,total:filteredApartments.length})}
+            {t('myApartments.table.title', {
+              current: currentApartments.length,
+              total: filteredApartments.length,
+            })}
           </span>
         </div>
 
         <div className="flex items-center space-x-2">
           <span className="text-custom-grey text-[16px] font-[400]">
-            {t("myApartments.table.items")}
+            {t('myApartments.table.items')}
           </span>
           <div className="relative">
             <div
@@ -285,11 +297,11 @@ useEffect(()=>{
               <div className="absolute top-[40px] left-0 w-[80px] border text-custom-grey border-gray-300 rounded-[8px] bg-white shadow-md z-10">
                 {Array.from(
                   { length: maxItemsPerPage - 4 },
-                  (_, i) => i + 5,
+                  (_, i) => i + 5
                 ).map((value) => (
                   <div
                     key={value}
-                    className={`px-3 py-1 cursor-pointer text-[16px] ${value === itemsPerPage ? "bg-gray-200" : "hover:bg-gray-100"}`}
+                    className={`px-3 py-1 cursor-pointer text-[16px] ${value === itemsPerPage ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
                     onClick={() => handleItemsPerPageChange(value)}
                   >
                     {value}
@@ -305,22 +317,38 @@ useEffect(()=>{
         <table className="table-auto w-full text-[16px] rounded-[7px] overflow-hidden">
           <thead>
             <tr className="text-center text-custom-grey bg-[#6565641F] h-[50px]">
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnOne")}</th>
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnTwo")}</th>
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnThree")}</th>
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnFour")}</th>
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnFive")}</th>
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnSix")}</th>
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnSeven")}</th>
-              <th className="p-2 text-[16px] font-bold">{t("myApartments.table.columnEight")}</th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnOne')}
+              </th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnTwo')}
+              </th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnThree')}
+              </th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnFour')}
+              </th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnFive')}
+              </th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnSix')}
+              </th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnSeven')}
+              </th>
+              <th className="p-2 text-[16px] font-bold">
+                {t('myApartments.table.columnEight')}
+              </th>
             </tr>
           </thead>
           <tbody>
             {currentApartments.map((apartment, index) => (
               <tr
                 key={apartment.id}
-                className={`text-center ${index % 2 === 0 ? "bg-gray-50" : "bg-white"} hover:bg-gray-100`}
-                style={{ height: "70px" }}
+                className={`text-center ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-gray-100`}
+                style={{ height: '70px' }}
               >
                 <td className="p-2 text-custom-grey">{apartment.id}</td>
                 <td className="p-2 text-custom-grey">{apartment.name}</td>
@@ -329,9 +357,9 @@ useEffect(()=>{
                 <td className="p-2">
                   <span
                     className={`px-2 py-1 rounded-[7px] ${
-                      apartment.status === t("myApartments.status.optionOne")
-                        ? "bg-[#82ECA6] text-[#187135]"
-                        : "bg-custom-grey text-white"
+                      apartment.status === t('myApartments.status.optionOne')
+                        ? 'bg-[#82ECA6] text-[#187135]'
+                        : 'bg-custom-grey text-white'
                     }`}
                   >
                     {apartment.status}
@@ -369,8 +397,8 @@ useEffect(()=>{
             key={index}
             className={`w-[32px] h-[32px] border-2 rounded-md ${
               currentPage === index + 1
-                ? "bg-white border-custom-orange text-custom-orange"
-                : "bg-white border-gray-200 text-custom-grey"
+                ? 'bg-white border-custom-orange text-custom-orange'
+                : 'bg-white border-gray-200 text-custom-grey'
             } flex items-center justify-center`}
             onClick={() => paginate(index + 1)}
           >

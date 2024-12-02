@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Accept, useDropzone } from "react-dropzone";
-import { toast } from "react-toastify";
+import { useState } from 'react';
+import { Accept, useDropzone } from 'react-dropzone';
+import { toast } from 'react-toastify';
 
 interface FormValues {
   name: string;
@@ -20,14 +20,14 @@ const useNewApartment = () => {
 
   const useCreateDropzone = (
     setImage: React.Dispatch<React.SetStateAction<File | null>>,
-    setIsDragging: React.Dispatch<React.SetStateAction<boolean>>,
+    setIsDragging: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     return useDropzone({
       accept: {
-        "image/png": [],
-        "image/jpg": [],
-        "image/jpeg": [],
-        "image/webp": [],
+        'image/png': [],
+        'image/jpg': [],
+        'image/jpeg': [],
+        'image/webp': [],
       } as Accept,
       multiple: false,
       onDrop: (acceptedFiles) => {
@@ -36,7 +36,7 @@ const useNewApartment = () => {
       },
       onDropRejected: () => {
         toast.error(
-          "Invalid file type. Please upload an image (PNG, JPG, JPEG, or WEBP).",
+          'Invalid file type. Please upload an image (PNG, JPG, JPEG, or WEBP).'
         );
         setIsDragging(false);
       },
@@ -60,7 +60,7 @@ const useNewApartment = () => {
   const dropzone4 = useCreateDropzone(setImage4, setIsDragging4);
 
   const onSubmit = (values: FormValues) => {
-    console.log("Form data: ", values);
+    console.log('Form data: ', values);
   };
 
   return {

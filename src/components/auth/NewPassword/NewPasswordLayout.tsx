@@ -1,5 +1,5 @@
-import React from "react";
-import { CityBackground } from "./CityBackground";
+import React from 'react';
+import { CityBackground } from './CityBackground';
 
 interface NewPasswordLayoutProps {
   children: React.ReactNode;

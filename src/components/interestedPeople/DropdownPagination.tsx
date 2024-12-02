@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import React from 'react';
 import { CgChevronDown } from 'react-icons/cg';
 import Pagination from '../Pagination';
@@ -28,27 +28,30 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
     totalItems,
     onItemsPerPageChange,
   });
-    const {t}=useTranslation();
-    return (
-        <div className="flex items-center justify-between mt-4 sm:mt-5">
-            <p className="text-gray-700">
-                {t("interestedPeople.table.title",{current:showing,total:totalItems})}
-            </p>
-            {paginationVisible && (
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={onPageChange}
-                />
-            )}
-            <div className="flex items-center gap-2">
-                <label htmlFor="itemsPerPage" className="text-gray-700">
-                   {t("interestedPeople.table.items")}
-                </label>
-                <div className="relative flex-1 sm:flex-none" ref={dropdownRef}>
-                    <button
-                        onClick={toggleDropdown}
-                        className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
+  const { t } = useTranslation();
+  return (
+    <div className="flex items-center justify-between mt-4 sm:mt-5">
+      <p className="text-gray-700">
+        {t('interestedPeople.table.title', {
+          current: showing,
+          total: totalItems,
+        })}
+      </p>
+      {paginationVisible && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      )}
+      <div className="flex items-center gap-2">
+        <label htmlFor="itemsPerPage" className="text-gray-700">
+          {t('interestedPeople.table.items')}
+        </label>
+        <div className="relative flex-1 sm:flex-none" ref={dropdownRef}>
+          <button
+            onClick={toggleDropdown}
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
                                  transition-colors duration-200"
@@ -63,7 +66,7 @@ const DropdownPagination: React.FC<DropdownPaginationProps> = ({
                   <button
                     onClick={() => handleItemsPerPageChange(value)}
                     className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
-                                                  transition-colors duration-150 ${itemsPerPage === value ? "bg-gray-100" : ""}`}
+                                                  transition-colors duration-150 ${itemsPerPage === value ? 'bg-gray-100' : ''}`}
                   >
                     {value}
                   </button>

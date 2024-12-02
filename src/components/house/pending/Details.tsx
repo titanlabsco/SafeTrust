@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
-import "react-toastify/dist/ReactToastify.css";
-import Loader from "@/layouts/Loader";
-import { usePayReservation } from "@/hooks/escrow/usePayReservation";
-import { MdLocationOn } from "react-icons/md";
-import { FaBed, FaPaw, FaBath } from "react-icons/fa";
-import usePendingDetails from "@/hooks/house/pending/usePendingDetails";
+import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Loader from '@/layouts/Loader';
+import { usePayReservation } from '@/hooks/escrow/usePayReservation';
+import { MdLocationOn } from 'react-icons/md';
+import { FaBed, FaPaw, FaBath } from 'react-icons/fa';
+import usePendingDetails from '@/hooks/house/pending/usePendingDetails';
 
 const Details: React.FC = () => {
   const { address, contractId, engagementId } = usePendingDetails();
@@ -14,7 +15,7 @@ const Details: React.FC = () => {
   const { payReservation, loadingPay, isPaid } = usePayReservation(
     address,
     contractId,
-    engagementId,
+    engagementId
   );
 
   return (
@@ -24,11 +25,11 @@ const Details: React.FC = () => {
         <button
           onClick={payReservation}
           className={`bg-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-600 ${
-            loadingPay || isPaid ? "opacity-50 cursor-not-allowed" : ""
+            loadingPay || isPaid ? 'opacity-50 cursor-not-allowed' : ''
           }`}
           disabled={loadingPay || isPaid}
         >
-          {loadingPay ? <Loader /> : isPaid ? "PAID" : "PAY"}
+          {loadingPay ? <Loader /> : isPaid ? 'PAID' : 'PAY'}
         </button>
       </div>
       <hr className="my-4 border-gray-300" />

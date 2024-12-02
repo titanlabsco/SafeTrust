@@ -1,19 +1,19 @@
-"use client"
+'use client';
 
-import { FcGoogle } from "react-icons/fc";
-import { FaWallet } from "react-icons/fa";
-import { useState } from "react";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { Web3Provider } from "@ethersproject/providers";
+import { FcGoogle } from 'react-icons/fc';
+import { FaWallet } from 'react-icons/fa';
+import { useState } from 'react';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { Web3Provider } from '@ethersproject/providers';
 
 interface AuthButtonsProps {
-  action: "login" | "register";
+  action: 'login' | 'register';
 }
 
 // TODO: Finish social auths once firebase is set up LC 11/25/2024
 const AuthButtons: React.FC<AuthButtonsProps> = ({ action }) => {
   const [error, setError] = useState<string | null>(null);
-  const buttonText = action === "login" ? "Login" : "Register";
+  const buttonText = action === 'login' ? 'Login' : 'Register';
 
   // Google login handler
   const handleGoogleLogin = async () => {
@@ -36,16 +36,16 @@ const AuthButtons: React.FC<AuthButtonsProps> = ({ action }) => {
     if (window.ethereum) {
       try {
         const provider = new Web3Provider(window.ethereum);
-        await provider.send("eth_requestAccounts", []);
+        await provider.send('eth_requestAccounts', []);
         const signer = provider.getSigner();
         const address = await signer.getAddress();
-        console.log("User wallet address:", address); // TODO: Store data LC 11/25/2024
+        console.log('User wallet address:', address); // TODO: Store data LC 11/25/2024
       } catch (err) {
-        setError("Failed to connect to wallet");
+        setError('Failed to connect to wallet');
         console.error(err);
       }
     } else {
-      setError("Please install a wallet extension like MetaMask");
+      setError('Please install a wallet extension like MetaMask');
     }
   };
 
@@ -61,7 +61,7 @@ const AuthButtons: React.FC<AuthButtonsProps> = ({ action }) => {
         <FcGoogle className="w-5 h-5 mr-2" />
         {buttonText} with Google
       </button>
-      
+
       <button
         onClick={handleWalletLogin}
         type="button"

@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   sendEmailVerification,
-} from "firebase/auth";
-import { useMutation } from "@apollo/client";
+} from 'firebase/auth';
+import { useMutation } from '@apollo/client';
 import {
   ASSIGN_TENANT_ROLE,
   CREATE_USER_RECORD,
-} from "@graphql/queries/userMutations.graphql";
-import PasswordStrengthIndicator from "./PasswordStrengthIndicator";
-import AuthButtons from "./../AuthButtons";
+} from '@graphql/queries/userMutations.graphql';
+import PasswordStrengthIndicator from './PasswordStrengthIndicator';
+import AuthButtons from './../AuthButtons';
 
 export const TenantRegister: React.FC = () => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({ email: '', password: '' });
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [attempts, setAttempts] = useState({ count: 0, timestamp: Date.now() });
@@ -42,7 +42,7 @@ export const TenantRegister: React.FC = () => {
     setError(null);
 
     if (!acceptTerms) {
-      return setError("You must accept the Terms of Service to register.");
+      return setError('You must accept the Terms of Service to register.');
     }
 
     const MAX_ATTEMPTS = 5;
@@ -52,7 +52,7 @@ export const TenantRegister: React.FC = () => {
     // Check for rate limiting
     const timeSinceFirstAttempt = currentTime - attempts.timestamp;
     if (attempts.count >= MAX_ATTEMPTS && timeSinceFirstAttempt < TIME_WINDOW) {
-      return setError("Too many attempts. Please try again later.");
+      return setError('Too many attempts. Please try again later.');
     }
 
     try {
@@ -99,7 +99,7 @@ export const TenantRegister: React.FC = () => {
       // });
 
       // Step 5: Redirect to verification page
-      router.push("/verify-email");
+      router.push('/verify-email');
     } catch (err) {
       setError(getErrorMessage(err));
     } finally {
@@ -157,7 +157,9 @@ export const TenantRegister: React.FC = () => {
             <PasswordStrengthIndicator password={formState.password} />
           )}
           {formState.password.length > 0 && formState.password.length < 6 && (
-            <p className="text-red-500">Password must be at least 6 characters long.</p>
+            <p className="text-red-500">
+              Password must be at least 6 characters long.
+            </p>
           )}
         </div>
 
@@ -174,7 +176,7 @@ export const TenantRegister: React.FC = () => {
             htmlFor="acceptTerms"
             className="ml-2 block text-sm text-gray-700"
           >
-            I agree to the{" "}
+            I agree to the{' '}
             <a
               href="/terms"
               className="text-orange-500 underline hover:text-orange-600"
@@ -190,12 +192,12 @@ export const TenantRegister: React.FC = () => {
           type="submit"
           className={`w-full py-2 px-4 rounded-md ${
             isLoading
-              ? "bg-gray-500 cursor-not-allowed"
-              : "bg-orange-500 hover:bg-orange-600"
+              ? 'bg-gray-500 cursor-not-allowed'
+              : 'bg-orange-500 hover:bg-orange-600'
           }`}
           disabled={isLoading}
         >
-          {isLoading ? "Registering..." : "Register"}
+          {isLoading ? 'Registering...' : 'Register'}
         </button>
       </form>
 
@@ -203,11 +205,8 @@ export const TenantRegister: React.FC = () => {
       <AuthButtons action="register" />
 
       <p className="text-center text-black text-sm mt-4">
-        Already have an account?{" "}
-        <a
-          href="/auth/login"
-          className="text-orange-500 hover:underline"
-        >
+        Already have an account?{' '}
+        <a href="/auth/login" className="text-orange-500 hover:underline">
           Login here
         </a>
       </p>
@@ -218,15 +217,15 @@ export const TenantRegister: React.FC = () => {
 // Helper function to parse Firebase errors
 const getErrorMessage = (error: any): string => {
   switch (error.code) {
-    case "auth/email-already-in-use":
-      return "This email is already registered.";
-    case "auth/invalid-email":
-      return "Invalid email address.";
-    case "auth/operation-not-allowed":
-      return "Email/password accounts are not enabled.";
-    case "auth/weak-password":
-      return "Password should be at least 6 characters.";
+    case 'auth/email-already-in-use':
+      return 'This email is already registered.';
+    case 'auth/invalid-email':
+      return 'Invalid email address.';
+    case 'auth/operation-not-allowed':
+      return 'Email/password accounts are not enabled.';
+    case 'auth/weak-password':
+      return 'Password should be at least 6 characters.';
     default:
-      return "An error occurred during registration.";
+      return 'An error occurred during registration.';
   }
 };

@@ -33,7 +33,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
+    ".next/types/**/*.ts", "lint-staged.config.js",
     "jest.config.js",
     "cypres/e2e/user-list.cy.js",
     "mocks/handlers.ts",

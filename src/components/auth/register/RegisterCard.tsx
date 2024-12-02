@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import RegisterForm from "./RegisterForm";
+import React from 'react';
+import Image from 'next/image';
+import RegisterForm from './RegisterForm';
 
 const RegisterCard: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const RegisterCard: React.FC = () => {
         <RegisterForm />
 
         <p className="text-center text-black text-sm mt-6">
-          Already have an account?{" "}
+          Already have an account?{' '}
           <a href="/auth/login" className="text-orange-500 hover:underline">
             Login here
           </a>

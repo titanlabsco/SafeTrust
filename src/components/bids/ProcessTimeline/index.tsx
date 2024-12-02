@@ -1,5 +1,5 @@
-import React from "react";
-import { FaHome, FaMoneyBill, FaBell } from "react-icons/fa";
+import React from 'react';
+import { FaHome, FaMoneyBill, FaBell } from 'react-icons/fa';
 
 const Process: React.FC = () => {
   return (
@@ -7,25 +7,25 @@ const Process: React.FC = () => {
       {/* Vertical line */}
       <div className="absolute w-0.5 bg-gray-300 h-full left-4"></div>
       {[
-        { icon: FaHome, color: "bg-green-500", text: "Step 1 description" },
+        { icon: FaHome, color: 'bg-green-500', text: 'Step 1 description' },
         {
           icon: FaMoneyBill,
-          color: "bg-green-500",
-          text: "Step 2 description",
+          color: 'bg-green-500',
+          text: 'Step 2 description',
         },
         {
           // Use icon1.jpg for Step 3
-          image: "/img/icon1.jpg",
-          color: "bg-gray-400",
-          text: "Step 3 description",
+          image: '/img/icon1.jpg',
+          color: 'bg-gray-400',
+          text: 'Step 3 description',
         },
         {
           // Use icon2.jpg for Step 4
-          image: "/img/icon2.jpg",
-          color: "bg-gray-400",
-          text: "Step 4 description",
+          image: '/img/icon2.jpg',
+          color: 'bg-gray-400',
+          text: 'Step 4 description',
         },
-        { icon: FaBell, color: "bg-gray-400", text: "Step 5 description" },
+        { icon: FaBell, color: 'bg-gray-400', text: 'Step 5 description' },
       ].map((step, index) => (
         <div key={index} className="flex items-center mb-6 gap-4 relative">
           {/* Icon container */}

@@ -1,5 +1,5 @@
-import React from "react";
-import { IconType } from "react-icons";
+import React from 'react';
+import { IconType } from 'react-icons';
 
 interface IconBadgeProps {
   Icon: IconType;
@@ -8,7 +8,7 @@ interface IconBadgeProps {
 
 export default function IconBadge({
   Icon,
-  bgColor = "bg-transparent",
+  bgColor = 'bg-transparent',
 }: IconBadgeProps) {
   return (
     <div

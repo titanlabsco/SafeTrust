@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { PiEye, PiEyeSlash } from "react-icons/pi";
+import React, { useState } from 'react';
+import { PiEye, PiEyeSlash } from 'react-icons/pi';
 
 interface PasswordInputProps {
   id: string;
@@ -25,7 +25,7 @@ export function PasswordInput({
       </label>
       <div className="relative">
         <input
-          type={isVisible ? "text" : "password"}
+          type={isVisible ? 'text' : 'password'}
           id={id}
           value={value}
           onChange={onChange}
@@ -44,7 +44,7 @@ export function PasswordInput({
             <PiEye className="h-5 w-5" aria-hidden="true" />
           )}
           <span className="sr-only">
-            {isVisible ? "Hide password" : "Show password"}
+            {isVisible ? 'Hide password' : 'Show password'}
           </span>
         </button>
       </div>

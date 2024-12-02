@@ -10,7 +10,7 @@ export const InvoiceHeader: React.FC<InvoiceHeaderProps> = ({
   status,
   date,
 }) => {
-  const statusColor = status === "Paid" ? "text-green-600" : "text-red-600";
+  const statusColor = status === 'Paid' ? 'text-green-600' : 'text-red-600';
 
   return (
     <div className="flex justify-between items-center bg-white p-6 rounded-lg shadow">

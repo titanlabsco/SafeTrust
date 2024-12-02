@@ -1,5 +1,5 @@
-import React from "react";
-import LoginCard from "@/components/auth/login/LoginCard";
+import React from 'react';
+import LoginCard from '@/components/auth/login/LoginCard';
 
 const SignupPage: React.FC = () => {
   return (

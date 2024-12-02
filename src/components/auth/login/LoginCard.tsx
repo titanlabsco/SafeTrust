@@ -1,5 +1,5 @@
-import LoginForm from "./LoginForm";
-import AuthButtons from "./../AuthButtons";
+import LoginForm from './LoginForm';
+import AuthButtons from './../AuthButtons';
 
 const LoginCard = () => {
   return (
@@ -9,8 +9,11 @@ const LoginCard = () => {
         <div className="my-4 text-center text-gray-500">or</div>
         <AuthButtons action="login" />
         <p className="text-center text-black text-sm mt-4">
-          Don’t have an account?{" "}
-          <a href="/auth/tenant-register" className="text-orange-500 hover:underline">
+          Don’t have an account?{' '}
+          <a
+            href="/auth/tenant-register"
+            className="text-orange-500 hover:underline"
+          >
             Register here
           </a>
         </p>

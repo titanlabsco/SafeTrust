@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-import { useApolloClient } from "@apollo/client";
+import { createContext, useEffect, useState } from 'react';
+import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import { useApolloClient } from '@apollo/client';
 
 const AuthContext = createContext<{
   user: User | null;

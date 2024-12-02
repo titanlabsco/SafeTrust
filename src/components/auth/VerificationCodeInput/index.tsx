@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef } from 'react';
 
 interface Props {
   length: number;
@@ -8,7 +8,7 @@ export const VerificationCodeInput: React.FC<Props> = ({
   length,
   onComplete,
 }) => {
-  const [code, setCode] = useState<string[]>(Array(length).fill(""));
+  const [code, setCode] = useState<string[]>(Array(length).fill(''));
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
 
   const handleChange = (index: number, value: string) => {
@@ -22,13 +22,13 @@ export const VerificationCodeInput: React.FC<Props> = ({
       inputs.current[index + 1]?.focus();
     }
 
-    if (newCode.every((digit) => digit) && newCode.join("").length === length) {
-      onComplete(newCode.join(""));
+    if (newCode.every((digit) => digit) && newCode.join('').length === length) {
+      onComplete(newCode.join(''));
     }
   };
 
   const handleKeyDown = (index: number, key: string) => {
-    if (key === "Backspace" && index > 0 && !code[index]) {
+    if (key === 'Backspace' && index > 0 && !code[index]) {
       inputs.current[index - 1]?.focus();
     }
   };

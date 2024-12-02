@@ -1,9 +1,9 @@
-import React from "react";
-import MainHeader from "@/layouts/Header";
-import SectionHeader from "@/layouts/PaidStateBidRequest/Header";
-import Details from "@/components/bids/InvoiceDetails";
-import Notes from "@/components/bids/NotesSection";
-import Process from "@/components/bids/ProcessTimeline";
+import React from 'react';
+import MainHeader from '@/layouts/Header';
+import SectionHeader from '@/layouts/PaidStateBidRequest/Header';
+import Details from '@/components/bids/InvoiceDetails';
+import Notes from '@/components/bids/NotesSection';
+import Process from '@/components/bids/ProcessTimeline';
 
 const PaidStateBidRequest: React.FC = () => {
   return (

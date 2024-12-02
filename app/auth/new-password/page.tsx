@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { NewPasswordLayout } from "@/components/auth/NewPassword/NewPasswordLayout";
-import { PasswordHeader } from "@/components/auth/NewPassword/PasswordHeader";
-import { PasswordInput } from "@/components/auth/NewPassword/PasswordInput";
-import { PiSpinnerLight } from "react-icons/pi";
+import React, { useState } from 'react';
+import { NewPasswordLayout } from '@/components/auth/NewPassword/NewPasswordLayout';
+import { PasswordHeader } from '@/components/auth/NewPassword/PasswordHeader';
+import { PasswordInput } from '@/components/auth/NewPassword/PasswordInput';
+import { PiSpinnerLight } from 'react-icons/pi';
 
 export default function NewPassword() {
   const [passwords, setPasswords] = useState({
-    temporal: "",
-    new: "",
+    temporal: '',
+    new: '',
   });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log("Changing password:", passwords);
+    console.log('Changing password:', passwords);
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -55,7 +55,7 @@ export default function NewPassword() {
               Saving...
             </>
           ) : (
-            "Save"
+            'Save'
           )}
         </button>
       </form>

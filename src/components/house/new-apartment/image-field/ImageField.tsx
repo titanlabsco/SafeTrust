@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import useNewApartment from "@/hooks/house/new-apartment/useNewApartment";
-import { TiPlus } from "react-icons/ti";
-import { FaRegTrashAlt } from "react-icons/fa";
+import useNewApartment from '@/hooks/house/new-apartment/useNewApartment';
+import { TiPlus } from 'react-icons/ti';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 const ImageField = () => {
   const {
@@ -25,7 +25,7 @@ const ImageField = () => {
   } = useNewApartment();
 
   const getDropzoneClass = (isDragging: boolean) =>
-    isDragging ? "bg-blue-100 border-blue-500" : "bg-gray-200 border-gray-300";
+    isDragging ? 'bg-blue-100 border-blue-500' : 'bg-gray-200 border-gray-300';
 
   return (
     <div>
@@ -33,14 +33,14 @@ const ImageField = () => {
       <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div
           className="md:col-span-2 relative w-full"
-          style={{ height: "340px" }}
+          style={{ height: '340px' }}
         >
           <div
             {...dropzone1.getRootProps()}
             className={`relative flex items-center justify-center border-dashed border-2 rounded-lg text-center cursor-pointer ${getDropzoneClass(
-              isDragging1,
+              isDragging1
             )}`}
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: '100%', height: '100%' }}
           >
             <input {...dropzone1.getInputProps()} />
             {image1 ? (
@@ -76,14 +76,14 @@ const ImageField = () => {
               <div
                 key={index}
                 className="relative"
-                style={{ width: "100%", height: "100px" }}
+                style={{ width: '100%', height: '100px' }}
               >
                 <div
                   {...dropzone.getRootProps()}
                   className={`relative flex items-center justify-center border-dashed border-2 rounded-lg text-center cursor-pointer ${getDropzoneClass(
-                    isDragging,
+                    isDragging
                   )}`}
-                  style={{ width: "100%", height: "100%" }}
+                  style={{ width: '100%', height: '100%' }}
                 >
                   <input {...dropzone.getInputProps()} />
                   {image ? (

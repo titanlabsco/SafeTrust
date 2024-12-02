@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import useNewApartment from "@/hooks/house/new-apartment/useNewApartment";
-import React from "react";
-import { CiMoneyBill } from "react-icons/ci";
-import { IoHomeOutline, IoLocationOutline } from "react-icons/io5";
-import ImageField from "./image-field/ImageField";
+import useNewApartment from '@/hooks/house/new-apartment/useNewApartment';
+import React from 'react';
+import { CiMoneyBill } from 'react-icons/ci';
+import { IoHomeOutline, IoLocationOutline } from 'react-icons/io5';
+import ImageField from './image-field/ImageField';
 
 const FormNewApartment = () => {
   const { onSubmit } = useNewApartment();
@@ -15,10 +15,10 @@ const FormNewApartment = () => {
       onSubmit={(e) => {
         e.preventDefault();
         onSubmit({
-          name: "",
-          location: "",
+          name: '',
+          location: '',
           amount: 0,
-          details: "",
+          details: '',
           rooms: 1,
           bathrooms: 1,
           petFriendly: false,

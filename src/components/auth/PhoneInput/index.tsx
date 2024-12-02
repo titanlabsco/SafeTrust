@@ -1,5 +1,5 @@
-import { Input } from "@/components/ui/Input";
-import { Select } from "@/components/ui/Select";
+import { Input } from '@/components/ui/Input';
+import { Select } from '@/components/ui/Select';
 
 interface Props {
   value: string;
@@ -7,7 +7,7 @@ interface Props {
   onPhoneChange: (value: string) => void;
   onCountryCodeChange: (value: string) => void;
   id?: string;
-  variant?: "default" | "underlined";
+  variant?: 'default' | 'underlined';
 }
 
 export const PhoneInput: React.FC<Props> = ({
@@ -15,8 +15,8 @@ export const PhoneInput: React.FC<Props> = ({
   countryCode,
   onPhoneChange,
   onCountryCodeChange,
-  id = "phone",
-  variant = "default",
+  id = 'phone',
+  variant = 'default',
 }) => {
   return (
     <div className="flex gap-2">

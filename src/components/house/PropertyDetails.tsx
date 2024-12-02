@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import React from "react";
-import { MdLocationOn } from "react-icons/md";
-import { FaBed, FaPaw, FaBath } from "react-icons/fa";
-import Loader from "@/layouts/Loader";
-import "react-toastify/dist/ReactToastify.css";
-import usePropertyDetails from "@/hooks/house/usePropertyDetails";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { MdLocationOn } from 'react-icons/md';
+import { FaBed, FaPaw, FaBath } from 'react-icons/fa';
+import Loader from '@/layouts/Loader';
+import 'react-toastify/dist/ReactToastify.css';
+import usePropertyDetails from '@/hooks/house/usePropertyDetails';
+import { useTranslation } from 'react-i18next';
 
 const PropertyDetails: React.FC = () => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
   const { bookReservation, loadingBook, isBooked } = usePropertyDetails();
 
   const handleBook = async () => {
     try {
       await bookReservation();
     } catch (error) {
-      console.error("Error during booking:", error);
+      console.error('Error during booking:', error);
     }
   };
 
@@ -32,7 +32,7 @@ const PropertyDetails: React.FC = () => {
                 className="w-full h-[465px] object-cover rounded-lg border"
               />
               <span className="absolute top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-4 py-2 rounded-full">
-                {t("propertyDetails.promo")}
+                {t('propertyDetails.promo')}
               </span>
             </div>
             <div className="flex flex-col gap-4">
@@ -55,21 +55,29 @@ const PropertyDetails: React.FC = () => {
           </div>
           <div className="mt-8">
             <div className="flex justify-between items-center">
-              <h1 className="text-2xl font-bold text-black">{t("propertyDetails.propertyTitle")}</h1>
+              <h1 className="text-2xl font-bold text-black">
+                {t('propertyDetails.propertyTitle')}
+              </h1>
               <button
                 onClick={handleBook}
                 className={`bg-orange-500 text-white px-12 py-2 rounded-lg text-sm font-semibold hover:bg-orange-600 ${
-                  isBooked || loadingBook ? "opacity-50 cursor-not-allowed" : ""
+                  isBooked || loadingBook ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 disabled={isBooked || loadingBook}
               >
-                {loadingBook ? <Loader /> : isBooked ? "BOOKED" : t("propertyDetails.bookButton")}
+                {loadingBook ? (
+                  <Loader />
+                ) : isBooked ? (
+                  'BOOKED'
+                ) : (
+                  t('propertyDetails.bookButton')
+                )}
               </button>
             </div>
             <div className="flex justify-between items-center mt-4">
               <div className="flex items-center text-gray-700 text-sm">
                 <MdLocationOn className="text-orange-500 w-5 h-5 mr-2" />
-                {t("propertyDetails.address")}
+                {t('propertyDetails.address')}
               </div>
             </div>
             <hr className="my-4 border-gray-300" />
@@ -77,15 +85,21 @@ const PropertyDetails: React.FC = () => {
               <div className="flex gap-4 text-orange-500">
                 <div className="flex items-center">
                   <FaBed className="w-5 h-5 mr-2" />
-                  <span className="text-gray-700 text-sm">2 {t("common.bed")}</span>
+                  <span className="text-gray-700 text-sm">
+                    2 {t('common.bed')}
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <FaPaw className="w-5 h-5 mr-2" />
-                  <span className="text-gray-700 text-sm">{t("common.pet")}</span>
+                  <span className="text-gray-700 text-sm">
+                    {t('common.pet')}
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <FaBath className="w-5 h-5 mr-2" />
-                  <span className="text-gray-700 text-sm">1 {t("common.bathroom")}</span>
+                  <span className="text-gray-700 text-sm">
+                    1 {t('common.bathroom')}
+                  </span>
                 </div>
               </div>
               <div className="flex items-center">
@@ -97,10 +111,10 @@ const PropertyDetails: React.FC = () => {
             </div>
             <div className="mt-6">
               <h2 className="text-xl font-bold text-black">
-              {t("propertyDetails.detailsTitle")}
+                {t('propertyDetails.detailsTitle')}
               </h2>
               <p className="text-gray-500 text-sm mt-2">
-               {t("propertyDetails.detailsText")}
+                {t('propertyDetails.detailsText')}
               </p>
             </div>
           </div>

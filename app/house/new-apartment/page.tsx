@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Header from "@/layouts/Header";
-import Sidebar from "@/layouts/Sidebar";
-import Bounded from "@/components/Bounded";
-import FormNewApartment from "@/components/house/new-apartment/Form";
+import Header from '@/layouts/Header';
+import Sidebar from '@/layouts/Sidebar';
+import Bounded from '@/components/Bounded';
+import FormNewApartment from '@/components/house/new-apartment/Form';
 
 const Home: React.FC = () => {
   return (

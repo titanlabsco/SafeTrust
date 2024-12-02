@@ -1,18 +1,18 @@
-"use client";
-import { ApartmentDetails } from "@/components/interestedPeople/ApartmentDetails";
-import SearchAndFilter from "@/components/interestedPeople/SearchAndFilter";
-import { Table } from "@/components/Table";
-import Header from "@/layouts/Header";
-import DropdownPagination from "@/components/interestedPeople/DropdownPagination";
-import { MOCK_DATA } from "@/mockData/tableData";
-import { useTableLogic } from "@/hooks/useTableLogic";
-import { useTranslation } from "react-i18next";
+'use client';
+import { ApartmentDetails } from '@/components/interestedPeople/ApartmentDetails';
+import SearchAndFilter from '@/components/interestedPeople/SearchAndFilter';
+import { Table } from '@/components/Table';
+import Header from '@/layouts/Header';
+import DropdownPagination from '@/components/interestedPeople/DropdownPagination';
+import { MOCK_DATA } from '@/mockData/tableData';
+import { useTableLogic } from '@/hooks/useTableLogic';
+import { useTranslation } from 'react-i18next';
 
 const Page = () => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
   const apartment = {
-    name: t("interestedPeople.title"),
-    location: t("interestedPeople.address"),
+    name: t('interestedPeople.title'),
+    location: t('interestedPeople.address'),
     bedrooms: 2,
     bathrooms: 1,
     petFriendly: true,
@@ -57,7 +57,16 @@ const Page = () => {
           onItemsPerPageChange={handleItemsPerPageChange}
           onPageChange={handlePageChange}
         />
-        <Table data={paginatedData} onActionClick={handleActionClick} />
+        <Table
+          data={paginatedData}
+          onActionClick={handleActionClick}
+          onStatusChange={function (
+            id: number,
+            newStatus: 'accepted' | 'rejected'
+          ): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
         <div className="hidden sm:block">
           <DropdownPagination
             paginationVisible

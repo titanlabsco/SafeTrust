@@ -1,9 +1,9 @@
-import { HiOutlineFire } from "react-icons/hi2";
-import { SlLocationPin } from "react-icons/sl";
-import { LuBedDouble, LuBath } from "react-icons/lu";
-import { LiaPawSolid } from "react-icons/lia";
+import { HiOutlineFire } from 'react-icons/hi2';
+import { SlLocationPin } from 'react-icons/sl';
+import { LuBedDouble, LuBath } from 'react-icons/lu';
+import { LiaPawSolid } from 'react-icons/lia';
 import IconBadge from '../IconBadge';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 interface ApartmentDetailsProps {
   name: string;
@@ -22,55 +22,63 @@ export function ApartmentDetails({
   petFriendly,
   price,
 }: ApartmentDetailsProps) {
-
-    const {t}=useTranslation();
-    return (
-        <div className="w-full">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                <div className="flex items-center">
-                    <IconBadge Icon={HiOutlineFire} />
-                    <h1 className="text-xl md:text-2xl font-bold text-gray-800 ml-2">
-                        {name}
-                    </h1>
-                </div>
-                <span className="text-gray-400 text-sm md:text-base">
-                   {t("interestedPeople.subtitle")}
-                </span>
-            </div>
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                <div className="flex flex-wrap gap-3 md:gap-4">
-                    <div className="flex items-center">
-                        <IconBadge Icon={SlLocationPin} />
-                        <span className="ml-1 text-sm md:text-base text-gray-600">{location}</span>
-                    </div>
-                    
-                    <div className="flex items-center">
-                        <IconBadge Icon={LuBedDouble} />
-                        <span className="ml-1 text-sm md:text-base text-gray-600">{bedrooms} {t("common.bed")}</span>
-                    </div>
-                    
-                    <div className="flex items-center">
-                        <IconBadge Icon={LuBath} />
-                        <span className="ml-1 text-sm md:text-base text-gray-600">{bathrooms} {t("common.bathroom")}</span>
-                    </div>
-                    
-                    {petFriendly && (
-                        <div className="flex items-center">
-                            <IconBadge Icon={LiaPawSolid} />
-                            <span className="ml-1 text-sm md:text-base text-gray-600"> {t("common.pet")}</span>
-                        </div>
-                    )}
-                </div>
-                <div className="flex items-center gap-1">
-                    <span className="text-green-600 font-bold text-lg md:text-xl">
-                        ${price.toLocaleString()}
-                    </span>
-                    <span className="text-gray-500 text-sm md:text-base">
-                    {t("interestedPeople.perMonth")}
-                    </span>
-                </div>
-            </div>
+  const { t } = useTranslation();
+  return (
+    <div className="w-full">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+        <div className="flex items-center">
+          <IconBadge Icon={HiOutlineFire} />
+          <h1 className="text-xl md:text-2xl font-bold text-gray-800 ml-2">
+            {name}
+          </h1>
         </div>
+        <span className="text-gray-400 text-sm md:text-base">
+          {t('interestedPeople.subtitle')}
+        </span>
+      </div>
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div className="flex flex-wrap gap-3 md:gap-4">
+          <div className="flex items-center">
+            <IconBadge Icon={SlLocationPin} />
+            <span className="ml-1 text-sm md:text-base text-gray-600">
+              {location}
+            </span>
+          </div>
+
+          <div className="flex items-center">
+            <IconBadge Icon={LuBedDouble} />
+            <span className="ml-1 text-sm md:text-base text-gray-600">
+              {bedrooms} {t('common.bed')}
+            </span>
+          </div>
+
+          <div className="flex items-center">
+            <IconBadge Icon={LuBath} />
+            <span className="ml-1 text-sm md:text-base text-gray-600">
+              {bathrooms} {t('common.bathroom')}
+            </span>
+          </div>
+
+          {petFriendly && (
+            <div className="flex items-center">
+              <IconBadge Icon={LiaPawSolid} />
+              <span className="ml-1 text-sm md:text-base text-gray-600">
+                {' '}
+                {t('common.pet')}
+              </span>
+            </div>
+          )}
+        </div>
+        <div className="flex items-center gap-1">
+          <span className="text-green-600 font-bold text-lg md:text-xl">
+            ${price.toLocaleString()}
+          </span>
+          <span className="text-gray-500 text-sm md:text-base">
+            {t('interestedPeople.perMonth')}
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }
 

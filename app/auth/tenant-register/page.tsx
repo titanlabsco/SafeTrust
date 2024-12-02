@@ -1,5 +1,5 @@
-import React from "react";
-import TenantCard from "@/components/auth/tenant-register/TenantCard";
+import React from 'react';
+import TenantCard from '@/components/auth/tenant-register/TenantCard';
 
 const TenantRegistrationPage: React.FC = () => {
   return <TenantCard />;

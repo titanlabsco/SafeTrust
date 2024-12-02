@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import { Input } from "@/components/ui/Input";
-import { Select } from "@/components/ui/Select";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { Input } from '@/components/ui/Input';
+import { Select } from '@/components/ui/Select';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 interface RegistrationForm {
   fullName: string;
@@ -26,39 +26,39 @@ const RegisterForm: React.FC = () => {
     setValue,
   } = useForm<RegistrationForm>({
     defaultValues: {
-      fullName: "",
-      phoneNumber: "",
-      countryCode: "+506",
-      location: "Costa Rica",
-      email: "",
-      password: "",
+      fullName: '',
+      phoneNumber: '',
+      countryCode: '+506',
+      location: 'Costa Rica',
+      email: '',
+      password: '',
     },
-    mode: "onChange",
+    mode: 'onChange',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (data: RegistrationForm) => {
-    console.log("data", data);
+    console.log('data', data);
     setIsSubmitting(true);
     try {
       // Firebase integration will go here
-      router.push("/auth/verify-email");
+      router.push('/auth/verify-email');
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error('Registration error:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handlePhoneChange = (value: string) => {
-    setValue("phoneNumber", value, {
+    setValue('phoneNumber', value, {
       shouldValidate: true,
     });
   };
 
   const handlePasswordChange = (value: string) => {
-    setValue("password", value, {
+    setValue('password', value, {
       shouldValidate: true,
     });
   };
@@ -75,15 +75,15 @@ const RegisterForm: React.FC = () => {
           </label>
           <Input
             id="fullName"
-            {...register("fullName", {
-              required: "Full name is required",
+            {...register('fullName', {
+              required: 'Full name is required',
               minLength: {
                 value: 3,
-                message: "Full name must be at least 3 characters",
+                message: 'Full name must be at least 3 characters',
               },
               pattern: {
                 value: /^[a-zA-Z\s]+$/,
-                message: "Full name can only contain letters",
+                message: 'Full name can only contain letters',
               },
             })}
             placeholder="John Smith"
@@ -106,8 +106,8 @@ const RegisterForm: React.FC = () => {
           <div className="flex gap-2">
             <Select
               id="phone-country-code"
-              value={watch("countryCode")}
-              onChange={(e) => setValue("countryCode", e.target.value)}
+              value={watch('countryCode')}
+              onChange={(e) => setValue('countryCode', e.target.value)}
               className="w-24"
               variant="underlined"
             >
@@ -116,23 +116,23 @@ const RegisterForm: React.FC = () => {
             <Input
               id="phone"
               type="tel"
-              {...register("phoneNumber", {
-                required: "Phone number is required",
+              {...register('phoneNumber', {
+                required: 'Phone number is required',
                 pattern: {
                   value: /^\d+$/,
-                  message: "Phone number can only contain numbers",
+                  message: 'Phone number can only contain numbers',
                 },
                 minLength: {
                   value: 8,
-                  message: "Phone number must be at least 8 digits",
+                  message: 'Phone number must be at least 8 digits',
                 },
                 maxLength: {
                   value: 12,
-                  message: "Phone number cannot exceed 12 digits",
+                  message: 'Phone number cannot exceed 12 digits',
                 },
               })}
               onChange={(e) => {
-                const value = e.target.value.replace(/[^\d]/g, "");
+                const value = e.target.value.replace(/[^\d]/g, '');
                 handlePhoneChange(value);
               }}
               className="flex-1"
@@ -156,8 +156,8 @@ const RegisterForm: React.FC = () => {
           </label>
           <Select
             id="location"
-            value={watch("location")}
-            onChange={(e) => setValue("location", e.target.value)}
+            value={watch('location')}
+            onChange={(e) => setValue('location', e.target.value)}
             variant="underlined"
           >
             <option value="Costa Rica">Costa Rica</option>
@@ -178,11 +178,11 @@ const RegisterForm: React.FC = () => {
           </label>
           <Input
             id="email"
-            {...register("email", {
-              required: "Email address is required",
+            {...register('email', {
+              required: 'Email address is required',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Please enter a valid email address",
+                message: 'Please enter a valid email address',
               },
             })}
             type="email"
@@ -204,8 +204,8 @@ const RegisterForm: React.FC = () => {
           <div className="relative">
             <Input
               id="password"
-              type={showPassword ? "text" : "password"}
-              value={watch("password") || ""}
+              type={showPassword ? 'text' : 'password'}
+              value={watch('password') || ''}
               onChange={(e) => handlePasswordChange(e.target.value)}
               className="pr-10"
               placeholder="******************"
@@ -237,7 +237,7 @@ const RegisterForm: React.FC = () => {
         disabled={isSubmitting || Object.keys(errors).length > 0}
         className="w-full bg-orange-500 text-white py-3 rounded-md hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors mt-8"
       >
-        {isSubmitting ? "Creating Account..." : "Create Account"}
+        {isSubmitting ? 'Creating Account...' : 'Create Account'}
       </button>
     </form>
   );

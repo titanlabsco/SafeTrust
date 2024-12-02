@@ -1,7 +1,7 @@
-import { useState, useMemo, useEffect } from "react";
-import { TableData } from "@/@types/table";
-import { filterTableData } from "@/utils/filterTableData";
-import { FilterState } from "@/@types/table";
+import { useState, useMemo, useEffect } from 'react';
+import { TableData } from '@/@types/table';
+import { filterTableData } from '@/utils/filterTableData';
+import { FilterState } from '@/@types/table';
 
 interface UseTableLogicProps {
   initialData: TableData[];
@@ -14,10 +14,10 @@ export const useTableLogic = ({
 }: UseTableLogicProps) => {
   // State
   const [filters, setFilters] = useState<FilterState>({
-    search: "",
-    dateRange: "",
-    status: "",
-    name: "",
+    search: '',
+    dateRange: '',
+    status: '',
+    name: '',
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(initialItemsPerPage);
@@ -64,28 +64,28 @@ export const useTableLogic = ({
 
   const handleStatusUpdate = (
     id: number,
-    newStatus: "accepted" | "rejected" | "pending",
+    newStatus: 'accepted' | 'rejected' | 'pending'
   ) => {
     setTableData((prevData) =>
       prevData.map((item) =>
-        item.id === id ? { ...item, status: newStatus } : item,
-      ),
+        item.id === id ? { ...item, status: newStatus } : item
+      )
     );
   };
 
   const handleActionClick = (action: string, item: TableData) => {
     switch (action) {
-      case "accept":
-        handleStatusUpdate(item.id, "accepted");
+      case 'accept':
+        handleStatusUpdate(item.id, 'accepted');
         break;
-      case "reject":
-        handleStatusUpdate(item.id, "rejected");
+      case 'reject':
+        handleStatusUpdate(item.id, 'rejected');
         break;
-      case "pend":
-        handleStatusUpdate(item.id, "pending");
+      case 'pend':
+        handleStatusUpdate(item.id, 'pending');
         break;
-      case "edit":
-      case "delete":
+      case 'edit':
+      case 'delete':
         console.log(`Action ${action} clicked for item:`, item);
         break;
     }

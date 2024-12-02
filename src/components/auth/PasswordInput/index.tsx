@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input } from "@/components/ui/Input";
+import { useState } from 'react';
+import { Input } from '@/components/ui/Input';
 
 interface Props {
   value: string;
   onChange: (value: string) => void;
   id?: string;
-  variant?: "default" | "underlined";
+  variant?: 'default' | 'underlined';
 }
 
 export const PasswordInput: React.FC<Props> = ({
   value,
   onChange,
-  id = "password",
-  variant = "default",
+  id = 'password',
+  variant = 'default',
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -22,7 +22,7 @@ export const PasswordInput: React.FC<Props> = ({
     <div className="relative">
       <Input
         id={id}
-        type={showPassword ? "text" : "password"}
+        type={showPassword ? 'text' : 'password'}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="pr-10"
@@ -33,7 +33,7 @@ export const PasswordInput: React.FC<Props> = ({
         type="button"
         onClick={() => setShowPassword(!showPassword)}
         className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500"
-        aria-label={showPassword ? "Hide password" : "Show password"}
+        aria-label={showPassword ? 'Hide password' : 'Show password'}
       >
         {showPassword ? (
           <svg

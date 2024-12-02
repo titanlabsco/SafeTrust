@@ -1,14 +1,14 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const ForgotPasswordCard: React.FC = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Reset password for:", email);
+    console.log('Reset password for:', email);
   };
   // forgot password card
   return (
@@ -84,7 +84,7 @@ const ForgotPasswordCard: React.FC = () => {
               href="/auth/login"
               className="text-black text-sm inline-flex items-center justify-center gap-2"
             >
-              <span className="text-orange-500 relative top-[-1px]">←</span>{" "}
+              <span className="text-orange-500 relative top-[-1px]">←</span>{' '}
               Back to log in
             </Link>
           </div>
