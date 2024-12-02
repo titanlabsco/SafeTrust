@@ -53,27 +53,27 @@ Ensures funds are automatically released based on the terms of the agreement, wi
 
 1️⃣ Clone the repository:
 
-```bash
+\`\`\`bash
 git clone https://github.com/titanlabsco/SafeTrust.git
-```
+\`\`\`
 
 2️⃣ Navigate to the project directory:
 
-```bash
+\`\`\`bash
 cd SafeTrust/Frontend/Application
-```
+\`\`\`
 
 3️⃣ Set up environment variables:
 
-```bash
+\`\`\`bash
 echo "NEXT_PUBLIC_API_URL=https://api.trustlesswork.com" > .env
-```
+\`\`\`
 
 4️⃣ Start the development server:
 
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 ---
 
@@ -93,6 +93,41 @@ npm run dev
 - **Blockchain**: 🛡️ Utilizes smart contracts for secure, immutable transactions.
 - **API Integration**: 🌐 Interacts with the Trustless Work API for seamless escrow management.
 - **Wallet Integration**: 🪙 Compatible with wallets like Albedo for secure payment handling.
+
+---
+
+## 🧪 **Testing Infrastructure**
+
+This project uses Jest, React Testing Library, and Cypress for comprehensive testing of our Next.js application with App Router.
+
+### **Running Tests**
+
+- Run unit and integration tests: `npm test`
+- Run E2E tests: `npm run test:e2e`
+- Generate test coverage report: `npm run test:coverage`
+
+### **Test Structure**
+
+- Unit and integration tests are located in `__tests__` directories or as `.test.ts(x)` files next to the code they're testing within the `app` directory.
+- E2E tests are located in the `cypress/e2e` directory.
+
+### **Mocking**
+
+We use Mock Service Worker (MSW) to mock API requests, including GraphQL queries. Mock handlers are defined in `mocks/handlers.ts`.
+
+### **Continuous Integration**
+
+We use GitHub Actions for CI. The workflow is defined in `.github/workflows/test.yml`.
+
+### **Coverage Reporting**
+
+Test coverage reports are generated using Jest's built-in coverage tool and uploaded to Codecov in the CI pipeline.
+
+### **Next.js Specific Testing Considerations**
+
+- Server Components: For testing Server Components, focus on integration and E2E tests rather than unit tests.
+- API Routes: Use MSW to mock API responses in your tests.
+- App Router: Ensure your tests account for the new file-based routing system in the App Router.
 
 ---
 

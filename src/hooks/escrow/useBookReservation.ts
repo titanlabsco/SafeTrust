@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { initializeEscrow } from "@/services/escrow/initializeEscrow";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 export const useBookReservation = (address: string | null) => {
   const [loadingBook, setLoadingBook] = useState(false);
   const [contractId, setContractId] = useState<string | null>(null);
   const [engagementId, setEngagementId] = useState<string | null>(null);
   const [isBooked, setIsBooked] = useState(false);
-
+  const {t}=useTranslation()
   const bookReservation = async () => {
     if (!address) {
-      toast.error("Please connect your wallet first");
+      toast.error(t("toast.walletError"));
       return;
     }
 

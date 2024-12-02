@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FaBed, FaBath, FaPaw } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
 
 interface PropertyCardProps {
   image: string;
@@ -24,6 +25,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   baths,
   petFriendly,
 }) => {
+  const {t} =useTranslation();
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden border">
       <div className="relative">
@@ -36,7 +38,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         />
         {promoted && (
           <span className="absolute top-2 left-2 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">
-            PROMOTED
+          {t("propertyList.propertyCard.promo")}
           </span>
         )}
       </div>
@@ -45,23 +47,23 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           <p className="text-green-600 font-bold text-lg">${price}.00</p>
           <AiOutlineHeart className="text-gray-400 text-xl cursor-pointer hover:text-red-500" />
         </div>
-        <p className="text-gray-500 text-sm">Per month</p>
-        <h3 className="text-gray-900 font-semibold mt-2">{title}</h3>
-        <p className="text-gray-600 text-sm">{address}</p>
+        <p className="text-gray-500 text-sm">{t("propertyList.propertyCard.perMonth")}</p>
+        <h3 className="text-gray-900 font-semibold mt-2">{t("propertyList.propertyCard.title")}</h3>
+        <p className="text-gray-600 text-sm">{t("propertyList.propertyCard.address")}</p>
       </div>
       <div className="p-4 border-t flex justify-between items-center text-gray-600 text-sm">
         <div className="flex items-center">
           <FaBed className="mr-1" />
-          <span>{beds} bd</span>
+          <span>{beds} {t("common.bed")}</span>
         </div>
         <div className="flex items-center">
           <FaBath className="mr-1" />
-          <span>{baths} ba</span>
+          <span>{baths} {t("common.bathroom")}</span>
         </div>
         {petFriendly && (
           <div className="flex items-center">
             <FaPaw className="mr-1" />
-            <span>Pet Friendly</span>
+            <span>{t("common.pet")}</span>
           </div>
         )}
       </div>
