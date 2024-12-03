@@ -17,8 +17,10 @@ export function PasswordHeader({ title, subtitle }: PasswordHeaderProps) {
           priority
         />
       </div>
-      <h1 className="text-xl md:text-2xl font-bold text-black">{title}</h1>
-      <p className="text-gray-500 text-center mt-2 text-sm md:text-base">
+      <h1 className="text-xl md:text-2xl font-bold text-black dark:text-gray-200">
+        {title}
+      </h1>
+      <p className="text-gray-500 text-center mt-2 text-sm md:text-base dark:text-gray-200">
         {subtitle}
       </p>
     </div>

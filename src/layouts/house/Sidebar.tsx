@@ -49,18 +49,18 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <div className="w-97 p-4 bg-white">
-      <h2 className="text-xl font-bold text-black mb-2">
+    <div className="w-97 p-4 bg-white dark:bg-dark-surface border-r dark:border-gray-700">
+      <h2 className="text-xl font-bold text-black mb-2 dark:text-gray-200">
         {t('sideSuggestions.title')}
       </h2>
-      <p className="text-gray-700 text-sm mb-4">
+      <p className="text-gray-700 text-sm mb-4 dark:text-gray-200">
         {t('sideSuggestions.unitAvailable')}
       </p>
       <div className="space-y-4">
         {suggestions.map((suggestion) => (
           <div
             key={suggestion.id}
-            className="flex p-4 border border-gray-200 rounded-lg relative"
+            className="flex p-4 border border-gray-200 rounded-lg relative dark:border-gray-700"
           >
             <img
               className="w-20 h-20 rounded-lg object-cover"
@@ -68,9 +68,15 @@ const Sidebar: React.FC = () => {
               alt={suggestion.title}
             />
             <div className="ml-4 flex-grow">
-              <h3 className="text-black font-semibold">{suggestion.title}</h3>
-              <p className="text-gray-500 text-sm">{suggestion.address}</p>
-              <p className="text-gray-500 text-sm">{suggestion.details}</p>
+              <h3 className="text-black font-semibold dark:text-gray-200">
+                {suggestion.title}
+              </h3>
+              <p className="text-gray-500 text-sm dark:text-gray-200">
+                {suggestion.address}
+              </p>
+              <p className="text-gray-500 text-sm dark:text-gray-200">
+                {suggestion.details}
+              </p>
             </div>
             <button className="absolute top-3 right-3 text-red-500 hover:text-red-700">
               <AiOutlineHeart className="w-5 h-5" />

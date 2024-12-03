@@ -4,6 +4,7 @@ import './globals.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from '@material-tailwind/react';
+import { ThemeProvider as CustomThemeProvider } from '@/providers/ThemeProvider';
 import '../src/i18n/config';
 export default function RootLayout({
   children,
@@ -15,7 +16,9 @@ export default function RootLayout({
       <body className="antialiased font-inter" suppressHydrationWarning={true}>
         <div className="min-h-screen flex flex-col">
           <ThemeProvider>
-            <main className="flex-1">{children}</main>
+            <CustomThemeProvider>
+              <main className="flex-1">{children}</main>
+            </CustomThemeProvider>
           </ThemeProvider>
         </div>
         <ToastContainer position="top-right" />

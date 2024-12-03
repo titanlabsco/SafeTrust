@@ -13,7 +13,7 @@ const ForgotPasswordCard: React.FC = () => {
   // forgot password card
   return (
     <>
-      <div className="fixed left-0 bottom-0 hidden md:block">
+      <div className="fixed left-0 bottom-0 hidden md:block dark:bg-dark-surface">
         <Image
           src="/img/apartments 4.png"
           alt="City Background Left"
@@ -46,10 +46,10 @@ const ForgotPasswordCard: React.FC = () => {
               priority
             />
           </div>
-          <h1 className="text-xl md:text-2xl font-bold text-black">
+          <h1 className="text-xl md:text-2xl font-bold text-black dark:text-gray-200">
             Forgot password?
           </h1>
-          <p className="text-gray-500 text-center mt-2 text-sm md:text-base">
+          <p className="text-gray-500 text-center mt-2 text-sm md:text-base dark:text-gray-200">
             No worries, we'll send you a temporary password\
           </p>
         </div>
@@ -58,7 +58,7 @@ const ForgotPasswordCard: React.FC = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200"
             >
               Email
             </label>
@@ -74,7 +74,7 @@ const ForgotPasswordCard: React.FC = () => {
 
           <button
             type="submit"
-            className="w-[180px] mx-auto block bg-[#F47521] text-white py-2 rounded-lg hover:bg-orange-600 transition-colors"
+            className="w-[180px] mx-auto block bg-[#F47521] text-white py-2 rounded-lg hover:bg-orange-600 transition-colors dark:text-gray-200"
           >
             Send password
           </button>
@@ -82,7 +82,7 @@ const ForgotPasswordCard: React.FC = () => {
           <div className="text-center">
             <Link
               href="/auth/login"
-              className="text-black text-sm inline-flex items-center justify-center gap-2"
+              className="text-black text-sm inline-flex items-center justify-center gap-2 dark:text-gray-200"
             >
               <span className="text-orange-500 relative top-[-1px]">←</span>{' '}
               Back to log in

@@ -2,26 +2,29 @@
 import { useWalletStore } from '@/store/walletStore';
 import { FaUserCircle, FaBell } from 'react-icons/fa';
 import Link from 'next/link';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { useTheme } from '@/providers/ThemeProvider';
 import LanguageSwitcher from '@/components/language/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
   const { name } = useWalletStore();
+  const { theme } = useTheme();
   const { t } = useTranslation();
   return (
-    <nav className="flex justify-between items-center bg-white py-[1rem] px-[2rem] shadow-md">
+    <nav className="flex justify-between items-center bg-white py-[1rem] px-[2rem] shadow-md  dark:bg-dark-surface border-b dark:border-gray-700">
       {/* Logo */}
       <Link href="/" className="flex items-center space-x-[0.5rem]">
         <img
-          src="/img/logo2.png"
+          src={theme === 'dark' ? '/img/logolight.png' : '/img/logo2.png'}
           alt="SafeTrust Logo"
           className="w-[13rem] h-auto"
         />
       </Link>
 
       {/* Search Bar */}
-      <div className="flex items-center bg-gray-200 rounded-full px-[0.7rem] py-[0.4rem] w-[45%]">
-        <select className="bg-white border border-gray-300 text-gray-700 text-[1rem] rounded-full px-[0.8rem] py-[0.3rem] focus:outline-none">
+      <div className="flex items-center bg-gray-200 dark:bg-dark-surface border border-gray-300 rounded-full px-[0.7rem] py-[0.4rem] w-[45%]">
+        <select className="bg-white border border-gray-300 dark:bg-dark-surface text-gray-700 text-[1rem] dark:text-gray-200 rounded-full px-[0.8rem] py-[0.3rem] focus:outline-none">
           <option>{t('navBar.rent')}</option>
           <option>{t('navBar.buy')}</option>
         </select>
@@ -52,7 +55,10 @@ const Header: React.FC = () => {
       <div className="flex items-center space-x-[1rem] ml-auto">
         {/* Notification Bell */}
         <div className="relative">
-          <FaBell size={24} className="text-gray-700 cursor-pointer" />
+          <FaBell
+            size={24}
+            className="text-gray-700 dark:text-gray-200 cursor-pointer"
+          />
           {/* Notification Badge */}
           <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
         </div>
@@ -60,13 +66,17 @@ const Header: React.FC = () => {
         {/* User Profile */}
         <LanguageSwitcher />
         <div className="flex items-center space-x-[0.5rem]">
-          <span className="text-gray-700 font-medium text-[1rem]">
+          <span className="text-gray-700 dark:text-gray-200 font-medium text-[1rem]">
             {name || 'Randall Valenciano'}
           </span>
           <Link href="/profile">
-            <FaUserCircle size={24} className="text-gray-700 cursor-pointer" />
+            <FaUserCircle
+              size={24}
+              className="text-gray-700 dark:text-gray-200  cursor-pointer"
+            />
           </Link>
         </div>
+        <ThemeToggle />
       </div>
     </nav>
   );
