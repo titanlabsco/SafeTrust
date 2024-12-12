@@ -11,7 +11,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 const EmailVerificationForm = () => {
   const [isResending, setIsResending] = useState(false);
   const searchParams = useSearchParams();
-  const email = searchParams.get('email') || 'josuemarin2009@hotmail.com';
+  const email = searchParams.get('email') || 'john.doe@email.com';
   const graphQLClient = new GraphQLClient('http://localhost:8080/v1/graphql', {
     headers: {
       'x-hasura-admin-secret': 'myadminsecretkey',
