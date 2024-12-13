@@ -4,6 +4,7 @@ import { LuBedDouble, LuBath } from 'react-icons/lu';
 import { LiaPawSolid } from 'react-icons/lia';
 import IconBadge from '../IconBadge';
 import { useTranslation } from 'react-i18next';
+import { BackToButton } from '../ui/button';
 
 interface ApartmentDetailsProps {
   name: string;
@@ -24,15 +25,16 @@ export function ApartmentDetails({
 }: ApartmentDetailsProps) {
   const { t } = useTranslation();
   return (
-    <div className="w-full">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+    <div className="w-full flex flex-col">
+      <BackToButton path="/profile" />
+      <div className="flex flex-col mt-10 sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
         <div className="flex items-center">
           <IconBadge Icon={HiOutlineFire} />
-          <h1 className="text-xl md:text-2xl font-bold text-gray-800 ml-2">
+          <h1 className="text-xl md:text-2xl font-bold text-gray-800 ml-2 dark:text-gray-200">
             {name}
           </h1>
         </div>
-        <span className="text-gray-400 text-sm md:text-base">
+        <span className="text-gray-400 text-sm md:text-base dark:text-gray-200">
           {t('interestedPeople.subtitle')}
         </span>
       </div>
@@ -40,21 +42,21 @@ export function ApartmentDetails({
         <div className="flex flex-wrap gap-3 md:gap-4">
           <div className="flex items-center">
             <IconBadge Icon={SlLocationPin} />
-            <span className="ml-1 text-sm md:text-base text-gray-600">
+            <span className="ml-1 text-sm md:text-base text-gray-600 dark:text-gray-200">
               {location}
             </span>
           </div>
 
           <div className="flex items-center">
             <IconBadge Icon={LuBedDouble} />
-            <span className="ml-1 text-sm md:text-base text-gray-600">
+            <span className="ml-1 text-sm md:text-base text-gray-600 dark:text-gray-200">
               {bedrooms} {t('common.bed')}
             </span>
           </div>
 
           <div className="flex items-center">
             <IconBadge Icon={LuBath} />
-            <span className="ml-1 text-sm md:text-base text-gray-600">
+            <span className="ml-1 text-sm md:text-base text-gray-600 dark:text-gray-200">
               {bathrooms} {t('common.bathroom')}
             </span>
           </div>
@@ -62,18 +64,18 @@ export function ApartmentDetails({
           {petFriendly && (
             <div className="flex items-center">
               <IconBadge Icon={LiaPawSolid} />
-              <span className="ml-1 text-sm md:text-base text-gray-600">
+              <span className="ml-1 text-sm md:text-base text-gray-600 dark:text-gray-200">
                 {' '}
                 {t('common.pet')}
               </span>
             </div>
           )}
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex justify-center items-center gap-1">
           <span className="text-green-600 font-bold text-lg md:text-xl">
             ${price.toLocaleString()}
           </span>
-          <span className="text-gray-500 text-sm md:text-base">
+          <span className="text-gray-500 text-sm md:text-base dark:text-gray-200">
             {t('interestedPeople.perMonth')}
           </span>
         </div>
