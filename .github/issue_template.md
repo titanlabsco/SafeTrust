@@ -26,4 +26,4 @@
 <!-- Add any additional information or screenshots about the issue here -->
 
 ### ⏳ ETA
-<!-- Please provide an estimated time of arrival for when the issue might be resolved. -->
+<!-- Please provide an estimated time of completion for when the issue might be resolved. -->
