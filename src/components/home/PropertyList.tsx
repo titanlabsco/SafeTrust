@@ -16,22 +16,33 @@ const sortByPriceReverse = (propertyA: Property, propertyB: Property) => {
   return parseInt(propertyB.price) - parseInt(propertyA.price);
 };
 
-const sortByPriceRelevance = (propertyA: Property, propertyB: Property) => {
+const sortByRelevance = (propertyA: Property, propertyB: Property) => {
   if (propertyA.promoted) return -1;
   if (propertyB.promoted) return 1;
   return 0;
 };
 
+interface sortListInterface {
+  id: number;
+  name: string;
+  sortFn: ((propertyA: Property, propertyB: Property) => number) | undefined;
+}
+
+const sortList: sortListInterface[] = [
+  { id: 1, name: 'propertyList.sortBy.orderOne', sortFn: sortByRelevance },
+  { id: 2, name: 'propertyList.sortBy.orderTwo', sortFn: sortByPrice },
+  { id: 3, name: 'propertyList.sortBy.orderThree', sortFn: sortByPriceReverse },
+  { id: 4, name: 'propertyList.sortBy.orderFour', sortFn: undefined },
+];
+
 const PropertyList: React.FC = () => {
   const { t } = useTranslation();
   const router = useRouter();
-  const [sortOption, setSortOption] = useState(
-    t('propertyList.sortBy.orderOne')
-  );
+  const [sortOption, setSortOption] = useState<sortListInterface>(sortList[0]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [propertySort, setPropertySort] = useState<
     ((propertyA: any, propertyB: any) => number) | undefined
-  >(() => (a: Property, b: Property) => sortByPriceRelevance(a, b));
+  >(() => (a: Property, b: Property) => sortByRelevance(a, b));
 
   const handleCardClick = () => {
     router.push('/house');
@@ -41,32 +52,11 @@ const PropertyList: React.FC = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const handleSortOptionChange = (option: string) => {
+  const handleSortOptionChange = (option: sortListInterface) => {
     setSortOption(option);
     setDropdownOpen(false);
-    switch (option) {
-      case t('propertyList.sortBy.orderOne'):
-        setPropertySort(
-          () => (a: Property, b: Property) => sortByPriceRelevance(a, b)
-        );
-        break;
-      case t('propertyList.sortBy.orderTwo'):
-        setPropertySort(() => (a: Property, b: Property) => sortByPrice(a, b));
-        break;
-      case t('propertyList.sortBy.orderThree'):
-        setPropertySort(
-          () => (a: Property, b: Property) => sortByPriceReverse(a, b)
-        );
-        break;
-      default:
-        setPropertySort(undefined);
-        break;
-    }
+    setPropertySort(() => option.sortFn);
   };
-
-  useEffect(() => {
-    setSortOption(t('propertyList.sortBy.orderOne'));
-  }, [t]);
 
   return (
     <div className="px-12 py-8">
@@ -93,44 +83,21 @@ const PropertyList: React.FC = () => {
             <BsSortDownAlt className="text-lg mr-2 dark:text-gray-200" />
             {t('propertyList.sortBy.title')}{' '}
             <span className="text-orange-500 cursor-pointer hover:underline ml-1">
-              {sortOption}
+              {t(sortOption.name)}
             </span>
           </button>
           {dropdownOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
               <ul className="py-1">
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 cursor-pointer"
-                  onClick={() =>
-                    handleSortOptionChange(t('propertyList.sortBy.orderOne'))
-                  }
-                >
-                  {t('propertyList.sortBy.orderOne')}
-                </li>
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200  hover:bg-gray-100 cursor-pointer"
-                  onClick={() =>
-                    handleSortOptionChange(t('propertyList.sortBy.orderTwo'))
-                  }
-                >
-                  {t('propertyList.sortBy.orderTwo')}
-                </li>
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 cursor-pointer"
-                  onClick={() =>
-                    handleSortOptionChange(t('propertyList.sortBy.orderThree'))
-                  }
-                >
-                  {t('propertyList.sortBy.orderThree')}
-                </li>
-                <li
-                  className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 cursor-pointer"
-                  onClick={() =>
-                    handleSortOptionChange(t('propertyList.sortBy.orderFour'))
-                  }
-                >
-                  {t('propertyList.sortBy.orderFour')}
-                </li>
+                {sortList.map((option) => (
+                  <li
+                    key={option.id}
+                    className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => handleSortOptionChange(option)}
+                  >
+                    {t(option.name)}
+                  </li>
+                ))}
               </ul>
             </div>
           )}
