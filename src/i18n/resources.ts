@@ -3,6 +3,15 @@ import { title } from 'process';
 const resources = {
   en: {
     translations: {
+      header: {
+        notifications: 'Notifications',
+        search: 'Search',
+        profile: 'Profile',
+        myApartments: 'My Apartments',
+        settings: 'Settings',
+        signOut: 'Sign Out',
+      },
+
       navBar: {
         rent: 'Rent',
         buy: 'Buy',
@@ -203,6 +212,15 @@ const resources = {
 
   es: {
     translations: {
+      header: {
+        notifications: 'Notificaciones',
+        search: 'Buscar',
+        profile: 'Perfil',
+        myApartments: 'Mis Apartamentos',
+        settings: 'Configuración',
+        signOut: 'Cerrar Sesión',
+      },
+
       navBar: {
         rent: 'Rentar',
         buy: 'Comprar',

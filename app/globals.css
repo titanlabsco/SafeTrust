@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import "leaflet/dist/leaflet.css";
+@import 'flowbite/dist/flowbite.css';
 
 :root {
   --background: #ffffff;

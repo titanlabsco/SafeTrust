@@ -4,56 +4,60 @@ import { useTranslation } from 'react-i18next';
 import '../../i18n/config';
 
 function LanguageSwitcher() {
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState(i18n.language);
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language.toUpperCase());
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleChangeLanguage = (language: string) => {
-    setLanguage(language);
-    switchLanguage(language);
+  const handleChangeLanguage = (lang: string) => {
+    setLanguage(lang.toUpperCase());
+    switchLanguage(lang.toLowerCase());
     setIsOpen(false);
   };
 
   return (
-    <div className="relative inline-block text-left z-50">
+    <div className="relative">
+      {/* Toggle Button */}
       <button
-        onClick={toggleDropdown}
-        className=" flex items-center w-36 gap-2 px-4 py-2 bg-gray-100 border border-gray-300 dark:bg-dark-surface3 rounded-md shadow-sm hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        onClick={() => setIsOpen(!isOpen)}
+        className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-transparent rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 focus:outline-none"
       >
-        <img src={`/img/${language}.png`} className="w-6 h-4" />
-        <span className="text-black dark:text-gray-200">
-          {language === 'en'
-            ? t('languageBtn.en')
-            : language === 'es'
-              ? t('languageBtn.es')
-              : t('languageBtn.en')}
-        </span>
+        {language}
+        <svg
+          className="w-5 h-5 ml-2 text-gray-500 dark:text-gray-300"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 20"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 01.02-1.06z"
+          />
+        </svg>
       </button>
+
+      {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute z-15 mt-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
-          <ul className="py-1 text-sm text-gray-700">
-            <li
-              onClick={() => handleChangeLanguage('en')}
-              className={`flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-gray-100 ${
-                language === 'en' ? 'bg-gray-100 font-bold' : ''
-              }`}
-            >
-              <img src="/img/en.png" className="w-6 h-4" />
-              <span>{t('languageBtn.en')}</span>
-            </li>
-            <li
-              onClick={() => handleChangeLanguage('es')}
-              className={`flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-gray-100 ${
-                language === 'es' ? 'bg-gray-100 font-bold' : ''
-              }`}
-            >
-              <img src="/img/es.png" className="w-6 h-4" />
-              <span>{t('languageBtn.es')}</span>
-            </li>
+        <div
+          className="absolute right-0 z-50 mt-2 w-28 bg-white divide-y divide-gray-100 rounded-lg shadow-lg dark:bg-gray-800"
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
+            {['EN', 'ES'].map((lang) => (
+              <li
+                key={lang}
+                className={`px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer ${
+                  language === lang
+                    ? 'font-bold text-gray-900 dark:text-white'
+                    : ''
+                }`}
+                onClick={() => handleChangeLanguage(lang)}
+              >
+                {lang}
+              </li>
+            ))}
           </ul>
         </div>
       )}
