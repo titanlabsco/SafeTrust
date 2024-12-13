@@ -5,49 +5,7 @@ import { useRouter } from 'next/navigation';
 import { BsSortDownAlt } from 'react-icons/bs';
 import PropertyCard from './PropertyCard';
 import { useTranslation } from 'react-i18next';
-
-const properties = [
-  {
-    image: '/img/house1.jpg',
-    title: 'La sabana sur',
-    address: '329 Calle Curridabat, patio estación, San José',
-    price: '4058',
-    promoted: true,
-    beds: 2,
-    baths: 1,
-    petFriendly: true,
-  },
-  {
-    image: '/img/house1.jpg',
-    title: 'La sabana sur',
-    address: '329 Calle Curridabat, patio estación, San José',
-    price: '4058',
-    promoted: false,
-    beds: 2,
-    baths: 1,
-    petFriendly: true,
-  },
-  {
-    image: '/img/house1.jpg',
-    title: 'La sabana sur',
-    address: '329 Calle Curridabat, patio estación, San José',
-    price: '4058',
-    promoted: false,
-    beds: 2,
-    baths: 1,
-    petFriendly: true,
-  },
-  {
-    image: '/img/house1.jpg',
-    title: 'La sabana sur',
-    address: '329 Calle Curridabat, patio estación, San José',
-    price: '4058',
-    promoted: true,
-    beds: 2,
-    baths: 1,
-    petFriendly: true,
-  },
-];
+import { MOCK_DATA_PROPERTY_LIST } from '@/mockData/tableData';
 
 const PropertyList: React.FC = () => {
   const { t } = useTranslation();
@@ -56,6 +14,7 @@ const PropertyList: React.FC = () => {
     t('propertyList.sortBy.orderOne')
   );
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [propertySort, setPropertySort] = useState(undefined);
 
   const handleCardClick = () => {
     router.push('/house');
@@ -159,7 +118,7 @@ const PropertyList: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        {properties.map((property, index) => (
+        {MOCK_DATA_PROPERTY_LIST.sort(propertySort).map((property, index) => (
           <div
             key={index}
             onClick={handleCardClick}
