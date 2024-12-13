@@ -1,82 +1,129 @@
 'use client';
-import { useWalletStore } from '@/store/walletStore';
-import { FaUserCircle, FaBell } from 'react-icons/fa';
+
+import { FaUserCircle, FaBell, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useTheme } from '@/providers/ThemeProvider';
 import LanguageSwitcher from '@/components/language/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 const Header: React.FC = () => {
-  const { name } = useWalletStore();
-  const { theme } = useTheme();
   const { t } = useTranslation();
+  const { theme } = useTheme();
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
+
+  const toggleMenu = (menu: string) => {
+    if (menu === 'search') {
+      setIsSearchVisible(!isSearchVisible);
+      if (isProfileVisible) setIsProfileVisible(false);
+    } else if (menu === 'profile') {
+      setIsProfileVisible(!isProfileVisible);
+      if (isSearchVisible) setIsSearchVisible(false);
+    }
+  };
+
   return (
-    <nav className="flex justify-between items-center bg-white py-[1rem] px-[2rem] shadow-md  dark:bg-dark-surface border-b dark:border-gray-700">
-      {/* Logo */}
-      <Link href="/" className="flex items-center space-x-[0.5rem]">
-        <img
-          src={theme === 'dark' ? '/img/logolight.png' : '/img/logo2.png'}
-          alt="SafeTrust Logo"
-          className="w-[13rem] h-auto"
-        />
-      </Link>
-
-      {/* Search Bar */}
-      <div className="flex items-center bg-gray-200 dark:bg-dark-surface border border-gray-300 rounded-full px-[0.7rem] py-[0.4rem] w-[45%]">
-        <select className="bg-white border border-gray-300 dark:bg-dark-surface text-gray-700 text-[1rem] dark:text-gray-200 rounded-full px-[0.8rem] py-[0.3rem] focus:outline-none">
-          <option>{t('navBar.rent')}</option>
-          <option>{t('navBar.buy')}</option>
-        </select>
-        <input
-          type="text"
-          placeholder={t('navBar.searchPlaceHolder')}
-          className="bg-transparent w-full text-[1rem] text-gray-700 placeholder-gray-500 px-[0.8rem] focus:outline-none"
-        />
-        <button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="w-[2rem] h-[2rem] text-gray-600"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-4.35-4.35M15 11a4 4 0 100-8 4 4 0 000 8zm-7 7H5a2 2-2v-5a2 2-2h3m10 5v1m0-4v1m0 4h1m-1-4h1"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* User Section */}
-      <div className="flex items-center space-x-[1rem] ml-auto">
-        {/* Notification Bell */}
-        <div className="relative">
-          <FaBell
-            size={24}
-            className="text-gray-700 dark:text-gray-200 cursor-pointer"
-          />
-          {/* Notification Badge */}
-          <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
-        </div>
-
-        {/* User Profile */}
-        <LanguageSwitcher />
-        <div className="flex items-center space-x-[0.5rem]">
-          <span className="text-gray-700 dark:text-gray-200 font-medium text-[1rem]">
-            {name || 'Randall Valenciano'}
-          </span>
-          <Link href="/profile">
-            <FaUserCircle
-              size={24}
-              className="text-gray-700 dark:text-gray-200  cursor-pointer"
+    <nav className="bg-white border-b border-gray-200 dark:bg-[#1E1E1E] dark:border-gray-700">
+      <div className="flex items-center justify-between px-4 py-3">
+        {/* Logo Section */}
+        <div className="flex-shrink-0 flex items-center">
+          <Link href="/" className="flex items-center">
+            <img
+              src={theme === 'dark' ? '/img/logolight.png' : '/img/logo2.png'}
+              alt="SafeTrust Logo"
+              className="h-12"
             />
           </Link>
+          <span className="ml-2 text-3xl font-bold text-black dark:text-white">
+            SafeTrust
+          </span>
         </div>
-        <ThemeToggle />
+
+        {/* Icons Section */}
+        <div className="flex items-center space-x-4 ml-auto">
+          <div>
+            <LanguageSwitcher />
+          </div>
+          <div className="relative">
+            <FaBell
+              size={24}
+              className="text-black dark:text-white cursor-pointer"
+              title={t('header.notifications')}
+            />
+            <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+          </div>
+          <div className="relative">
+            <button
+              onClick={() => toggleMenu('search')}
+              className="flex items-center justify-center w-10 h-10 text-black dark:text-white focus:outline-none"
+              title={t('header.search')}
+            >
+              <FaSearch size={20} />
+            </button>
+            {isSearchVisible && (
+              <div className="absolute top-full right-0 mt-2 w-[250px] bg-white dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 rounded-lg shadow-md p-2 z-50">
+                <input
+                  type="text"
+                  id="search-navbar"
+                  className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-[#1E1E1E] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                  placeholder={t('header.search')}
+                />
+              </div>
+            )}
+          </div>
+          <div className="relative">
+            <button
+              onClick={() => toggleMenu('profile')}
+              className="flex items-center justify-center w-10 h-10 text-black dark:text-white focus:outline-none"
+              title={t('header.profile')}
+            >
+              <FaUserCircle size={24} />
+            </button>
+            {isProfileVisible && (
+              <div className="absolute top-full right-0 mt-2 w-[200px] bg-white dark:bg-[#1E1E1E] border border-gray-300 dark:border-gray-600 rounded-lg shadow-md z-50">
+                <div className="px-4 py-3">
+                  <p className="text-sm text-gray-900 dark:text-white font-semibold">
+                    Randall Valenciano
+                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    name@example.com
+                  </p>
+                </div>
+                <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
+                  <li>
+                    <a
+                      href="/profile/my-apartments"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      {t('header.myApartments')}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/profile"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      {t('header.settings')}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      {t('header.signOut')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+          <div>
+            <ThemeToggle />
+          </div>
+        </div>
       </div>
     </nav>
   );
