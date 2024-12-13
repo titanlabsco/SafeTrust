@@ -41,13 +41,13 @@ export function Table({
               {TABLE_HEAD.map((head, index) => (
                 <th
                   key={head}
-                  className={`${index === 0 ? 'rounded-l-xl' : index === TABLE_HEAD.length - 1 && 'rounded-r-xl'} 
-                                             border-blue-gray-100 bg-blue-gray-50 p-4`}
+                  className={`${index === 0 ? 'rounded-tl-xl' : index === TABLE_HEAD.length - 1 && 'rounded-tr-xl'} 
+                                             border-blue-gray-100 bg-blue-gray-50 p-4 dark:bg-[#6565641F]`}
                 >
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-bold text-black leading-none opacity-70"
+                    className="font-bold text-black leading-none opacity-70 dark:text-gray-300"
                     {...({} as any)}
                   >
                     {head}
@@ -56,7 +56,7 @@ export function Table({
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="dark:bg-dark-surface2">
             {data.length === 0 ? (
               <tr>
                 <td
@@ -77,7 +77,7 @@ export function Table({
                       <Typography
                         variant="small"
                         color="blue-gray"
-                        className="font-normal"
+                        className="font-normal dark:text-gray-400"
                         {...({} as any)}
                       >
                         {item.id}
@@ -87,7 +87,7 @@ export function Table({
                       <Typography
                         variant="small"
                         color="blue-gray"
-                        className="font-normal"
+                        className="font-normal dark:text-gray-400"
                         {...({} as any)}
                       >
                         {item.name}
@@ -97,7 +97,7 @@ export function Table({
                       <Typography
                         variant="small"
                         color="blue-gray"
-                        className="font-normal text-gray-500"
+                        className="font-normal dark:text-gray-400"
                         {...({} as any)}
                       >
                         {item.phone}
@@ -107,7 +107,7 @@ export function Table({
                       <Typography
                         variant="small"
                         color="blue-gray"
-                        className="font-normal text-gray-500"
+                        className="font-normal dark:text-gray-400"
                         {...({} as any)}
                       >
                         {item.wallet.slice(0, 3) +
@@ -119,7 +119,7 @@ export function Table({
                       <Typography
                         variant="small"
                         color="blue-gray"
-                        className="font-normal text-gray-500"
+                        className="font-normal dark:text-gray-400"
                         {...({} as any)}
                       >
                         {item.offerDate}

@@ -49,7 +49,7 @@ export default function SearchAndFilter({
   return (
     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-4 sm:mt-8">
       <div className="relative flex-1">
-        <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black" />
+        <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black dark:text-gray-500" />
         <input
           type="search"
           placeholder={t('interestedPeople.searchHolder')}
@@ -57,7 +57,7 @@ export default function SearchAndFilter({
           className="w-full sm:w-2/3 lg:w-1/2 text-black placeholder:text-gray-500 py-2 pl-10 pr-4 
                              bg-white border border-gray-300 rounded-full shadow-sm
                              focus:border-custom-orange focus:outline-none focus:ring-1 focus:ring-custom-orange
-                             transition-colors duration-200"
+                             transition-colors duration-200 dark:bg-transparent dark:border-gray-700 dark:text-gray-500"
         />
       </div>
 
@@ -68,19 +68,19 @@ export default function SearchAndFilter({
             className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
-                                 transition-colors duration-200"
+                                 transition-colors duration-200 dark:bg-transparent dark:border-gray-700 dark:text-gray-500"
           >
             <FiCalendar className="w-4 h-4" />
             <span className="inline">{getSelectedDateRangeLabel()}</span>
             <CgChevronDown className="w-4 h-4" />
           </button>
           {dateRangeOpen && (
-            <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+            <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20 dark:bg-dark-surface dark:border-gray-700">
               {dateRangeOptions.map((option) => (
                 <li key={option.value}>
                   <button
-                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
-                                                  transition-colors duration-150 ${selectedDateRange === option.value ? 'bg-gray-100' : ''}`}
+                    className={`w-full text-left rounded-md px-4 py-2 hover:bg-gray-100 text-gray-700 dark:hover:bg-dark-surface3 dark:text-gray-400
+                                                  transition-colors duration-150 ${selectedDateRange === option.value ? 'bg-gray-100 dark:bg-gray-800' : ''}`}
                     onClick={() => handleDateRangeChange(option.value)}
                   >
                     {option.label}
@@ -97,19 +97,19 @@ export default function SearchAndFilter({
             className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 
                                  text-gray-700 bg-white border border-gray-300 rounded-lg 
                                  hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-orange-500
-                                 transition-colors duration-200"
+                                 transition-colors duration-200 dark:bg-transparent dark:border-gray-700 dark:text-gray-500"
           >
             <FiTag className="w-4 h-4" />
             <span className="inline">{getSelectedStatusLabel()}</span>
             <CgChevronDown className="w-4 h-4" />
           </button>
           {statusOpen && (
-            <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+            <ul className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20 dark:bg-dark-surface dark:border-gray-700">
               {statusOptions.map((option) => (
                 <li key={option.value}>
                   <button
-                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 
-                                                  transition-colors duration-150 ${selectedStatus === option.value ? 'bg-gray-100' : ''}`}
+                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 dark:text-gray-400 dark:hover:bg-dark-surface3 
+                                                  transition-colors duration-150 ${selectedStatus === option.value ? 'bg-gray-100 dark:bg-gray-800' : ''}`}
                     onClick={() => handleStatusChange(option.value)}
                   >
                     {option.label}
