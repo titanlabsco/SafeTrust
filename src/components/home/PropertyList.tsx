@@ -6,6 +6,21 @@ import { BsSortDownAlt } from 'react-icons/bs';
 import PropertyCard from './PropertyCard';
 import { useTranslation } from 'react-i18next';
 import { MOCK_DATA_PROPERTY_LIST } from '@/mockData/tableData';
+import { Property } from '@/@types/property';
+
+const sortByPrice = (propertyA: Property, propertyB: Property) => {
+  return parseInt(propertyA.price) - parseInt(propertyB.price);
+};
+
+const sortByPriceReverse = (propertyA: Property, propertyB: Property) => {
+  return parseInt(propertyB.price) - parseInt(propertyA.price);
+};
+
+const sortByPriceRelevance = (propertyA: Property, propertyB: Property) => {
+  if (propertyA.promoted) return -1;
+  if (propertyB.promoted) return 1;
+  return 0;
+};
 
 const PropertyList: React.FC = () => {
   const { t } = useTranslation();
@@ -14,7 +29,9 @@ const PropertyList: React.FC = () => {
     t('propertyList.sortBy.orderOne')
   );
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [propertySort, setPropertySort] = useState(undefined);
+  const [propertySort, setPropertySort] = useState<
+    ((propertyA: any, propertyB: any) => number) | undefined
+  >(() => (a: Property, b: Property) => sortByPriceRelevance(a, b));
 
   const handleCardClick = () => {
     router.push('/house');
@@ -27,6 +44,24 @@ const PropertyList: React.FC = () => {
   const handleSortOptionChange = (option: string) => {
     setSortOption(option);
     setDropdownOpen(false);
+    switch (option) {
+      case t('propertyList.sortBy.orderOne'):
+        setPropertySort(
+          () => (a: Property, b: Property) => sortByPriceRelevance(a, b)
+        );
+        break;
+      case t('propertyList.sortBy.orderTwo'):
+        setPropertySort(() => (a: Property, b: Property) => sortByPrice(a, b));
+        break;
+      case t('propertyList.sortBy.orderThree'):
+        setPropertySort(
+          () => (a: Property, b: Property) => sortByPriceReverse(a, b)
+        );
+        break;
+      default:
+        setPropertySort(undefined);
+        break;
+    }
   };
 
   useEffect(() => {
@@ -120,7 +155,7 @@ const PropertyList: React.FC = () => {
       <div className="grid grid-cols-3 gap-6">
         {MOCK_DATA_PROPERTY_LIST.sort(propertySort).map((property, index) => (
           <div
-            key={index}
+            key={property.title}
             onClick={handleCardClick}
             className="transform transition-transform hover:scale-105 hover:shadow-lg duration-300 ease-in-out cursor-pointer"
           >
