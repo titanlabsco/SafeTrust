@@ -1,6 +1,6 @@
 import React from 'react';
 import MainHeader from '@/layouts/Header';
-import SectionHeader from '@/layouts/PaidStateBidRequest/Header';
+import Header from '@/layouts/paidStateBidRequest/Header';
 import Details from '@/components/bids/InvoiceDetails';
 import Notes from '@/components/bids/NotesSection';
 import Process from '@/components/bids/ProcessTimeline';
@@ -12,7 +12,7 @@ const PaidStateBidRequest: React.FC = () => {
       <MainHeader />
       <div className="px-10 py-8">
         {/* Encabezado de la sección */}
-        <SectionHeader />
+        <Header />
         <div className="grid grid-cols-12 gap-6">
           {/* Detalles */}
           <div className="col-span-8 bg-white shadow rounded p-4">
