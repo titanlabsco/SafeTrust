@@ -39,7 +39,7 @@ const ForgotPasswordCard: React.FC = () => {
       <div className="w-[90%] md:w-[440px] px-4 md:px-0">
         <div className="flex flex-col items-center mb-6">
           <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-            <CgPassword size={32} aria-label="Password Icon" />
+            <CgPassword size={32} />
           </div>
           <h1 className="text-xl md:text-2xl font-bold text-black dark:text-gray-200">
             Forgot password?
