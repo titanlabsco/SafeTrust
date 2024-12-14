@@ -23,7 +23,7 @@ const Home: React.FC = () => {
             <textarea
               placeholder={t('profile.summaryHolder')}
               defaultValue="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-              className="border border-gray-300 dark:border-gray-700 rounded-lg p-4 w-full text-gray-900 dark:text-gray-100 bg-white dark:bg-dark-surface placeholder-gray-500 dark:placeholder-gray-400"
+              className="border border-gray-300 dark:border-gray-700 rounded-lg p-4 w-full text-gray-900 dark:text-dark-primary bg-white dark:bg-dark-surface placeholder-gray-500 dark:placeholder-gray-400"
               rows={3}
             />
           </div>
