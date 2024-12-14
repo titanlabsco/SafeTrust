@@ -4,7 +4,7 @@ const LoginForm = () => {
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-light-primary dark:text-dark-primary"
         >
           Email or username
         </label>
@@ -18,7 +18,7 @@ const LoginForm = () => {
       <div>
         <label
           htmlFor="password"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-light-primary dark:text-dark-primary"
         >
           Password
         </label>
@@ -30,7 +30,7 @@ const LoginForm = () => {
         />
       </div>
       <div className="flex items-center justify-between">
-        <label className="flex items-center text-black text-sm">
+        <label className="flex items-center text-light-primary dark:text-dark-primary text-sm">
           <input type="checkbox" className="mr-2 rounded" />
           Remember me
         </label>
