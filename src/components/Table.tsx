@@ -161,7 +161,9 @@ export function Table({
                             </IconButton>
                           </MenuHandler>
                         </Tooltip>
-                        <MenuList {...({} as any)}>
+                        <MenuList {...({} as any)}
+                          className="dark:bg-dark-surface"
+                        >
                           <MenuItem
                             onClick={() => onActionClick('accept', item)}
                             {...({} as any)}
