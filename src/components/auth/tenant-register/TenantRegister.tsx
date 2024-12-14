@@ -109,7 +109,7 @@ export const TenantRegister: React.FC = () => {
 
   return (
     <div className="max-w-md mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6 text-gray-700">
+      <h1 className="text-2xl font-bold mb-6 text-light-primary dark:text-dark-primary">
         Register as Tenant
       </h1>
 
@@ -121,7 +121,7 @@ export const TenantRegister: React.FC = () => {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-dark-primary"
           >
             Email or Username
           </label>
@@ -131,7 +131,7 @@ export const TenantRegister: React.FC = () => {
             placeholder="bartoon_bell@gmail.com"
             value={formState.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-black"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-light-secondary dark:text-dark-primary"
             required
           />
         </div>
@@ -139,7 +139,7 @@ export const TenantRegister: React.FC = () => {
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-dark-primary"
           >
             Password
           </label>
@@ -149,7 +149,7 @@ export const TenantRegister: React.FC = () => {
             placeholder="********"
             value={formState.password}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-black"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-black dark:text-dark-primary"
             minLength={6}
             required
           />
@@ -174,7 +174,7 @@ export const TenantRegister: React.FC = () => {
           />
           <label
             htmlFor="acceptTerms"
-            className="ml-2 block text-sm text-gray-700"
+            className="ml-2 block text-sm text-light-secondary dark:text-dark-secondary"
           >
             I agree to the{' '}
             <a
@@ -201,10 +201,12 @@ export const TenantRegister: React.FC = () => {
         </button>
       </form>
 
-      <div className="my-6 text-center text-gray-500">or</div>
+      <div className="my-6 text-center text-light-secondary dark:text-dark-secondary">
+        or
+      </div>
       <AuthButtons action="register" />
 
-      <p className="text-center text-black text-sm mt-4">
+      <p className="text-center text-light-secondary dark:text-dark-primary text-sm mt-4">
         Already have an account?{' '}
         <a href="/auth/login" className="text-orange-500 hover:underline">
           Login here
