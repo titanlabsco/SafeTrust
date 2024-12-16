@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { CgPassword } from 'react-icons/cg';
 
 interface PasswordHeaderProps {
