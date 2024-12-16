@@ -24,7 +24,7 @@ const Details: React.FC = () => {
         <h2 className="text-xl font-bold text-light-primary dark:text-dark-primary">La sabana</h2>
         <button
           onClick={payReservation}
-          className={`bg-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-600 ${
+          className={`bg-default-color text-white px-6 py-2 rounded-lg font-semibold hover:bg-default-color${
             loadingPay || isPaid ? 'opacity-50 cursor-not-allowed' : ''
           }`}
           disabled={loadingPay || isPaid}
@@ -56,10 +56,10 @@ const Details: React.FC = () => {
         />
       </div>
       <div className="flex items-center text-light-primary dark:text-dark-primary text-sm mt-6">
-        <MdLocationOn className="text-orange-500 w-5 h-5 mr-2" />
+        <MdLocationOn className="text-default-color w-5 h-5 mr-2"/>
         <span>329 Calle Santos, Paseo Colón, San José</span>
       </div>
-      <div className="flex gap-4 mt-4 text-orange-500">
+      <div className="flex gap-4 mt-4 text-default-color">
         <div className="flex items-center">
           <FaBed className="w-5 h-5 mr-2" />
           <span className="text-light-primary dark:text-dark-primary text-sm">2 bd.</span>

@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           <ProfileForm />
           <AccountOverview />
           <div className="text-right">
-            <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+            <button className="bg-default-color text-white px-4 py-2 rounded-lg hover:bg-default-color transition-colors">
               {t('profile.overView.saveBtn')}
             </button>
           </div>
