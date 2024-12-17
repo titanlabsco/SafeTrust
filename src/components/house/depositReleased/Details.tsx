@@ -67,7 +67,7 @@ const Details: React.FC = () => {
             <button className="bg-black text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-gray-800">
               Clean
             </button>
-            <button className="bg-orange-500 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-orange-600">
+            <button className="bg-default-color text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-default-color">
               Send
             </button>
           </div>

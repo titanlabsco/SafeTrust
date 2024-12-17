@@ -386,7 +386,7 @@ const ApartmentsComponent = () => {
                 </td>
                 <td className="p-2 flex justify-center">
                   <button>
-                    <FaEllipsisH className="text-custom-orange w-[1.3rem] h-[1.3rem]" />
+                  <FaEllipsisH className="text-default-color w-[1.3rem] h-[1.3rem]" />
                   </button>
                 </td>
               </tr>
@@ -408,7 +408,7 @@ const ApartmentsComponent = () => {
             key={index}
             className={`w-[32px] h-[32px] border-2 rounded-md ${
               currentPage === index + 1
-                ? 'bg-white border-custom-orange text-custom-orange dark:bg-dark-surface2'
+                ? 'bg-white border-default-color text-default-color dark:bg-dark-surface2'
                 : 'bg-white border-gray-200 text-custom-grey dark:bg-dark-background dark:border-gray-700 dark:text-gray-400'
             } flex items-center justify-center`}
             onClick={() => paginate(index + 1)}
