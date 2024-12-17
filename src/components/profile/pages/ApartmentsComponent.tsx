@@ -378,7 +378,7 @@ const ApartmentsComponent = () => {
                 </td>
                 <td className="p-2 h-[70px] flex justify-center items-center">
                   {apartment.promoted && (
-                    <HiOutlineFire size={30} color="#FF7F00" />
+                    <HiOutlineFire size={30} className="text-default-color" />
                   )}
                 </td>
                 <td className="p-2 text-custom-grey dark:text-gray-400">
@@ -386,7 +386,7 @@ const ApartmentsComponent = () => {
                 </td>
                 <td className="p-2 flex justify-center">
                   <button>
-                  <FaEllipsisH className="text-default-color w-[1.3rem] h-[1.3rem]" />
+                    <FaEllipsisH className="text-default-color w-[1.3rem] h-[1.3rem]" />
                   </button>
                 </td>
               </tr>
