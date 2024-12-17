@@ -177,18 +177,17 @@ const ApartmentsComponent = () => {
 
   const maxItemsPerPage = filteredApartments.length;
   useEffect(() => {
-    console.log('Hola');
     setStatusFilter(t('myApartments.status.default'));
   }, [t]);
   return (
-    <div className="p-4 sm:p-6 space-y-6">
+    <div className="py-4 sm:py-6 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div className="flex items-center border rounded-[24px] px-4 py-2 w-full max-w-sm">
+        <div className="flex text-gray-900 items-center border rounded-[7px] px-4 py-2 w-full max-w-sm border-gray-300 dark:border-gray-700 dark:text-gray-100">
           <AiOutlineSearch className="text-gray-500 mr-2 w-[24px] h-[24px]" />
           <input
             type="text"
             placeholder={t('myApartments.searchHolder')}
-            className="w-full outline-none text-[16px] text-custom-grey"
+            className="w-full bg-transparent outline-none text-[16px] text-custom-grey dark:text-gray-500"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -199,7 +198,7 @@ const ApartmentsComponent = () => {
             className="flex items-center space-x-2 cursor-pointer"
             onClick={togglePromotedFilter}
           >
-            <span className="text-custom-grey font-[400] text-[16px]">
+            <span className="text-custom-grey font-[400] text-[16px] dark:text-gray-500">
               {t('myApartments.promo')}
             </span>
             <div
@@ -213,20 +212,22 @@ const ApartmentsComponent = () => {
 
           <div className="relative">
             <button
-              className="flex items-center justify-center w-[210px] h-[36px] border rounded-[7px] px-3 text-[16px] text-custom-grey gap-2"
+              className="flex items-center justify-center w-[210px] border-gray-300 h-[36px] border rounded-[7px] px-3 text-[16px] text-custom-grey gap-2 dark:border-gray-700 dark:text-gray-500"
               onClick={() => setPriceRangeDropdownOpen(!priceRangeDropdownOpen)}
             >
-              <PiHandCoinsBold size={22} />
-              <span>{t('myApartments.priceRange')}</span>
-              <FiChevronDown className="ml-auto" />
+              <PiHandCoinsBold size={22} className="dark:text-gray-500" />
+              <span className="dark:text-gray-500">
+                {t('myApartments.priceRange')}
+              </span>
+              <FiChevronDown className="ml-auto dark:text-gray-500" />
             </button>
             {priceRangeDropdownOpen && (
-              <div className="absolute top-[40px] left-0 w-[150px] border border-gray-300 rounded-[7px] bg-white shadow-md z-10">
+              <div className="absolute top-[40px] left-0 w-[150px] border border-gray-300 rounded-[7px] bg-white shadow-md z-10 dark:border-gray-700">
                 {['$0-$1000', '$1000-$2000', '$2000-$3000', '$3000+'].map(
                   (range) => (
                     <div
                       key={range}
-                      className="px-3 py-2 cursor-pointer hover:bg-gray-100 text-[16px] text-custom-grey"
+                      className="px-3 py-2 cursor-pointer border-gray-300 hover:bg-gray-100 text-[16px] text-custom-grey"
                       onClick={() =>
                         console.log(`Selected price range: ${range}`)
                       }
@@ -241,12 +242,14 @@ const ApartmentsComponent = () => {
 
           <div className="relative">
             <button
-              className="flex items-center justify-center w-[170px] h-[36px] border rounded-[7px] px-3 text-[16px] text-custom-grey gap-2"
+              className="flex items-center justify-center w-[210px] h-[36px] border rounded-[7px] px-3 text-[16px] text-custom-grey gap-2 sm:w-[150px] dark:border-gray-700"
               onClick={() => setStatusDropdownOpen(!statusDropdownOpen)}
             >
-              <FaTags />
-              <span>{statusFilter || t('myApartments.status.default')}</span>
-              <FiChevronDown className="ml-auto" />
+              <FaTags className="dark:text-gray-500" />
+              <span className="dark:text-gray-500">
+                {statusFilter || t('myApartments.status.default')}
+              </span>
+              <FiChevronDown className="ml-auto dark:text-gray-500" />
             </button>
             {statusDropdownOpen && (
               <div className="absolute top-[40px] left-0 w-[150px] border border-gray-300 rounded-[7px] bg-white shadow-md z-10">
@@ -271,7 +274,7 @@ const ApartmentsComponent = () => {
 
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div className="text-gray-600 text-[16px]">
-          <span>
+          <span className="dark:text-gray-500">
             {t('myApartments.table.title', {
               current: currentApartments.length,
               total: filteredApartments.length,
@@ -280,18 +283,18 @@ const ApartmentsComponent = () => {
         </div>
 
         <div className="flex items-center space-x-2">
-          <span className="text-custom-grey text-[16px] font-[400]">
+          <span className="text-custom-grey text-[16px] font-[400] dark:text-gray-500">
             {t('myApartments.table.items')}
           </span>
           <div className="relative">
             <div
-              className="flex items-center justify-between w-[80px] h-[36px] border border-gray-300 rounded-[8px] px-3 cursor-pointer"
+              className="flex items-center justify-between w-[80px] h-[36px] border border-gray-300 rounded-[8px] px-3 cursor-pointer dark:border-gray-700"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
-              <span className="text-[16px] text-custom-grey">
+              <span className="text-[16px] text-custom-grey dark:text-gray-500">
                 {itemsPerPage}
               </span>
-              <FiChevronDown className="text-gray-500 w-[16px] h-[16px]" />
+              <FiChevronDown className="text-gray-500 w-[16px] h-[16px] dark:text-gray-500" />
             </div>
             {dropdownOpen && (
               <div className="absolute top-[40px] left-0 w-[80px] border text-custom-grey border-gray-300 rounded-[8px] bg-white shadow-md z-10">
@@ -317,28 +320,28 @@ const ApartmentsComponent = () => {
         <table className="table-auto w-full text-[16px] rounded-[7px] overflow-hidden">
           <thead>
             <tr className="text-center text-custom-grey bg-[#6565641F] h-[50px]">
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnOne')}
               </th>
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnTwo')}
               </th>
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnThree')}
               </th>
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnFour')}
               </th>
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnFive')}
               </th>
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnSix')}
               </th>
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnSeven')}
               </th>
-              <th className="p-2 text-[16px] font-bold">
+              <th className="p-2 text-[16px] font-bold dark:text-gray-300">
                 {t('myApartments.table.columnEight')}
               </th>
             </tr>
@@ -347,13 +350,21 @@ const ApartmentsComponent = () => {
             {currentApartments.map((apartment, index) => (
               <tr
                 key={apartment.id}
-                className={`text-center ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-gray-100`}
+                className={`text-center ${index % 2 === 0 ? 'bg-gray-50 dark:bg-dark-surface2' : 'bg-white dark:bg-dark-surface'} hover:bg-gray-100`}
                 style={{ height: '70px' }}
               >
-                <td className="p-2 text-custom-grey">{apartment.id}</td>
-                <td className="p-2 text-custom-grey">{apartment.name}</td>
-                <td className="p-2 text-gray-700">{apartment.location}</td>
-                <td className="p-2 text-[#929090]">{apartment.offers}</td>
+                <td className="p-2 text-custom-grey dark:text-gray-400">
+                  {apartment.id}
+                </td>
+                <td className="p-2 text-custom-grey dark:text-gray-400">
+                  {apartment.name}
+                </td>
+                <td className="p-2 text-custom-grey dark:text-gray-400">
+                  {apartment.location}
+                </td>
+                <td className="p-2 text-[#929090] dark:text-gray-400">
+                  {apartment.offers}
+                </td>
                 <td className="p-2">
                   <span
                     className={`px-2 py-1 rounded-[7px] ${
@@ -365,17 +376,17 @@ const ApartmentsComponent = () => {
                     {apartment.status}
                   </span>
                 </td>
-                <td className="p-2 flex justify-center">
+                <td className="p-2 h-[70px] flex justify-center items-center">
                   {apartment.promoted && (
                     <HiOutlineFire size={30} color="#FF7F00" />
                   )}
                 </td>
-                <td className="p-2 text-custom-grey">
+                <td className="p-2 text-custom-grey dark:text-gray-400">
                   ${apartment.price.toLocaleString()}
                 </td>
                 <td className="p-2 flex justify-center">
                   <button>
-                    <FaEllipsisH className="text-custom-orange w-[1.3rem] h-[1.3rem]" />
+                  <FaEllipsisH className="text-default-color w-[1.3rem] h-[1.3rem]" />
                   </button>
                 </td>
               </tr>
@@ -386,7 +397,7 @@ const ApartmentsComponent = () => {
 
       <div className="flex items-center justify-center space-x-2 mt-4">
         <button
-          className="w-[32px] h-[32px] border-2 rounded-md flex items-center justify-center text-gray-400"
+          className="w-[32px] h-[32px] border-2 rounded-md flex items-center justify-center text-gray-400 dark:border-gray-700"
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
         >
@@ -397,8 +408,8 @@ const ApartmentsComponent = () => {
             key={index}
             className={`w-[32px] h-[32px] border-2 rounded-md ${
               currentPage === index + 1
-                ? 'bg-white border-custom-orange text-custom-orange'
-                : 'bg-white border-gray-200 text-custom-grey'
+                ? 'bg-white border-default-color text-default-color dark:bg-dark-surface2'
+                : 'bg-white border-gray-200 text-custom-grey dark:bg-dark-background dark:border-gray-700 dark:text-gray-400'
             } flex items-center justify-center`}
             onClick={() => paginate(index + 1)}
           >
@@ -406,7 +417,7 @@ const ApartmentsComponent = () => {
           </button>
         ))}
         <button
-          className="w-[32px] h-[32px] border-2 rounded-md flex items-center justify-center text-gray-400"
+          className="w-[32px] h-[32px] border-2 rounded-md flex items-center justify-center text-gray-400 dark:border-gray-700"
           onClick={() => paginate(currentPage + 1)}
           disabled={currentPage === totalSteps}
         >

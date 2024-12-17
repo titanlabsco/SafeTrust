@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaUser, FaHome, FaUsers } from 'react-icons/fa';
@@ -10,8 +11,9 @@ const Sidebar: React.FC = () => {
         {t('profile.sideTitle')}
       </h2>
       <ul className="space-y-2">
-        <li className="flex items-center text-orange-500 font-medium dark:text-gray-200">
-          <FaUser className="mr-2" /> {t('profile.account')}
+        <li className="flex items-center text-default-color font-medium">
+          <FaUser className="mr-2 text-default-color"/>
+          {t('profile.account')}
         </li>
       </ul>
       <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4 dark:text-gray-200">
@@ -19,10 +21,20 @@ const Sidebar: React.FC = () => {
       </h2>
       <ul className="space-y-2">
         <li className="flex items-center text-gray-800 dark:text-gray-200">
-          <FaHome className="mr-2" /> {t('profile.apartments')}
+          <Link
+            href="/profile/my-apartments"
+            className="flex justify-center items-center"
+          >
+            <FaHome className="mr-2" /> {t('profile.apartments')}
+          </Link>
         </li>
         <li className="flex items-center text-gray-800 dark:text-gray-200">
-          <FaUsers className="mr-2" /> {t('profile.offers')}
+          <Link
+            href="/profile/interested-people"
+            className="flex justify-center items-center"
+          >
+            <FaUsers className="mr-2" /> {t('profile.offers')}
+          </Link>
         </li>
       </ul>
     </div>

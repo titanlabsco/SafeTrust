@@ -31,7 +31,7 @@ const PropertyDetails: React.FC = () => {
                 alt="Main Property"
                 className="w-full h-[465px] object-cover rounded-lg border"
               />
-              <span className="absolute top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-4 py-2 rounded-full">
+              <span className="absolute top-4 left-4 bg-default-color text-white text-sm font-semibold px-4 py-2 rounded-full">
                 {t('propertyDetails.promo')}
               </span>
             </div>
@@ -60,7 +60,7 @@ const PropertyDetails: React.FC = () => {
               </h1>
               <button
                 onClick={handleBook}
-                className={`bg-orange-500 text-white px-12 py-2 rounded-lg text-sm font-semibold hover:bg-orange-600 ${
+                className={`bg-default-color text-white px-12 py-2 rounded-lg text-sm font-semibold hover:bg-default-color${
                   isBooked || loadingBook ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 disabled={isBooked || loadingBook}
@@ -76,13 +76,13 @@ const PropertyDetails: React.FC = () => {
             </div>
             <div className="flex justify-between items-center mt-4">
               <div className="flex items-center text-gray-700 text-sm">
-                <MdLocationOn className="text-orange-500 w-5 h-5 mr-2" />
+                <MdLocationOn className="text-default-color w-5 h-5 mr-2"/>
                 {t('propertyDetails.address')}
               </div>
             </div>
             <hr className="my-4 border-gray-300" />
             <div className="flex justify-between items-center">
-              <div className="flex gap-4 text-orange-500">
+              <div className="flex gap-4 text-default-color">
                 <div className="flex items-center">
                   <FaBed className="w-5 h-5 mr-2" />
                   <span className="text-gray-700 text-sm">

@@ -37,9 +37,9 @@ const Page = () => {
   });
 
   return (
-    <section className="bg-gray-50 min-h-screen">
+    <section className="bg-gray-50 min-h-screen dark:bg-dark-background">
       <Header />
-      <div className="px-2 md:px-8 mt-8">
+      <div className="px-4 mt-6 md:px-24 md:mt-16">
         <ApartmentDetails {...apartment} />
         <SearchAndFilter
           onSearch={handleSearch}

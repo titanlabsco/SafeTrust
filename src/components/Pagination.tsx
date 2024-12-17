@@ -55,7 +55,8 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
-        className="p-2 bg-gray-300 border-2 rounded-md text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 bg-gray-300 border-2 rounded-md text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed 
+        dark:bg-dark-surface3 dark:border-gray-700 dark:text-gray-500"
         aria-label="Previous page"
       >
         <IoChevronBack className="w-5 h-5" />
@@ -72,8 +73,8 @@ const Pagination: React.FC<PaginationProps> = ({
             onClick={() => onPageChange(pageNumber as number)}
             className={`px-4 py-1 rounded-md border-2 ${
               currentPage === pageNumber
-                ? 'bg-custom-orange text-white'
-                : 'text-gray-700 hover:bg-gray-100'
+                ? 'bg-default-color text-white dark:bg-dark-surface3 dark:border-default-color'
+                : 'text-gray-700 hover:bg-gray-100 dark:bg-dark-surface dark:text-gray-500 dark:hover:bg-dark-surface2 dark:border-gray-600'
             }`}
             aria-current={currentPage === pageNumber ? 'page' : undefined}
           >
@@ -85,7 +86,8 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-md text-gray-500 bg-gray-300 border hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded-md text-gray-500 bg-gray-300 border hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed 
+        dark:bg-dark-surface3 dark:border-gray-700 dark:text-gray-500"
         aria-label="Next page"
       >
         <IoChevronForward className="w-5 h-5" />
