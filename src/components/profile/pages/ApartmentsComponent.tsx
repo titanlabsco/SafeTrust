@@ -203,7 +203,7 @@ const ApartmentsComponent = () => {
             </span>
             <div
               className={`w-[20px] h-[20px] rounded flex items-center justify-center ${
-                isPromotedFilterActive ? 'bg-[#FF7F00]' : 'bg-gray-300'
+                isPromotedFilterActive ? `bg-default-color` : 'bg-gray-300'
               }`}
             >
               {isPromotedFilterActive && <BsCheck className="text-white" />}
