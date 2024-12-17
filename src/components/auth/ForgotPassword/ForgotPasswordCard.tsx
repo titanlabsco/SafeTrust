@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { CgPassword } from 'react-icons/cg';
 
 const ForgotPasswordCard: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -38,13 +39,7 @@ const ForgotPasswordCard: React.FC = () => {
       <div className="w-[90%] md:w-[440px] px-4 md:px-0">
         <div className="flex flex-col items-center mb-6">
           <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-            <Image
-              src="/img/icon.svg"
-              alt="Password Icon"
-              width={32}
-              height={32}
-              priority
-            />
+            <CgPassword size={32} />
           </div>
           <h1 className="text-xl md:text-2xl font-bold text-black dark:text-gray-200">
             Forgot password?
