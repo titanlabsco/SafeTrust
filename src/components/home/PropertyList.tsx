@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import { MOCK_DATA_PROPERTY_LIST } from '@/mockData/tableData';
 import { Property } from '@/@types/property';
 
-
 const properties = [
   {
     image: '/img/house1.jpg',
@@ -140,6 +139,7 @@ const properties = [
     baths: 2,
     petFriendly: false,
   },
+];
 
 const sortByPrice = (propertyA: Property, propertyB: Property) => {
   return parseInt(propertyA.price) - parseInt(propertyB.price);
@@ -166,7 +166,6 @@ const sortList: sortListInterface[] = [
   { id: 2, name: 'propertyList.sortBy.orderTwo', sortFn: sortByPrice },
   { id: 3, name: 'propertyList.sortBy.orderThree', sortFn: sortByPriceReverse },
   { id: 4, name: 'propertyList.sortBy.orderFour', sortFn: undefined },
-
 ];
 
 const PropertyList: React.FC = () => {
@@ -216,7 +215,7 @@ const PropertyList: React.FC = () => {
           >
             <BsSortDownAlt className="text-lg mr-2 dark:text-gray-200" />
             {t('propertyList.sortBy.title')}{' '}
-            <span className="text-default-color cursor-pointer hover:underline ml-1 text-orange-500">
+            <span className="text-default-color cursor-pointer hover:underline ml-1">
               {t(sortOption.name)}
             </span>
           </button>
