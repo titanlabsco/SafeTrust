@@ -13,6 +13,7 @@ const Header: React.FC = () => {
   const { theme } = useTheme();
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [isProfileVisible, setIsProfileVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = (menu: string) => {
     if (menu === 'search') {
@@ -24,10 +25,13 @@ const Header: React.FC = () => {
     }
   };
 
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="bg-white border-b border-gray-200 dark:bg-[#1E1E1E] dark:border-gray-700">
       <div className="flex items-center justify-between px-4 py-3">
-        {/* Logo Section */}
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="flex items-center">
             <img
@@ -41,12 +45,32 @@ const Header: React.FC = () => {
           </span>
         </div>
 
-        {/* Icons Section */}
         <div className="flex items-center space-x-4 ml-auto">
-          <div>
+          <button
+            onClick={toggleMobileMenu}
+            className="lg:hidden p-2 text-gray-800 dark:text-white focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <div className="hidden lg:block">
             <LanguageSwitcher />
           </div>
-          <div className="relative">
+
+          <div className="relative hidden lg:block">
             <FaBell
               size={24}
               className="text-black dark:text-white cursor-pointer"
@@ -54,6 +78,7 @@ const Header: React.FC = () => {
             />
             <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
           </div>
+
           <div className="relative">
             <button
               onClick={() => toggleMenu('search')}
@@ -73,7 +98,8 @@ const Header: React.FC = () => {
               </div>
             )}
           </div>
-          <div className="relative">
+
+          <div className="relative hidden lg:block">
             <button
               onClick={() => toggleMenu('profile')}
               className="flex items-center justify-center w-10 h-10 text-black dark:text-white focus:outline-none"
@@ -120,11 +146,85 @@ const Header: React.FC = () => {
               </div>
             )}
           </div>
-          <div>
+
+          <div className="hidden lg:block">
             <ThemeToggle />
           </div>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <div className="lg:hidden fixed top-0 right-0 w-full h-full bg-black bg-opacity-50 z-40">
+          <div className="absolute top-0 right-0 w-3/4 h-full bg-white dark:bg-[#1E1E1E] transform transition-transform duration-300 ease-in-out translate-x-0">
+            <div className="p-4">
+              <button
+                onClick={toggleMobileMenu}
+                className="text-2xl text-gray-800 dark:text-white absolute top-4 left-4"
+              >
+                &times;
+              </button>
+              <div className="flex flex-col space-y-4 mt-12">
+                <button
+                  onClick={() => toggleMenu('search')}
+                  className="flex items-center text-left text-gray-800 dark:text-white"
+                >
+                  <FaSearch size={20} className="mr-2" />
+                  {t('header.search')}
+                </button>
+                <button
+                  onClick={() => toggleMenu('profile')}
+                  className="flex items-center text-left text-gray-800 dark:text-white"
+                >
+                  <FaUserCircle size={20} className="mr-2" />
+                  {t('header.profile')}
+                </button>
+
+                {isProfileVisible && (
+                  <div className="mt-4">
+                    <ul className="space-y-2">
+                      <li>
+                        <Link
+                          href="/profile/my-apartments"
+                          className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                        >
+                          {t('header.myApartments')}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/profile"
+                          className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                        >
+                          {t('header.settings')}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="#"
+                          className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                        >
+                          {t('header.signOut')}
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+
+                <button className="flex items-center text-left text-gray-800 dark:text-white mt-4">
+                  <FaBell size={20} className="mr-2" />
+                  {t('header.notifications')}
+                  <span className="ml-2 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+                </button>
+
+                <div className="flex justify-between items-center mt-4">
+                  <LanguageSwitcher />
+                  <ThemeToggle />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
