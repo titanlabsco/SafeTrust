@@ -82,7 +82,7 @@ const PropertyList: React.FC = () => {
           >
             <BsSortDownAlt className="text-lg mr-2 dark:text-gray-200" />
             {t('propertyList.sortBy.title')}{' '}
-            <span className="text-default-color cursor-pointer hover:underline ml-1 text-orange-500">
+            <span className="text-default-color cursor-pointer hover:underline ml-1 text-default-color">
               {t(sortOption.name)}
             </span>
           </button>
