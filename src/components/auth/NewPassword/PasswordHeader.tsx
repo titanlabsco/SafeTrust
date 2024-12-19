@@ -8,7 +8,7 @@ interface PasswordHeaderProps {
 export function PasswordHeader({ title, subtitle }: PasswordHeaderProps) {
   return (
     <div className="flex flex-col items-center mb-6">
-      <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+      <div className="w-16 h-16 bg-default-color rounded-full flex items-center justify-center mb-4">
         <Image
           src="/img/icon.svg"
           alt="Password Icon"

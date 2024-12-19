@@ -31,8 +31,8 @@ const FormNewApartment = () => {
             Apartment Name <span className="text-red-700 font-bold">*</span>
           </label>
           <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-light-secondary dark:bg-dark-surface">
-            <div className="bg-orange-50 dark:bg-orange-900 p-2 flex items-center justify-center">
-              <IoHomeOutline size={20} className="text-custom-orange" />
+            <div className="bg-default-color text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-default-color">
+            <IoHomeOutline size={20} className="text-default-color" />
             </div>
             <input
               id="name"
@@ -49,8 +49,8 @@ const FormNewApartment = () => {
             Location <span className="text-red-700 font-bold">*</span>
           </label>
           <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-light-secondary dark:bg-dark-surface">
-            <div className="bg-orange-50 dark:bg-orange-900 p-2 flex items-center justify-center">
-              <IoLocationOutline size={20} className="text-custom-orange" />
+            <div className="bg-default-color-light dark:bg-default-color-dark p-2 flex items-center justify-center">
+            <IoLocationOutline size={20} className="text-default-color" />
             </div>
             <input
               id="location"
@@ -67,8 +67,8 @@ const FormNewApartment = () => {
             Amount <span className="text-red-700 font-bold">*</span>
           </label>
           <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-light-secondary dark:bg-dark-surface">
-            <div className="bg-orange-50 dark:bg-orange-900 p-2 flex items-center justify-center">
-              <CiMoneyBill size={20} className="text-custom-orange" />
+            <div className="bg-default-color-light dark:bg-default-color-dark p-2 flex items-center justify-center">
+            <CiMoneyBill size={20} className="text-default-color" />
             </div>
             <input
               id="amount"
@@ -85,8 +85,8 @@ const FormNewApartment = () => {
             Promotion percent <span className="text-red-700 font-bold">*</span>
           </label>
           <div className="flex w-2/5 items-center border border-gray-300 rounded-lg overflow-hidden bg-light-secondary dark:bg-dark-surface">
-            <div className="bg-orange-50 dark:bg-orange-900 p-2 flex items-center justify-center">
-              <CiMoneyBill size={20} className="text-custom-orange" />
+            <div className="bg-default-color-light dark:bg-default-color-dark p-2 flex items-center justify-center">
+            <CiMoneyBill size={20} className="text-default-color" />
             </div>
             <select
               className="px-4 py-2 flex-grow rounded-lg text-light-primary dark:text-dark-primary bg-light-secondary dark:bg-dark-surface focus:outline-none"
@@ -149,7 +149,7 @@ const FormNewApartment = () => {
 
         <button
           type="submit"
-          className="bg-custom-orange text-white rounded-lg px-4 py-4 w-full hover:bg-orange-600"
+          className="bg-default-color text-white rounded-lg px-4 py-4 w-full hover:bg-default-color"
         >
           Regist
         </button>

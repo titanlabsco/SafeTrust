@@ -14,7 +14,7 @@ const Sidebar: React.FC = () => {
             <input
               type="checkbox"
               id="category1"
-              className="w-4 h-4 text-custom-orange border-gray-300 rounded focus:ring-custom-orange"
+              className="w-4 h-4 text-default-color border-gray-300 rounded focus:ring-default-color"
               defaultChecked
             />
             <label
@@ -28,7 +28,7 @@ const Sidebar: React.FC = () => {
             <input
               type="checkbox"
               id="category2"
-              className="w-4 h-4 text-custom-orange border-gray-300 rounded focus:ring-custom-orange"
+              className="w-4 h-4 text-default-color border-gray-300 rounded focus:ring-default-color"
               defaultChecked
             />
             <label
@@ -42,7 +42,7 @@ const Sidebar: React.FC = () => {
             <input
               type="checkbox"
               id="category3"
-              className="w-4 h-4 text-gray-300 border-gray-300 rounded focus:ring-custom-orange"
+              className="w-4 h-4 text-default-color border-gray-300 rounded focus:ring-default-color"
             />
             <label
               htmlFor="category3"

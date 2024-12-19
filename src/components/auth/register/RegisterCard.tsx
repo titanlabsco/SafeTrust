@@ -23,7 +23,7 @@ const RegisterCard: React.FC = () => {
 
         <p className="text-center text-black text-sm mt-6">
           Already have an account?{' '}
-          <a href="/auth/login" className="text-orange-500 hover:underline">
+          <a href="/auth/login" className="text-sm text-default-color hover:underline">
             Login here
           </a>
         </p>

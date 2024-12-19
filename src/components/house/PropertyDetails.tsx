@@ -23,22 +23,19 @@ const PropertyDetails: React.FC = () => {
   return (
     <div className="w-full bg-gray-50 px-5 py-2 dark:bg-dark-background">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-        {/* Card principal */}
         <div className="col-span-1 md:col-span-12 bg-white rounded-lg shadow-lg p-6 dark:bg-dark-surface">
           <div className="flex flex-col md:flex-row gap-6">
-            {/* Imagen principal */}
             <div className="relative w-full">
               <img
                 src="/img/house1.jpg"
                 alt="Main Property"
                 className="w-full h-[300px] md:h-[400px] object-cover rounded-lg border"
               />
-              <span className="absolute top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-4 py-2 rounded-full">
+              <span className="absolute top-4 left-4 bg-default-color text-white text-sm font-semibold px-4 py-2 rounded-full">
                 {t('propertyDetails.promo')}
               </span>
             </div>
 
-            {/* Imágenes secundarias */}
             <div className="flex flex-row md:flex-col gap-4 mt-4 md:mt-0">
               <img
                 src="/img/house1.jpg"
@@ -58,7 +55,6 @@ const PropertyDetails: React.FC = () => {
             </div>
           </div>
 
-          {/* Título y botón */}
           <div className="mt-8">
             <div className="flex justify-between items-center">
               <h1 className="text-xl md:text-2xl font-semibold text-black dark:text-gray-200">
@@ -81,19 +77,16 @@ const PropertyDetails: React.FC = () => {
               </button>
             </div>
 
-            {/* Dirección */}
             <div className="flex justify-between items-center mt-4">
               <div className="flex items-center text-gray-700 text-sm">
-                <MdLocationOn className="text-orange-500 w-5 h-5 mr-2" />
+                <MdLocationOn className="text-default-color w-5 h-5 mr-2"/>
                 {t('propertyDetails.address')}
               </div>
             </div>
 
             <hr className="my-4 border-gray-300" />
-
-            {/* Características */}
+            
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-              {/* Datos en línea para pantallas grandes */}
               <div className="flex gap-6 text-orange-500 items-center">
                 <div className="flex items-center">
                   <FaBed className="w-5 h-5 mr-2" />
@@ -115,7 +108,6 @@ const PropertyDetails: React.FC = () => {
                 </div>
               </div>
 
-              {/* Propietario */}
               <div className="flex items-center mt-4 md:mt-0">
                 <img
                   src="/img/person.png"
@@ -128,7 +120,6 @@ const PropertyDetails: React.FC = () => {
               </div>
             </div>
 
-            {/* Detalles adicionales */}
             <div className="mt-6">
               <h2 className="text-xl font-bold text-black dark:text-gray-200">
                 {t('propertyDetails.detailsTitle')}

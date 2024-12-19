@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="flex items-center">
             <img
-              src={theme === 'dark' ? '/img/logolight.png' : '/img/logo2.png'}
+              src={theme === 'dark' ? '/img/logolight.png' : '/img/logo.png'}
               alt="SafeTrust Logo"
               className="h-12"
             />

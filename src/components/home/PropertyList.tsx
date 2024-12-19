@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { BsSortDownAlt } from 'react-icons/bs';
 import PropertyCard from './PropertyCard';
 import { useTranslation } from 'react-i18next';
+import { MOCK_DATA_PROPERTY_LIST } from '@/mockData/tableData';
+import { Property } from '@/@types/property';
 
 const properties = [
   {
@@ -47,15 +49,133 @@ const properties = [
     baths: 1,
     petFriendly: true,
   },
+  {
+    image: '/img/house1.jpg',
+    title: 'Playa Hermosa Beachfront Villa',
+    address: '123 Playa Hermosa Road, Guanacaste',
+    price: '2200',
+    promoted: false,
+    beds: 3,
+    baths: 2,
+    petFriendly: true,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Limón Downtown Apartment',
+    address: '455 Puerto Viejo Main Street, Limón',
+    price: '750',
+    promoted: false,
+    beds: 2,
+    baths: 1,
+    petFriendly: true,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Los Yoses Urban Living',
+    address: '467 Los Yoses Este, San José',
+    price: '1500',
+    promoted: false,
+    beds: 2,
+    baths: 2,
+    petFriendly: false,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Tamarindo Beach Condo',
+    address: ' 223 Tamarindo Beach Road, Guanacaste',
+    price: '1800',
+    promoted: false,
+    beds: 2,
+    baths: 2,
+    petFriendly: true,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Cartago Historic District',
+    address: '789 Central Cartago, Cartago',
+    price: '900',
+    promoted: true,
+    beds: 2,
+    baths: 1,
+    petFriendly: false,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Jacó Beach Resort',
+    address: '445 Jacó Beach Boulevard, Puntarenas',
+    price: '1700',
+    promoted: false,
+    beds: 2,
+    baths: 2,
+    petFriendly: true,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Alajuela City Center',
+    address: '890 Central Alajuela, Alajuela',
+    price: '850',
+    promoted: false,
+    beds: 1,
+    baths: 1,
+    petFriendly: true,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Monteverde Mountain Retreat',
+    address: '234 Cloud Forest Road, Puntarenas',
+    price: '1100',
+    promoted: false,
+    beds: 2,
+    baths: 1,
+    petFriendly: true,
+  },
+  {
+    image: '/img/house1.jpg',
+    title: 'Heredia Modern Complex',
+    address: '678 Heredia Centro, Heredia',
+    price: ' 1150',
+    promoted: false,
+    beds: 2,
+    baths: 2,
+    petFriendly: false,
+  },
+];
+
+const sortByPrice = (propertyA: Property, propertyB: Property) => {
+  return parseInt(propertyA.price) - parseInt(propertyB.price);
+};
+
+const sortByPriceReverse = (propertyA: Property, propertyB: Property) => {
+  return parseInt(propertyB.price) - parseInt(propertyA.price);
+};
+
+const sortByRelevance = (propertyA: Property, propertyB: Property) => {
+  if (propertyA.promoted) return -1;
+  if (propertyB.promoted) return 1;
+  return 0;
+};
+
+interface sortListInterface {
+  id: number;
+  name: string;
+  sortFn: ((propertyA: Property, propertyB: Property) => number) | undefined;
+}
+
+const sortList: sortListInterface[] = [
+  { id: 1, name: 'propertyList.sortBy.orderOne', sortFn: sortByRelevance },
+  { id: 2, name: 'propertyList.sortBy.orderTwo', sortFn: sortByPrice },
+  { id: 3, name: 'propertyList.sortBy.orderThree', sortFn: sortByPriceReverse },
+  { id: 4, name: 'propertyList.sortBy.orderFour', sortFn: undefined },
 ];
 
 const PropertyList: React.FC = () => {
   const { t } = useTranslation();
   const router = useRouter();
-  const [sortOption, setSortOption] = useState(
-    t('propertyList.sortBy.orderOne')
-  );
+  const [sortOption, setSortOption] = useState<sortListInterface>(sortList[0]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [propertySort, setPropertySort] = useState<
+    ((propertyA: any, propertyB: any) => number) | undefined
+  >(() => (a: Property, b: Property) => sortByRelevance(a, b));
 
   const handleCardClick = () => {
     router.push('/house');
@@ -65,14 +185,11 @@ const PropertyList: React.FC = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const handleSortOptionChange = (option: string) => {
+  const handleSortOptionChange = (option: sortListInterface) => {
     setSortOption(option);
     setDropdownOpen(false);
+    setPropertySort(() => option.sortFn);
   };
-
-  useEffect(() => {
-    setSortOption(t('propertyList.sortBy.orderOne'));
-  }, [t]);
 
   return (
     <div className="px-4 py-8 sm:px-12">
@@ -96,8 +213,8 @@ const PropertyList: React.FC = () => {
           >
             <BsSortDownAlt className="text-lg mr-2 dark:text-gray-200" />
             {t('propertyList.sortBy.title')}{' '}
-            <span className="text-orange-500 cursor-pointer hover:underline ml-1">
-              {sortOption}
+            <span className="text-default-color cursor-pointer hover:underline ml-1">
+              {t(sortOption.name)}
             </span>
           </button>
           {dropdownOpen && (
@@ -159,7 +276,7 @@ const PropertyList: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {properties.map((property, index) => (
           <div
-            key={index}
+            key={property.title}
             onClick={handleCardClick}
             className="transform transition-transform hover:scale-105 hover:shadow-lg duration-300 ease-in-out cursor-pointer"
           >

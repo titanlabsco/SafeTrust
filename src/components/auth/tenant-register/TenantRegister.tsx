@@ -131,7 +131,7 @@ export const TenantRegister: React.FC = () => {
             placeholder="bartoon_bell@gmail.com"
             value={formState.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-light-secondary dark:text-dark-primary"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-default-color text-light-secondary dark:text-dark-primary"
             required
           />
         </div>
@@ -149,7 +149,7 @@ export const TenantRegister: React.FC = () => {
             placeholder="********"
             value={formState.password}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-black dark:text-dark-primary"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-default-color text-black dark:text-dark-primary"
             minLength={6}
             required
           />
@@ -170,7 +170,7 @@ export const TenantRegister: React.FC = () => {
             type="checkbox"
             checked={acceptTerms}
             onChange={handleCheckboxChange}
-            className="h-4 w-4 text-orange-500 border-gray-300 rounded focus:ring-orange-400"
+            className="h-4 w-4 text-default-color border-gray-300 rounded focus:ring-default-color"
           />
           <label
             htmlFor="acceptTerms"
@@ -179,7 +179,7 @@ export const TenantRegister: React.FC = () => {
             I agree to the{' '}
             <a
               href="/terms"
-              className="text-orange-500 underline hover:text-orange-600"
+              className="text-default-color underline hover:text-default-color"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -193,7 +193,7 @@ export const TenantRegister: React.FC = () => {
           className={`w-full py-2 px-4 rounded-md ${
             isLoading
               ? 'bg-gray-500 cursor-not-allowed'
-              : 'bg-orange-500 hover:bg-orange-600'
+              :'bg-default-color hover:bg-default-color'
           }`}
           disabled={isLoading}
         >
@@ -208,7 +208,7 @@ export const TenantRegister: React.FC = () => {
 
       <p className="text-center text-light-secondary dark:text-dark-primary text-sm mt-4">
         Already have an account?{' '}
-        <a href="/auth/login" className="text-orange-500 hover:underline">
+        <a href="/auth/login" className="text-default-color underline hover:text-default-color">
           Login here
         </a>
       </p>

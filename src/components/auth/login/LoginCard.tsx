@@ -13,7 +13,7 @@ const LoginCard = () => {
           Don’t have an account?{' '}
           <a
             href="/auth/tenant-register"
-            className="text-orange-500 hover:underline"
+            className="text-default-color hover:underline"
           >
             Register here
           </a>

@@ -17,7 +17,7 @@ const MyApartments: React.FC = () => {
         <h1 className="text-light-primary dark:text-dark-primary font-bold text-[28px] sm:text-[36px]">
           {t('myApartments.title')}
         </h1>
-        <button className="bg-custom-orange max-w-sm w-full sm:w-[210px] font-bold text-[16px] text-white h-[36px] rounded-[7px] flex justify-center items-center gap-2">
+        <button className="bg-default-color max-w-sm w-full sm:w-[210px] font-bold text-[16px] text-white h-[36px] rounded-[7px] flex justify-center items-center gap-2">
           <IoHomeOutline className="w-[20px] h-[20px]" />
           {t('myApartments.newApartmentBtn')}
         </button>
